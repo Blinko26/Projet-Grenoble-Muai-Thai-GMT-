@@ -5,7 +5,8 @@
     <title></title>
   </head>
   <body>
-    <h1>Accueil</h1>
+    <h1>Informations</h1>
+    <img src="" alt="Image de fond du club">
     <ul>
         <li> <a href="Accueil.view.php">Accueil</a></li>
         <li> <a href="Professeur.view.php">Bibliotheque</a></li>
