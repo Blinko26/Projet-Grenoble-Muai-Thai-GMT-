@@ -13,5 +13,10 @@
         <li> <a href="Contact.view.php">Contact</a></li>
         <li> <a href="MonCompte.view.php">Contact</a></li>
     </ul>
+
+    <div class="Presentation">
+      <img src="" alt="image du professeur">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+    </div>
   </body>
 </html>
