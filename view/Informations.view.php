@@ -9,13 +9,13 @@
     <img src="" alt="Image de fond du club">
     <ul>
         <li> <a href="Accueil.view.php">Accueil</a></li>
-        <li> <a href="Professeur.view.php">Bibliotheque</a></li>
-        <li> <a href="Informations.view.php">Contact</a></li>
+        <li> <a href="Professeur.view.php">Enseignant</a></li>
+        <li> <a href="Informations.view.php">Informations</a></li>
         <li> <a href="Contact.view.php">Contact</a></li>
-        <li> <a href="MonCompte.view.php">Contact</a></li>
+        <li> <a href="MonCompte.view.php">MonCompte</a></li>
     </ul>
     <div class="certificat medical">
-      <img src="" alt="image d'un certificat medical">
+      <img src="../view/Images/certificatMedical.jpg" alt="image d'un certificat medical">
       <p>Certificats Medical</p>
     </div>
     <div class="Feuille d'inscription">
