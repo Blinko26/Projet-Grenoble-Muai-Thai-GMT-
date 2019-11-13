@@ -11,11 +11,11 @@
 
 <div class="topnav" id="myTopnav">
 
-   <a  href="Accueil.view.php">Accueil</a>
-   <a href="Professeur.view.php">Enseignant</a>
-   <a href="Informations.view.php">Informations</a>
-   <a href="Contact.view.php">Contact</a>
-   <a href="MonCompte.view.php">MonCompte</a>
+   <a  href="accueil.view.php">Accueil</a>
+   <a href="professeur.view.php">Enseignant</a>
+   <a href="informations.view.php">Informations</a>
+   <a href="contact.view.php">Contact</a>
+   <a href="monCompte.view.php">MonCompte</a>
 
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
