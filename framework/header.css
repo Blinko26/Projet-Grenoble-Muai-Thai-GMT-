@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: flex-end;
   background-color: black;
-  opacity: 75%;
+  opacity: 90%;
   z-index: 1;
 }
 
@@ -27,7 +27,7 @@ body {
 }
 
 .topnav a:hover {
-  background-color: red;
+  background-color: #a71a1a;
 }
 
 .topnav a.active {
@@ -59,7 +59,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: black;
-  opacity: 100%;
+  opacity: 90%;
 }
 
   .topnav.responsive a {

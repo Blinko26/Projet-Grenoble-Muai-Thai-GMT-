@@ -1,7 +1,7 @@
 <?php include '../view/header.view.php' ?>
+<link rel="stylesheet" href="../framework/monCompte.css">
 
-
-<img src="../view/Images/backgroundMonCompte.jpg" alt="Background">
+<img src="../view/Images/backgroundMonCompte.jpg" alt="Background" class="imgBackground">
 
 
 

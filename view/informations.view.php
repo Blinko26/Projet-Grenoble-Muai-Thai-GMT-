@@ -1,6 +1,8 @@
 <?php include '../view/header.view.php' ?>
+<link rel="stylesheet" href="../framework/informations.css">
 
-  <img src="../view/Images/backgroundInformation.jpg" alt="Background">
+
+  <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
 
 
 </header>
