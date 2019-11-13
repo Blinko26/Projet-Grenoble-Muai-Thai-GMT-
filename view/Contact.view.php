@@ -1,7 +1,7 @@
 <?php include '../view/header.view.php' ?>
 
 
-<img src="/view/Images/backgroundContact.jpg" alt="Background">
+<img src="../view/Images/backgroundContact.jpg" alt="Background">
 
 
 

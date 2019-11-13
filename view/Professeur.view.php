@@ -1,5 +1,5 @@
 <?php include '../view/header.view.php' ?>
-  <img src="/view/Images/backgroundEquipe.jpg" alt="Background">
+  <img src="../view/Images/backgroundEquipe.jpg" alt="Background">
 
 </header>
 
