@@ -8,14 +8,14 @@
     <h3>Adresse :</h3>
     <p>CS Hoch François Raoult
         38 000 Grenoble</p>
-    <h3>Contacts:</h3>
-    <p>Le club: 04 76 18 25 28 <br>
-       Maitre Bio: 06 08 70 84 08 <br>
-       Mail: rassavong.bio@free.fr</p>
+    <h3>Contacts :</h3>
+    <p>Le club : 04 76 18 25 28 <br>
+       Maitre Bio : 06 08 70 84 08 <br>
+       Mail : rassavong.bio@free.fr</p>
 
 
     <h3>Horaires</h3>
-    <p>  Entrainements:
+    <p>  Entrainements :
       Lundi, Mercredi et Jeudi 19h45 - 21h30</p>
 
   </div>
