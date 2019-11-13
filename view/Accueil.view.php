@@ -1,5 +1,5 @@
 <?php include '../view/header.view.php' ?>
-<link rel="stylesheet" href="../view/css/accueil.css">
+<link rel="stylesheet" href="../framework/accueil.css">
 
 <img src="../view/Images/backgroundAccueil.jpg" alt="Background">
 </header>

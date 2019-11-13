@@ -4,7 +4,7 @@ var button = document.querySelector('#hamburger-button');
 var overlay = document.querySelector('#hamburger-overlay');
 var activatedClass = 'hamburger-activated';
 
-sidebarBody.innerHTML = content.innerHTML;			
+sidebarBody.innerHTML = content.innerHTML;
 
 button.addEventListener('click', function(e) {
 	e.preventDefault();

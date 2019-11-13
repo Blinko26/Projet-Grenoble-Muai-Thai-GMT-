@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../view/css/footer.css">
+<link rel="stylesheet" href="../framework/footer.css">
 
 
 <footer>

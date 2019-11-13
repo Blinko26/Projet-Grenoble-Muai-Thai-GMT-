@@ -3,7 +3,7 @@ footer {
   padding: 15px;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  background-image: url("../Images/backgroundFooter.jpg");
+  background-image: url("../view/Images/backgroundFooter.jpg");
   display: flex;
   justify-content: space-around;
 }
