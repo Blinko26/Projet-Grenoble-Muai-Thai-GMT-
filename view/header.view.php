@@ -33,5 +33,4 @@
     }
 </script>
 
-</header>
 </html>
