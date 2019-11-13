@@ -11,7 +11,7 @@
 
 <div class="topnav" id="myTopnav">
 
-   <a class='active' href="Accueil.view.php">Accueil</a>
+   <a  href="Accueil.view.php">Accueil</a>
    <a href="Professeur.view.php">Enseignant</a>
    <a href="Informations.view.php">Informations</a>
    <a href="Contact.view.php">Contact</a>
@@ -21,8 +21,6 @@
     <i class="fa fa-bars"></i>
   </a>
 </div>
-
-  <img src="/view/Images/backgroundAccueil.jpg" alt="Background">
 
 <script>
     function myFunction() {

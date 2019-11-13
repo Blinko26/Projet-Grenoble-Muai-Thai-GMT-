@@ -1,60 +1,97 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/view/css/main.css">
+<?php include '../view/header.view.php' ?>
+<link rel="stylesheet" href="/view/css/accueil.css">
+
+<img src="/view/Images/backgroundAccueil.jpg" alt="Background">
+</header>
+
+
+
 </head>
 <body>
-<header>
 
-<div class="topnav" id="myTopnav">
+<?php for ($i=1; $i < 6; $i++) { ?>
+  <article class="article">
+    <div class="">
+      <div class="slideshow-container">
 
-   <a  href="Accueil.view.php">Accueil</a>
-   <a href="Professeur.view.php">Enseignant</a>
-   <a href="Informations.view.php">Informations</a>
-   <a href="Contact.view.php">Contact</a>
-   <a href="MonCompte.view.php">MonCompte</a>
+      <div class="mySlides<?= $i ?> fade">
+        <img src="Images/ImageTest.jpg" alt = "ImageBoxThai" style="width:100%">
+      </div>
 
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
+      <div class="mySlides<?= $i ?> fade">
+        <img src="Images/ImageTest2.jpg"  alt = "ImageBoxThai" style="width:100%">
+      </div>
 
-  <img src="/view/Images/backgroundAccueil.jpg" alt="Background">
+      <div class="mySlides<?= $i ?> fade">
+        <img src="Images/ImageTest3.jpg"   alt = "ImageBoxThai" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1,<?= $i-1 ?>)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1,<?= $i-1 ?>)">&#10095;</a>
+
+      </div>
+      <br>
+
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1,<?= $i-1 ?>)"></span>
+        <span class="dot" onclick="currentSlide(2,<?= $i-1 ?>)"></span>
+        <span class="dot" onclick="currentSlide(3,<?= $i-1 ?>)"></span>
+      </div>
+    </div>
+    <div class="description">
+        <h3>Actualité <?= $i ?> :</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </article>
+<?php } ?>
 
 <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
+    var slideIndex = [
+      <?php
+            for ($i=1; $i < 6; $i++) {
+            echo "1,";
+            }
+            echo "1";
+    ?>];
+    var slideId = [
+    <?php
+      for ($i=1; $i < 6; $i++) {
+          echo "\"mySlides".$i."\",";
       }
+      echo "\"mySlides".$i."\",";
+    ?>]
+
+    <?php
+      for ($i=0; $i < 5; $i++) {
+        ?>
+        showSlides(1, <?=$i?>);
+        <?php
+      }
+
+    ?>
+    showSlides(1, 0);
+    showSlides(1, 1);
+
+    function plusSlides(n, no) {
+      showSlides(slideIndex[no] += n, no);
+    }
+
+    function currentSlide(n,no) {
+        showSlides(slideIndex[no] = n,no);
+    }
+
+    function showSlides(n, no) {
+      var i;
+      var x = document.getElementsByClassName(slideId[no]);
+      if (n > x.length) {slideIndex[no] = 1}
+      if (n < 1) {slideIndex[no] = x.length}
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+      }
+      x[slideIndex[no]-1].style.display = "block";
     }
 </script>
 
-</header>
-
-  <div class="sectionSlide" style="max-width:500px">
-      <img class="mySlides" src="../view/Images/images1.jpeg" alt="" style="width:50%">
-      <img class="mySlides" src="../view/Images/images2.jpg" alt="" style="width:50%">
-      </div>
-      <!--Script d'animation images -->
-  <script>
-  var myIndex = 0;
-  carousel();
-  function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}
-    x[myIndex-1].style.display = "block";
-    setTimeout(carousel, 2500);
-  }
-  </script>
+<?php include '../view/footer.view.php' ?>
 </body>
 </html>
