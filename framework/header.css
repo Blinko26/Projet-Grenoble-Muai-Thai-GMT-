@@ -12,6 +12,7 @@ body {
   justify-content: flex-end;
   background-color: black;
   opacity: 75%;
+  z-index: 1;
 }
 
 .topnav a {
@@ -53,6 +54,8 @@ body {
     top: 0;
   }
 .topnav.responsive{
+  position: fixed;
+  top:0;
   display: flex;
   flex-direction: column;
   background-color: black;
