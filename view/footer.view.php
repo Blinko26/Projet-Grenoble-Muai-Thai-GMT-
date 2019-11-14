@@ -22,11 +22,11 @@
 
   <div class="navFooter">
     <ul>
-    <li><a  href="Accueil.view.php">Accueil</a></li>
-    <li><a href="Professeur.view.php">Enseignant</a></li>
-    <li><a href="Informations.view.php">Informations</a></li>
-    <li><a href="Contact.view.php">Contact</a></li>
-    <li><a href="MonCompte.view.php">MonCompte</a></li>
+    <li><a  href="accueil.view.php">Accueil</a></li>
+    <li><a href="professeur.view.php">Enseignant</a></li>
+    <li><a href="informations.view.php">Informations</a></li>
+    <li><a href="contact.view.php">Contact</a></li>
+    <li><a href="monCompte.view.php">MonCompte</a></li>
     </ul>
   </div>
 
