@@ -20,7 +20,7 @@
     </div>
     <p>-------------------------------------------------------</p>
     <div class="Cheque">
-      <img src="" alt="image d'un cheque remplis au nom de l'association">
+      <img src="../view/Images/cheque-specimen.png" alt="image d'un cheque remplis au nom de l'association">
       <p>Cheque de 235 euros au nom de l'association</p>
     </div>
     
