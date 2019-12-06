@@ -5,3 +5,17 @@ body {font-family: Verdana, sans-serif; margin:0}
 .imgBackground{
   width: 100%;
 }
+
+.boutons{
+  display: flex;
+}
+
+button{
+  border:none;
+	padding:6px 0 6px 0;
+  margin:6px;
+	border-radius:8px;
+	background:#a71a1a;
+	font:bold 13px Arial;
+	color:#fff;
+}
