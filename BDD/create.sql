@@ -3,7 +3,7 @@ CREATE TABLE Utilisateur (
   login VARCHAR(25),
   password VARCHAR(50),
   mail VARCHAR(50),
-  role ENUM('admin', 'moderateur', 'adherent')
+  role ENUM('admin', 'moderateur', 'adherent', 'inscrit')
 );
 
 CREATE TABLE infoPerso (
@@ -16,7 +16,7 @@ CREATE TABLE infoPerso (
   taille INT NOT NULL,
   paiement BOOLEAN,
   certifMedical BOOLEAN,
-  autorisationP BOOLEAN,
+  autorisationP BOOLEAN DEFAULT true,
   telephone VARCHAR(10),
   FOREIGN KEY(numUtilisateur) REFERENCES Utilisateur(numUtilisateur)
 );
@@ -43,7 +43,7 @@ CREATE TABLE Article (
 );
 
 CREATE TABLE Objet (
-  id INT PRIMARY KEY NOT NULL,
+  id INT NOT NULL,
   nomObjet VARCHAR(255),
   type ENUM('image', 'video'),
   FOREIGN KEY(id) REFERENCES Article(id)

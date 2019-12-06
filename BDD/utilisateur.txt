@@ -1,5 +1,5 @@
-1|login|password|mail
-2|login|password|mail
-3|login|password|mail
-4|login|password|mail
-5|login|password|mail
+1|login|password|mail|inscrit
+2|login|password|mail|adherent
+3|login|password|mail|adherent
+4|login|password|mail|moderateur
+5|login|password|mail|admin

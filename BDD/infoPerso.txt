@@ -1,0 +1,4 @@
+2|nom|prenom|H|31/07/2000|60|160|false|true|true|0102030405
+3|nom|prenom|H|31/07/2000|60|160|true|true|true|0102030405
+4|nom|prenom|H|31/07/2000|60|160|false|false|false|0102030405
+5|nom|prenom|H|31/07/2000|60|160|false|true|true|0102030405
