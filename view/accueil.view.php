@@ -2,9 +2,6 @@
 <link rel="stylesheet" href="../framework/accueil.css">
 
 <img src="../view/Images/backgroundAccueil.jpg" alt="Background">
-</header>
-
-
 
 </head>
 <body>
