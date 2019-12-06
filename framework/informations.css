@@ -5,3 +5,41 @@ body {font-family: Verdana, sans-serif; margin:0}
 .imgBackground{
   width: 100%;
 }
+
+body{
+  text-align: center;
+}
+
+h2 {
+  color: white;
+  background-color: black;
+}
+
+header+div{
+  top:0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  background-color: black;
+  opacity: 90%;
+  z-index: 1;
+}
+
+header+div a{
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+header+div a:hover{
+  background-color: red;
+}
+
+header+div a:active{
+  background-color: black;
+}
