@@ -4,11 +4,6 @@
 </header>
 
 <div>
-  <a href="Inscription.view.php">S'inscrire</a>
-  <a href="#HistoireDuSport">Histoire</a>
-  <a href="#DescriptionClub">Club</a>
-  <a href="#Horaires">Horaires</a>
-  <a href="#Localisation">Localisation</a> 
 </div>
 
 <div class = "HistoireDuSport">

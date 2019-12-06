@@ -4,10 +4,10 @@
 </header>
 
 <h2>Deroulement inscription</h2>
-<p>Pour vous inscrire au club devez avoir : 
-                                            Un certificat Medical datant de moins de 3 ans sans complications surveninant <br>
-                                            La feuille d'inscription du club telechargeable sur le site <br>
-                                            Un cheque au nom de l'association</p>
+<p>Pour vous inscrire au club vous devez etre en possession : <br>
+                                            Un certificat Medical datant de moins de 3 ans sans complications de sante entre temps. <br>
+                                            La feuille d'inscription du club telechargeable sur le site mais aussi disponible au club. <br>
+                                            Un cheque de 235 Euros au nom de l'association. </p>
 
 
 

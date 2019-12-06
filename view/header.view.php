@@ -13,7 +13,17 @@
 
    <a  href="accueil.view.php">Accueil</a>
    <a href="professeur.view.php">Enseignant</a>
-   <a href="informations.view.php">Informations</a>
+   <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Informations</a>
+    <div class="dropdown-content">
+      <a href="#HistoireDuSport">Histoire</a>
+      <a href="#DescriptionClub">Club</a>
+      <a href="#Horaires">Horaires</a>
+      <a href="#Localisation">Localisation</a>
+    </div>
+  </li>
+   
+     
    <a href="Inscription.view.php">Inscription</a>
    <a href="monCompte.view.php">MonCompte</a>
    <a href="contact.view.php">Contact</a>
