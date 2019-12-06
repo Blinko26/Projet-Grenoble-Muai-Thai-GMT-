@@ -7,8 +7,10 @@
 
 
     <div class="Presentation">
-      <img src="Images/professeur.png" alt="image du professeur">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+      <h2> Professeur </h2>
+      <img src="Images/photoProf.jpg" alt="photo du professeur">
+      <h3> Rassavong Somchanh </h3>
+      <p>Professeur de Muay thaï originaire du Laos, il gère aujourd'hui l'association Grenoble Muay Thaï et enseigne sa discipline dans les environs de Grenoble.</p>
     </div>
     <?php include '../view/footer.view.php' ?>
   </body>

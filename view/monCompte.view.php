@@ -11,8 +11,10 @@
     <ul>
       <li><p>Nom d'Utilisateur :</p> </li>
       <li><p>Mot De Passe</p> </li>
-      <button type="button" name="buttonConnecter">Se Connecter  </button>
-      <button type="button" name="buttonInscription">Pas Encore Inscrit</button>
+      <div class="boutons">
+        <button type="button" name="buttonConnecter">Se Connecter  </button>
+        <button type="button" name="buttonInscription a="../view/subscribe.php"">Pas Encore Inscrit</button>
+      </div>
     </ul>
 
     <?php include '../view/footer.view.php' ?>

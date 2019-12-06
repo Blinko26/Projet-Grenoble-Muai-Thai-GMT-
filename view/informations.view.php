@@ -3,8 +3,7 @@
 <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
 </header>
 
-<div>
-</div>
+
 
 <div class = "HistoireDuSport">
 <section id = "HistoireDuSport"></section>
