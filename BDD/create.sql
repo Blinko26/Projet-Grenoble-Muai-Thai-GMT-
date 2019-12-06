@@ -3,14 +3,14 @@ CREATE TABLE Utilisateur (
   login VARCHAR(25),
   password VARCHAR(50),
   mail VARCHAR(50),
-  role ENUM('admin', 'moderateur', 'adherent', 'inscrit')
+  role VARCHAR(50)
 );
 
 CREATE TABLE infoPerso (
   numUtilisateur INT PRIMARY KEY NOT NULL,
   nom VARCHAR(50),
   prenom VARCHAR(50),
-  sexe ENUM('H', 'F'),
+  sexe CHAR(1),
   dateNaissance DATE,
   poids INT NOT NULL,
   taille INT NOT NULL,
@@ -45,6 +45,6 @@ CREATE TABLE Article (
 CREATE TABLE Objet (
   id INT NOT NULL,
   nomObjet VARCHAR(255),
-  type ENUM('image', 'video'),
+  type VARCHAR(6),
   FOREIGN KEY(id) REFERENCES Article(id)
 );
