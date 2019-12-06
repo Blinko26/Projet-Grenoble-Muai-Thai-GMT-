@@ -1,4 +1,0 @@
-2|nom|prenom|M|11/11/2018|50|165|true|true
-3|nom|prenom|M|11/11/2018|50|165|true|true
-4|nom|prenom|M|11/11/2018|50|165|true|true
-5|nom|prenom|M|11/11/2018|50|165|true|true
