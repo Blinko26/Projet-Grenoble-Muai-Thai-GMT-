@@ -1,16 +1,10 @@
 <?php include '../view/header.view.php' ?>
 <link rel="stylesheet" href="../framework/informations.css">
-<link rel="stylesheet" href="../framework/informations.css">
-
-
-  <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
-
-
+<img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
 </header>
 
 <div>
   <a href="Inscription.view.php">S'inscrire</a>
-  
   <a href="#HistoireDuSport">Histoire</a>
   <a href="#DescriptionClub">Club</a>
   <a href="#Horaires">Horaires</a>
