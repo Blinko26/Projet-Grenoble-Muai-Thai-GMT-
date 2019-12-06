@@ -5,3 +5,8 @@ body {font-family: Verdana, sans-serif; margin:0}
 .imgBackground{
   width: 100%;
 }
+
+h2 {
+  color: white;
+  background-color: black;
+}
