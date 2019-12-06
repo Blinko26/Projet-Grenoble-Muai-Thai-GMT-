@@ -16,14 +16,14 @@
     <div class="Feuille_d'inscription">
       <img src="../view/Images/FeuilleInscription.jpg" alt="Image montrant une feuille d'inscription remplie" height = "600" width = "600">
       <p>Feuille d'inscription REMPLIE</p>
-      <button type="button" name="button"><a href="FicheInscription.html" download = "../view/Images/FeuilleInscription.jpg">Fiche d'Inscription</a></button>
+      <button type="button" name="button"><a href="../view/Images/FeuilleInscription.jpg" download = "../view/Images/FeuilleInscription.jpg">Fiche d'Inscription</a></button>
     </div>
     <p>-------------------------------------------------------</p>
     <div class="Cheque">
       <img src="../view/Images/cheque-specimen.png" alt="image d'un cheque de 235 euros au nom de l'association">
       <p>Cheque de 235 euros au nom de l'association : Grenoble Muay Thaï</p>
     </div>
-    
+
 <p>-------------------------------------------------------</p>
 
     <div class="EmploiDuTemps">
