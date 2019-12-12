@@ -6,20 +6,23 @@
 
 
   </header>
-    <p>Veuillez entrer le mot de passe pour obtenir les codes d'accès au serveur central de la NASA :</p>
-    <form action="secret.php" method="post">
+    <h2>Connexion :</h2>
+    <form action="../controler/monCompte.ctrl.php" method="post">
         <p>
-        <input type="password" name="mot_de_passe" />
+        Identifiant :
+        <input type="string" name="identifiant" />
+        <br>
+        Mot de passe :
+        <input type="password" name="mot_de_passe"/>
+        <br>
         <input type="submit" value="Valider" />
         </p>
     </form>
-    <ul>
-      <li><p>Nom d'Utilisateur :</p> </li>
-      <li><p>Mot De Passe</p> </li>
-      <div class="boutons">
-        <button type="button" name="buttonInscription ">Pas Encore Inscrit</button>
-      </div>
-    </ul>
+    <?php echo $mdp ?>
+    <br>
+    <form action="subscribe.view.php">
+      <input type="submit" value="Pas encore inscrit" />
+    </form>
 
     <?php include '../view/footer.view.php' ?>
   </body>

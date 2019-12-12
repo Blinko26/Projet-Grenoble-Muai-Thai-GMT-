@@ -11,8 +11,8 @@
 
 <div class="topnav" id="myTopnav">
 
-   <a  href="accueil.view.php">Accueil</a>
-   <a href="professeur.view.php">Enseignant</a>
+   <a  href="../view/accueil.view.php">Accueil</a>
+   <a href="../view/professeur.view.php">Enseignant</a>
    <li class="dropdown">
     <a href="javascript:void(0)" class="dropbtn">Informations</a>
     <div class="dropdown-content">
@@ -22,11 +22,11 @@
       <a href="#Localisation">Localisation</a>
     </div>
   </li>
-   
-     
-   <a href="Inscription.view.php">Inscription</a>
-   <a href="monCompte.view.php">MonCompte</a>
-   <a href="contact.view.php">Contact</a>
+
+
+   <a href="../view/Inscription.view.php">Inscription</a>
+   <a href="../controler/monCompte.ctrl.php">Connexion</a>
+   <a href="../view/contact.view.php">Contact</a>
 
 
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">

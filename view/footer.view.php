@@ -3,18 +3,18 @@
 
 <footer>
   <div class="">
-    <h2>Grenoble Muai Thai</h2>
+    <h3>Grenoble Muai Thai</h3>
 
-    <h3>Adresse :</h3>
+    <h4>Adresse :</h4>
     <p>CS Hoch François Raoult
         38 000 Grenoble</p>
-    <h3>Contacts :</h3>
+    <h4>Contacts :</h4>
     <p>Le club : 04 76 18 25 28 <br>
        Maitre Bio : 06 08 70 84 08 <br>
        Mail : rassavong.bio@free.fr</p>
 
 
-    <h3>Horaires</h3>
+    <h4>Horaires</h4>
     <p>  Entrainements :
       Lundi, Mercredi et Jeudi 19h45 - 21h30</p>
 
@@ -32,7 +32,7 @@
   </div>
 
   <div class="suivezNous">
-    <h3>Suivez Nous !</h3>
+    <h4>Suivez Nous !</h4>
     <a  href="https://www.facebook.com/groups/340653808697/"> <img class="logoFacebook" src="../view/Images/facebook-icone.png" alt="logoFacebook"height="50" width="50">
  </a>
   </div>

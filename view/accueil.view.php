@@ -3,10 +3,9 @@
 
 <img src="../view/Images/backgroundAccueil.jpg" alt="Background">
 
-</head>
-<body>
+</header>
 
-<?php for ($i=1; $i < 6; $i++) { ?>
+<?php for ($i=1; $i < 3; $i++) { ?>
   <article class="article">
     <div class="">
       <div class="slideshow-container">
@@ -45,14 +44,14 @@
 <script>
     var slideIndex = [
       <?php
-            for ($i=1; $i < 6; $i++) {
+            for ($i=1; $i < 3; $i++) {
             echo "1,";
             }
             echo "1";
     ?>];
     var slideId = [
     <?php
-      for ($i=1; $i < 6; $i++) {
+      for ($i=1; $i < 3; $i++) {
           echo "\"mySlides".$i."\",";
       }
       echo "\"mySlides".$i."\",";
