@@ -13,17 +13,7 @@
 
    <a  href="../view/accueil.view.php">Accueil</a>
    <a href="../view/professeur.view.php">Enseignant</a>
-   <li class="dropdown">
-    <a href="../view/informations.view.php" class="dropbtn">Informations</a>
-    <div class="dropdown-content">
-      <a href="../view/informations.view.php#HistoireDuSport">Histoire</a>
-      <a href="../view/informations.view.php#DescriptionClub">Club</a>
-      <a href="../view/informations.view.php#Horaires">Horaires</a>
-      <a href="../view/informations.view.php#Localisation">Localisation</a>
-    </div>
-  </li>
-
-
+   <a href="../view/informations.view.php">Informations</a>
    <a href="../view/Inscription.view.php">Inscription</a>
    <a href="../controler/monCompte.ctrl.php">Connexion</a>
    <a href="../view/contact.view.php">Contact</a>
