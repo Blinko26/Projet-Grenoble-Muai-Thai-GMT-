@@ -6,6 +6,7 @@
 
 
   </header>
+    <?php if($mdp!=1){ ?>
     <h2>Connexion :</h2>
     <form action="../controler/monCompte.ctrl.php" method="post">
         <p>
@@ -18,12 +19,18 @@
         <input type="submit" value="Valider" />
         </p>
     </form>
-    <?php echo $mdp ?>
+    <?php if($mdp==-1){ ?>
+      <br>
+      <p>Identifiant ou mot de passe incorrects </p>
+    <?php } ?>
     <br>
-    <form action="subscribe.view.php">
+    <form action="../view/subscribe.view.php">
       <input type="submit" value="Pas encore inscrit" />
     </form>
-
+    <?php } else {?>
+    <h2>Mon compte :</h2>
+    <p>Mes infos</p>
+    <?php } ?>
     <?php include '../view/footer.view.php' ?>
   </body>
 </html>
