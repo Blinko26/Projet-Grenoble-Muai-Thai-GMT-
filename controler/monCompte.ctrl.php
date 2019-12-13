@@ -1,4 +1,10 @@
 <?php
+require_once('../model/Adherent.class.php');
+require_once('../model/DAO.class.php');
+
+$adherents = new DAO();
+var_dump($adherents);
+
 if(!isset($_POST['identifiant'])){
   $mdp=0;
 }else{
