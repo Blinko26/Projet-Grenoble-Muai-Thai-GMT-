@@ -30,8 +30,7 @@
     <form action="../view/subscribe.view.php">
       <input type="submit" value="Pas encore inscrit" />
     </form>
-    <?php } else {
-      var_dump($utilisateur);?>
+    <?php } else {?>
 
     <h2>Mon compte :</h2>
     <p>Mes infos</p>
