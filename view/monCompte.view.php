@@ -22,13 +22,14 @@
     <?php if($mdp==-1){ ?>
       <br>
       <p>Identifiant ou mot de passe incorrects </p>
-    <?php }
-    var_dump($adherents); ?>
+    <?php } ?>
     <br>
     <form action="../view/subscribe.view.php">
       <input type="submit" value="Pas encore inscrit" />
     </form>
-    <?php } else {?>
+    <?php } else {
+      var_dump($adherents);?>
+
     <h2>Mon compte :</h2>
     <p>Mes infos</p>
     <?php } ?>
