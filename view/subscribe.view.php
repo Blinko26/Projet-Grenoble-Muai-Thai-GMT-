@@ -28,3 +28,11 @@
   <?php include '../view/footer.view.php' ?>
 </body>
 </html>
+
+<a href="javascript:void(0)" class="dropbtn">Informations</a>
+<div class="dropdown-content">
+  <a href="../view/informations.view.php#HistoireDuSport">Histoire</a>
+  <a href="../view/informations.view.php#DescriptionClub">Club</a>
+  <a href="../view/informations.view.php#Horaires">Horaires</a>
+  <a href="../view/informations.view.php#Localisation">Localisation</a>
+</div>

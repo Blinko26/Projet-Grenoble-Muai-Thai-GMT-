@@ -14,12 +14,12 @@
    <a  href="../view/accueil.view.php">Accueil</a>
    <a href="../view/professeur.view.php">Enseignant</a>
    <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Informations</a>
+    <a href="../view/informations.view.php" class="dropbtn">Informations</a>
     <div class="dropdown-content">
-      <a href="#HistoireDuSport">Histoire</a>
-      <a href="#DescriptionClub">Club</a>
-      <a href="#Horaires">Horaires</a>
-      <a href="#Localisation">Localisation</a>
+      <a href="../view/informations.view.php#HistoireDuSport">Histoire</a>
+      <a href="../view/informations.view.php#DescriptionClub">Club</a>
+      <a href="../view/informations.view.php#Horaires">Horaires</a>
+      <a href="../view/informations.view.php#Localisation">Localisation</a>
     </div>
   </li>
 
