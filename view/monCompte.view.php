@@ -8,7 +8,7 @@
   </header>
     <?php if($mdp!=1){ ?>
     <h2>Connexion :</h2>
-    <form action="../controler/monCompte.ctrl.php" method="post">
+    <form action="../model/testDAO.class.php" method="post">
         <p>
         Identifiant :
         <input type="string" name="identifiant" />
