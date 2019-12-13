@@ -22,7 +22,8 @@
     <?php if($mdp==-1){ ?>
       <br>
       <p>Identifiant ou mot de passe incorrects </p>
-    <?php } ?>
+    <?php }
+    var_dump($adherents); ?>
     <br>
     <form action="../view/subscribe.view.php">
       <input type="submit" value="Pas encore inscrit" />
