@@ -1,5 +1,5 @@
-1|login|password|mail|inscrit
-2|login|password|mail|adherent
-3|login|password|mail|adherent
-4|login|password|mail|moderateur
-5|login|password|mail|admin
+1|star|platinum|mail|inscrit
+2|hermit|purple|mail|adherent
+3|magician_s|red|mail|adherent
+4|hierophant|green|mail|moderateur
+5|silver|chariot|mail|admin
