@@ -33,7 +33,9 @@
     <?php } else {?>
 
     <h2>Mon compte :</h2>
-    <p>Mes infos</p>
+    <p><?php echo $utilisateur->getLogin()?></p>
+    <br>
+    <p><?php echo $utilisateur->getMail()?></p>
     <?php } ?>
     <?php include '../view/footer.view.php' ?>
   </body>
