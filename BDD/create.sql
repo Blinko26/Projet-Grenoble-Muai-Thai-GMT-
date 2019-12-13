@@ -8,8 +8,8 @@ CREATE TABLE Utilisateur (
 
 CREATE TABLE infoPerso (
   numUtilisateur INT PRIMARY KEY NOT NULL,
-  nom VARCHAR(50),
-  prenom VARCHAR(50),
+  nom TEXT,
+  prenom TEXT,
   sexe CHAR(1),
   dateNaissance DATE,
   poids INT NOT NULL,

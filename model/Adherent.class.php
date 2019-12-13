@@ -27,7 +27,7 @@ function getDateNaissance() : string{
 }
 
 function getPoids() : int{
-  return $this->numUtilisateur;
+  return $this->poids;
 }
 
 function getTaille() : int{
