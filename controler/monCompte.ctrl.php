@@ -2,6 +2,7 @@
 require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
 
+
 session_start();
 $DAO = new DAO();
 $logins=$DAO->getAllAdherents();
@@ -25,6 +26,7 @@ if(!isset($_POST['identifiant'])){
     }
   }
 }
+
 if(isset($_SESSION["identifiant"])){
   $mdp=1;
   foreach ($logins as $value) {
@@ -33,6 +35,5 @@ if(isset($_SESSION["identifiant"])){
     }
   }
 }
-
-include "../view/monCompte.view.php"
+include "../view/monCompte.view.php";
 ?>
