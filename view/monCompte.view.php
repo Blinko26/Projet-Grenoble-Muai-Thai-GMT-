@@ -39,11 +39,12 @@
     <br>
     <p><?php echo $utilisateur->getMail()?></p>
     <br>
-    <form action="../view/accueil.view.php">
+    <form action="../view/accueil.view.php" method="post">
       <input type="submit" value="Déconnexion" />
-      <?php session_unset(); ?>
     </form>
     <?php } ?>
-    <?php include '../view/footer.view.php' ?>
+    <?php
+    session_unset();
+    include '../view/footer.view.php' ?>
   </body>
 </html>

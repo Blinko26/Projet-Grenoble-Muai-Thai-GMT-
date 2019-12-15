@@ -2,6 +2,7 @@
 require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
 
+
 session_start();
 $DAO = new DAO();
 $logins=$DAO->getAllAdherents();
@@ -25,6 +26,7 @@ if(!isset($_POST['identifiant'])){
     }
   }
 }
+
 if(isset($_SESSION["identifiant"])){
   $mdp=1;
   foreach ($logins as $value) {
@@ -33,9 +35,5 @@ if(isset($_SESSION["identifiant"])){
     }
   }
 }
-if(!isset($_SESSION["identifiant"]) || $utilisateur->getRole()!='admin'){
-  include "../view/monCompte.view.php";
-} else {
-  include "../view/monCompteAdmin.view.php";
-}
+include "../view/monCompte.view.php";
 ?>

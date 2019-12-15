@@ -1,4 +1,4 @@
-<?php include '../view/headerAdmin.view.php' ?>
+<?php include '../view/Admin/headerAdmin.view.php' ?>
   <link rel="stylesheet" href="../framework/monCompte.css">
 
   <img src="../view/Images/backgroundMonCompte.jpg" alt="Background" class="imgBackground">
@@ -41,7 +41,7 @@
     <br>
     <form action="../view/accueil.view.php">
       <input type="submit" value="Déconnexion" />
-      <?php session_unset(); ?>
+      <?php #session_unset(); ?>
     </form>
     <?php } ?>
     <?php include '../view/footer.view.php' ?>
