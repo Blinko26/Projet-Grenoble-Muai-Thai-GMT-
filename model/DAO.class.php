@@ -21,9 +21,18 @@ class DAO {
     return $resultat[0];
   }
 
+
+  /////////////////////////////////////////////////////////////////////
+  //Fonction donnant lieu a une requete dans la BD en fonction de certain criteres (noms,prenoms...)
+  //Afin de pouvoir mettre en place l'affichage des adherents en fonctions de ces meme criteres.
+  //Pages concernees : Adherent.class.php, Utilisateur.class.php,  adherents.view.php, gestionAdherents.ctrl.php
+  /////////////////////////////////////////////////////////////////////
   function getUtilisateurByName():array{
+    //Requete sur la base de donnees afin de recuperer les infos personnelles des adherents et les triers.
     $requete = "SELECT * FROM infoPerso ORDER BY nom";
+    //Retourne un (statement) Objet
     $sth = $this->db->query($requete);
+    //Retourne une array de lignes 
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
@@ -31,6 +40,7 @@ class DAO {
   function getUtilisateurByNum():array{
     $requete = "SELECT * FROM infoPerso ORDER BY numUtilisateur";
     $sth = $this->db->query($requete);
+    
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
