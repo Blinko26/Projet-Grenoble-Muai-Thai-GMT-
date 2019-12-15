@@ -32,14 +32,14 @@ class Adherent {
   }
 
   function getTaille() : int{
-    return $this->login;
+    return $this->taille;
   }
 
-  function getPaiement() : boolean{
+  function getPaiement() : string{
     return $this->paiement;
   }
 
-  function getCertifMedical() : boolean{
+  function getCertifMedical() : string{
     return $this->certifMedical;
   }
 }

@@ -1,4 +1,4 @@
-    
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
 <body>
     <h1>Gestion des adherents</h1>
  <!--Menu de recherche des adherents en fonction de differents criteres -->
-    <form action="../../controler/gestionAdherents.ctrl.php" method ="post">
+    <form action="../controler/gestionAdherents.ctrl.php" method ="post">
         <table>
             <tr>
                 <td><input type="radio" name ="nom" value="Nom"> <label for="">Nom</label></td>
@@ -27,7 +27,7 @@
         </table>
         <div>
             <button type="submit" value = "valider">Trier</button>
-        </div>      
+        </div>
     </form>
         <table>
                 <tr>
@@ -40,23 +40,23 @@
                 <td>Paiement</td>
                 <td>Certificat Medical</td>
             </tr>
-        
+
     <?php
     //Affichage des adherents en fonctions des criteres de selections demandes
-    
-        if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['sexe']) || isset($_POST['dateNaissance']) 
+
+        if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['sexe']) || isset($_POST['dateNaissance'])
         || isset($_POST['poids']) || isset($_POST['taille']) || isset($_POST['paiement']) || isset($_POST['certificatMedical']) ){
             foreach ($utilisateur as $value) { ?>
             <tr>
-                <td> <?echo $value->getNom(); echo '  '; ?></td>
-                <td> <?echo $value->getPrenom(); echo '  '; ?></td>
-                <td> <? ?></td>
-                <td> <?echo $value->getDateNaissance(); echo '  '; ?></td>
-                <td> <?echo $value->getPoids(); echo '  '; ?></td>
-                <td> <?echo $value->getTaille(); echo '  '; ?></td>
-                <td> <?echo $value->getPaiement(); echo '  '; ?></td>
-                <td> <?echo $value->getCertifMedical(); ?></td>
-                
+                <td> <?php echo $value->getNom(); echo '  '; ?></td>
+                <td> <?php echo $value->getPrenom(); echo '  '; ?></td>
+                <td> <?php ?></td>
+                <td> <?php echo $value->getDateNaissance(); echo '  '; ?></td>
+                <td> <?php echo $value->getPoids(); echo '  '; ?></td>
+                <td> <?php echo $value->getTaille(); echo '  '; ?></td>
+                <td> <?php echo $value->getPaiement(); echo '  '; ?></td>
+                <td> <?php echo $value->getCertifMedical(); ?></td>
+
             </tr>
             <?php
             }

@@ -32,7 +32,7 @@ class DAO {
     $requete = "SELECT * FROM infoPerso ORDER BY nom";
     //Retourne un (statement) Objet
     $sth = $this->db->query($requete);
-    //Retourne une array de lignes 
+    //Retourne une array de lignes
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
@@ -40,7 +40,7 @@ class DAO {
   function getUtilisateurByNum():array{
     $requete = "SELECT * FROM infoPerso ORDER BY numUtilisateur";
     $sth = $this->db->query($requete);
-    
+
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
@@ -108,7 +108,7 @@ class DAO {
     $requete = "SELECT MAX(numUtilisateur) FROM infoPerso";
     $rep = $this->db->query($requete);
     $maxAdh = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
-    $id=9;
+    $id=21;
     $m="INSERT INTO infoPerso(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,autorisationP,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:autorisationP,:telephone)";
     $sth=$this->db->prepare($m);
     $sth->execute([
