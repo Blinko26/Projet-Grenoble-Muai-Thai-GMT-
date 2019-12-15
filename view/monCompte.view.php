@@ -11,9 +11,11 @@
     <form action="../controler/monCompte.ctrl.php" method="post">
         <p>
         Identifiant :
+        <br>
         <input type="string" name="identifiant" />
         <br>
         Mot de passe :
+        <br>
         <input type="password" name="mot_de_passe"/>
         <br>
         <input type="submit" value="Valider" />
