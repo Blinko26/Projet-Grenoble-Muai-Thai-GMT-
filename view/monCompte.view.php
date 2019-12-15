@@ -11,9 +11,11 @@
     <form action="../controler/monCompte.ctrl.php" method="post">
         <p>
         Identifiant :
+        <br>
         <input type="string" name="identifiant" />
         <br>
         Mot de passe :
+        <br>
         <input type="password" name="mot_de_passe"/>
         <br>
         <input type="submit" value="Valider" />
@@ -36,6 +38,11 @@
     <p><?php echo $utilisateur->getLogin()?></p>
     <br>
     <p><?php echo $utilisateur->getMail()?></p>
+    <br>
+    <form action="../view/accueil.view.php">
+      <input type="submit" value="Déconnexion" />
+      <?php session_unset(); ?>
+    </form>
     <?php } ?>
     <?php include '../view/footer.view.php' ?>
   </body>
