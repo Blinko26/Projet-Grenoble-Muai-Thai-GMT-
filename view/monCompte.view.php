@@ -36,6 +36,11 @@
     <p><?php echo $utilisateur->getLogin()?></p>
     <br>
     <p><?php echo $utilisateur->getMail()?></p>
+    <br>
+    <form action="../view/accueil.view.php">
+      <input type="submit" value="Déconnexion" />
+      <?php session_unset(); ?>
+    </form>
     <?php } ?>
     <?php include '../view/footer.view.php' ?>
   </body>

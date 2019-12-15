@@ -4,6 +4,7 @@ class Utilisateur {
   public $login;
   public $password;
   public $mail;
+  public $role;
 
 
   function getNumUtilisateur() : int{
@@ -20,6 +21,10 @@ class Utilisateur {
 
   function getMail() : string{
     return $this->mail;
+  }
+
+  function getRole() : string{
+    return $this->role;
   }
 }
 
