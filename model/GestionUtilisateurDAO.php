@@ -35,15 +35,15 @@ var_dump($allByTaille);
 
 $allByPaiement = $adherent->getUtilisateurByPaiement();
 print("ByPaiement");
-var_dump($allByPaiement); 
-RAJOUTER POUR SEULEMENT TRUE OR FALSE ?
+var_dump($allByPaiement);  
+RAJOUTER POUR SEULEMENT TRUE OR FALSE ? */
 
 $allByCertif = $adherent->getUtilisateurByCertificat();
 print("ByCertif");
-var_dump($allByCertif);*/
+var_dump($allByCertif);
 
-$allByAutorisation = $adherent->getUtilisateurByAutorisationParentale();
+/*$allByAutorisation = $adherent->getUtilisateurByAutorisationParentale();
 print("ByAutorisation");
-var_dump($allByAutorisation);
+var_dump($allByAutorisation); */
 
 ?>
