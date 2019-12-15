@@ -14,7 +14,7 @@
    <a  href="../view/accueil.view.php">Accueil</a>
    <a href="../view/professeur.view.php">Enseignant</a>
    <a href="../view/informations.view.php">Informations</a>
-   <a href="../view/Inscription.view.php">Inscription</a>
+   <a href="../view/inscription.view.php">Inscription</a>
    <a href="../controler/monCompte.ctrl.php">Connexion</a>
    <a href="../view/contact.view.php">Contact</a>
 
