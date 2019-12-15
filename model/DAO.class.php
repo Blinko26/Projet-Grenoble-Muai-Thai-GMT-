@@ -1,4 +1,6 @@
 <?php
+require_once('../model/Adherent.class.php');
+
 class DAO {
   private $db;
   function __construct(){
@@ -11,6 +13,7 @@ class DAO {
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
     return $resultat;
   }
+
   function get(string $id):Utilisateur{
     $m="SELECT * FROM Utilisateur WHERE login='$id';";
     $sth=$this->db->query($m);
@@ -82,6 +85,35 @@ class DAO {
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
+  }
+
+  function getUtilisateurNom(string $nom):Adherent{
+    $requete = "SELECT * FROM infoPerso where nom='$nom';";
+    $sth = $this->db->query($requete);
+    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    return $resultat[0];
+  }
+
+  function inscrire(string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone): void {
+    $requete = "SELECT MAX(numUtilisateur) FROM infoPerso";
+    $rep = $this->db->query($requete);
+    $maxAdh = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    $id=9;
+    $m="INSERT INTO infoPerso(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,autorisationP,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:autorisationP,:telephone)";
+    $sth=$this->db->prepare($m);
+    $sth->execute([
+      ':numUtilisateur' => $id,
+      ':nom' => $nom,
+      ':prenom' => $prenom,
+      ':sexe' => $sexe,
+      ':dateNaissance' => $date_naissance,
+      ':poids' => $poids,
+      ':taille' => $taille,
+      ':paiement' => 'true',
+      ':certifMedical' => 'true',
+      ':autorisationP' => 'true',
+      ':telephone' => $telephone,
+    ]);
   }
 
 }

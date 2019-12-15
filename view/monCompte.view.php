@@ -44,7 +44,6 @@
     </form>
     <?php } ?>
     <?php
-    session_unset();
     include '../view/footer.view.php' ?>
   </body>
 </html>
