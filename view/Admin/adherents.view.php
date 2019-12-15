@@ -6,127 +6,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../framework/gestionAdherents.css">
     <title>Document</title>
 </head>
 <body>
     <h1>Gestion des adherents</h1>
-
+ <!--Menu de recherche des adherents en fonction de differents criteres -->
     <form action="../../controler/gestionAdherents.ctrl.php" method ="post">
-        <div>
-            <input type="radio" name ="nom" value="Nom"> <label for="">Nom</label>
-            <input type="radio" name ="prenom" value="Prenom"> <label for="">Prenom</label>
-            <input type="radio" name ="sexe" value="sexe"> <label for="">sexe</label>
-            <input type="radio" name ="dateNaissance" value="dateNaissance"> <label for="">dateNaissance</label>
-            <input type="radio" name ="poids" value="poids"> <label for="">poids</label>
-            <input type="radio" name ="taille" value="taille"> <label for="">taille</label>
-            <input type="radio" name ="paiement" value="paiement"> <label for="">paiement</label>
-            <input type="radio" name ="certificatMedical" value="CertificatMedical"> <label for="">CertificatMedical</label>
-        </div>
+        <table>
+            <tr>
+                <td><input type="radio" name ="nom" value="Nom"> <label for="">Nom</label></td>
+                <td><input type="radio" name ="prenom" value="Prenom"> <label for="">Prenom</label></td>
+                <td><input type="radio" name ="sexe" value="sexe"> <label for="">sexe</label></td>
+                <td><input type="radio" name ="dateNaissance" value="dateNaissance"> <label for="">Date Naissance</label></td>
+                <td><input type="radio" name ="poids" value="poids"> <label for="">poids</label></td>
+                <td><input type="radio" name ="taille" value="taille"> <label for="">taille</label></td>
+                <td><input type="radio" name ="paiement" value="paiement"> <label for="">paiement</label></td>
+                <td><input type="radio" name ="certificatMedical" value="CertificatMedical"> <label for="">Certificat Medical</label></td>
+            </tr>
+        </table>
         <div>
             <button type="submit" value = "valider">Trier</button>
-        </div>
+        </div>      
     </form>
-
-
+        <table>
+                <tr>
+                <td>Nom</td>
+                <td>Prenom</td>
+                <td>Sexe</td>
+                <td>Date De Naissance</td>
+                <td>Poids</td>
+                <td>Taille</td>
+                <td>Paiement</td>
+                <td>Certificat Medical</td>
+            </tr>
+        
     <?php
-        if(isset($_POST['nom'])){
-            foreach ($utilisateurName as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
-            }
-        }else if(isset($_POST['prenom'])){
-            foreach ($utilisateurPrenom as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
-            }
-        }else if(isset($_POST['dateNaissance'])){
-            foreach ($utilisateurdateNaissance as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
-            }
-        }else if(isset($_POST['poids'])){
-            foreach ($utilisateurPoids as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
-            }
-        }else if(isset($_POST['taille'])){
-            foreach ($utilisateurTaille as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
-            }
-        }else if(isset($_POST['paiement'])){
-            foreach ($utilisateurPaiement as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
-            }
-        }else if(isset($_POST['certificatMedical'])){
-            foreach ($utilisateurCertif as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
-            }
-        }else if(isset($_POST['autorisationParentale'])){
-            foreach ($utilisateurAutorisationParentale as $value) {
-                echo $value->getNom(); echo '  ';
-                echo $value->getPrenom(); echo '  ';
-                echo $value->getDateNaissance(); echo '  ';
-                echo $value->getPoids(); echo '  ';
-                echo $value->getTaille(); echo '  ';
-                echo $value->getPaiement();
-                echo '  ';
-                echo $value->getCertifMedical();
-                echo '<br>';
+    //Affichage des adherents en fonctions des criteres de selections demandes
+    
+        if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['sexe']) || isset($_POST['dateNaissance']) 
+        || isset($_POST['poids']) || isset($_POST['taille']) || isset($_POST['paiement']) || isset($_POST['certificatMedical']) ){
+            foreach ($utilisateur as $value) { ?>
+            <tr>
+                <td> <?echo $value->getNom(); echo '  '; ?></td>
+                <td> <?echo $value->getPrenom(); echo '  '; ?></td>
+                <td> <? ?></td>
+                <td> <?echo $value->getDateNaissance(); echo '  '; ?></td>
+                <td> <?echo $value->getPoids(); echo '  '; ?></td>
+                <td> <?echo $value->getTaille(); echo '  '; ?></td>
+                <td> <?echo $value->getPaiement(); echo '  '; ?></td>
+                <td> <?echo $value->getCertifMedical(); ?></td>
+                
+            </tr>
+            <?php
             }
         }
-
     ?>
+    </table>
 </body>
 </html>

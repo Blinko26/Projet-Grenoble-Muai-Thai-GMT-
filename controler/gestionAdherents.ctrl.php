@@ -1,3 +1,4 @@
+
 <?php 
 
 
@@ -9,25 +10,25 @@ require_once('../model/DAO.class.php');
 $dao = new DAO();
 
 if(isset($_POST['nom'])){
-    $utilisateurName = $dao->getUtilisateurByName();    
+    $utilisateur = $dao->getUtilisateurByName();    
 }else if(isset($_POST['prenom'])){
-    $utilisateurPrenom = $dao->getUtilisateurByPrenom();
+    $utilisateur = $dao->getUtilisateurByPrenom();
 }else if(isset($_POST['sexe'])){
     
 }else if(isset($_POST['dateNaissance'])){
-    $utilisateurdateNaissance = $dao->getUtilisateurBydateNaissance();
+    $utilisateur = $dao->getUtilisateurBydateNaissance();
 }else if(isset($_POST['poids'])){
-    $utilisateurPoids = $dao->getUtilisateurByPoids();
+    $utilisateur = $dao->getUtilisateurByPoids();
 }else if(isset($_POST['taille'])){
-    $utilisateurTaille = $dao->getUtilisateurByTaille();
+    $utilisateur = $dao->getUtilisateurByTaille();
 }else if(isset($_POST['paiement'])){
-    $utilisateurPaiement = $dao->getUtilisateurByPaiement();
+    $utilisateur = $dao->getUtilisateurByPaiement();
 }else if(isset($_POST['certificatMedical'])){
-    $utilisateurCertif = $dao->getUtilisateurByCertificat();
+    $utilisateur = $dao->getUtilisateurByCertificat();
 }else if(isset($_POST['autorisationParentale'])){
-    $utilisateurAutorisationParentale = $dao->getUtilisateurByAutorisationParentale();
+    $utilisateur = $dao->getUtilisateurByAutorisationParentale();
 }else if(isset($_POST['numero'])){
-    $utilisateurNum = $dao->getUtilisateurByNum();
+    $utilisateur = $dao->getUtilisateurByNum();
 }
 
 
