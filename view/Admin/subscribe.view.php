@@ -23,9 +23,8 @@
       <br>
       Date de naissance(jj/mm/aaaa):
       <br>   
-      <input type=date step=7 min=2014-09-08> 
+      <input type=date required> 
       <br>
-      <input type="string" name="date_naissance" required/>
       <br>
       Poids:
       <br>
