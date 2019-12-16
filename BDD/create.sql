@@ -8,7 +8,6 @@ CREATE TABLE User (
 
 CREATE TABLE informationsResponsableLegal (
   numUtilisateur INT PRIMARY KEY NOT NULL,
-<<<<<<< HEAD
   nom VARCHAR(50),
   prenom VARCHAR(50),
   telephone VARCHAR(10),
@@ -21,12 +20,7 @@ CREATE TABLE informationsPersonnelles (
   numAdh INT PRIMARY KEY NOT NULL,
   nom VARCHAR(50),
   prenom VARCHAR(50),
-  sexe TEXT CHECK( sexe IN ('F','H') ),
-=======
-  nom TEXT,
-  prenom TEXT,
-  sexe CHAR(1),
->>>>>>> 56ec733d20408703087df8f73d7b2ff61aa18b2b
+  sexe TEXT CHECK( sexe IN ('f','h') ),
   dateNaissance DATE,
   poids INT NOT NULL,
   taille INT NOT NULL,
