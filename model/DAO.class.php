@@ -72,6 +72,7 @@ class DAO {
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
+    
   }
 
   function getUtilisateurByPoids(int $poids = 0):array{
@@ -138,7 +139,13 @@ class DAO {
     $rep = $this->db->query($requete);
     $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
     $maxAdh=$resultat[0];
+<<<<<<< HEAD
     $m="INSERT INTO informationsPersonelles(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:telephone)";
+=======
+    $maxAdh = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    $id++;
+    $m="INSERT INTO infoPerso(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,autorisationP,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:autorisationP,:telephone)";
+>>>>>>> eb9000d033035e8aa63ab6b86b1595ec502d10a2
     $sth=$this->db->prepare($m);
     $sth->execute([
       ':numUtilisateur' => $maxAdh->getNumAdherent()+1,

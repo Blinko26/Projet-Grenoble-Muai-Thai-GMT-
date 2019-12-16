@@ -45,6 +45,7 @@ class Adherent {
 
   function getSexe() : string{
     return $this->sexe;
+    
   }
 }
 ?>

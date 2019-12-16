@@ -20,7 +20,14 @@ CREATE TABLE informationsPersonnelles (
   numAdh INT PRIMARY KEY NOT NULL,
   nom VARCHAR(50),
   prenom VARCHAR(50),
+<<<<<<< HEAD
   sexe TEXT CHECK( sexe IN ('f','h') ),
+=======
+  sexe TEXT CHECK( sexe IN ('F','H') ),
+  nom TEXT,
+  prenom TEXT,
+  sexe CHAR(1),
+>>>>>>> eb9000d033035e8aa63ab6b86b1595ec502d10a2
   dateNaissance DATE,
   poids INT NOT NULL,
   taille INT NOT NULL,

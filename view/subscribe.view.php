@@ -11,33 +11,31 @@
       <p>
       Nom :
       <br>
-      <input type="string" name="nom" required/>
+      <input type="string" name="nom" />
       <br>
       Prenom :
       <br>
-      <input type="string" name="prenom" required/>
+      <input type="string" name="prenom"/>
       <br>
-      Sexe(h|f):
+      Sexe(homme|femme):
       <br>
-      <input type="string" name="sexe" required/>
+      <input type="string" name="sexe"/>
       <br>
       Date de naissance(jj/mm/aaaa):
       <br>   
       <input type=date step=7 min=2014-09-08> 
       <br>
-      <input type="string" name="date_naissance" required/>
-      <br>
       Poids:
       <br>
-      <input type="string" name="poids" required/>
+      <input type="string" name="poids"/>
       <br>
       Taille:
       <br>
-      <input type="string" name="taille" required/>
+      <input type="string" name="taille"/>
       <br>
       Téléphone:
       <br>
-      <input type="string" name="telephone" required/>
+      <input type="string" name="telephone"/>
       <br>
 
       <input type="submit" value="Valider" />
@@ -50,3 +48,11 @@
   <?php include '../view/footer.view.php' ?>
 </body>
 </html>
+
+<a href="javascript:void(0)" class="dropbtn">Informations</a>
+<div class="dropdown-content">
+  <a href="../view/informations.view.php#HistoireDuSport">Histoire</a>
+  <a href="../view/informations.view.php#DescriptionClub">Club</a>
+  <a href="../view/informations.view.php#Horaires">Horaires</a>
+  <a href="../view/informations.view.php#Localisation">Localisation</a>
+</div>
