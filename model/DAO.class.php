@@ -72,6 +72,7 @@ class DAO {
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
+    
   }
 
   function getUtilisateurByPoids(int $poids = 0):array{

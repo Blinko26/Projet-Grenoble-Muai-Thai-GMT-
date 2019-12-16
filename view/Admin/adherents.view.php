@@ -1,43 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<?php include '../view/header.view.php' ?>
     <link rel="stylesheet" href="../framework/gestionAdherents.css">
-    <title>Document</title>
-</head>
-<body>
+    <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
+ </header>
+ <br>
+ <br>
     <h1>Gestion des adherents</h1>
  <!--Menu de recherche des adherents en fonction de differents criteres -->
     <form action="../controler/gestionAdherents.ctrl.php" method ="post">
-        <table>
+    <div class = "criteres">
+    <table>
             <tr>
-                <td><input type="radio" name ="nom" value="Nom"> <label for="">Nom</label></td>
-                <td><input type="radio" name ="prenom" value="Prenom"> <label for="">Prenom</label></td>
-                <td><input type="radio" name ="sexe" value="sexe"> <label for="">sexe</label></td>
-                <td><input type="radio" name ="dateNaissance" value="dateNaissance"> <label for="">Date Naissance</label></td>
-                <td><input type="radio" name ="poids" value="poids"> <label for="">poids</label></td>
-                <td><input type="radio" name ="taille" value="taille"> <label for="">taille</label></td>
-                <td><input type="radio" name ="paiement" value="paiement"> <label for="">paiement</label></td>
-                <td><input type="radio" name ="certificatMedical" value="CertificatMedical"> <label for="">Certificat Medical</label></td>
+                <td><input type="submit" name ="nom" value="Nom"> <label for=""></label></td>
+                <td><input type="submit" name ="prenom" value="Prenom"> <label for=""></label></td>
+                <td><input type="submit" name ="sexe" value="sexe"> <label for=""></label></td>
+                <td><input type="submit" name ="dateNaissance" value="dateNaissance"> <label for=""></label></td>
+                <td><input type="submit" name ="poids" value="poids"> <label for=""></label></td>
+                <td><input type="submit" name ="taille" value="taille"> <label for=""></label></td>
+                <td><input type="submit" name ="paiement" value="paiement"> <label for=""></label></td>
+                <td><input type="submit" name ="certificatMedical" value="CertificatMedical"> <label for=""></label></td>
             </tr>
         </table>
-        <div>
-            <button type="submit" value = "valider">Trier</button>
-        </div>
+    </div>
+        
     </form>
         <table>
-                <tr>
-                <td>Nom</td>
-                <td>Prenom</td>
-                <td>Sexe</td>
-                <td>Date De Naissance</td>
-                <td>Poids</td>
-                <td>Taille</td>
-                <td>Paiement</td>
-                <td>Certificat Medical</td>
-            </tr>
+                
 
     <?php
     //Affichage des adherents en fonctions des criteres de selections demandes
@@ -61,5 +48,6 @@
         }
     ?>
     </table>
+    <?php include '../view/footer.view.php'?>
 </body>
 </html>

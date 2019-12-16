@@ -1,9 +1,23 @@
+body{
+    font-family: Verdana, sans-serif;
+}
+
+form td {
+    border: none;
+    padding-right: 60px;
+    border-radius:2px ;
+    box-shadow:3px 3px 12px #999 ;
+    background: #fff;
+    font: bold 13px Verdana;
+    color: #555;
+}
+
 td {
     border: solid 2px;
     border-radius: 2px;
-    border-color: blueviolet;
-
+    border-color: cyan;
     padding-right: 60px;
 }
+
 
 

@@ -22,8 +22,8 @@
       <input type="string" name="sexe"/>
       <br>
       Date de naissance(jj/mm/aaaa):
-      <br>
-      <input type="string" name="date_naissance"/>
+      <br>   
+      <input type=date step=7 min=2014-09-08> 
       <br>
       Poids:
       <br>
