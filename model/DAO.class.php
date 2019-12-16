@@ -30,9 +30,9 @@ class DAO {
   function getUtilisateurByName(string $nom = 'null'):array{
     if($nom == 'null'){
       //Requete sur la base de donnees afin de recuperer les infos personnelles des adherents et les triers.
-      $requete = "SELECT * FROM informationsPersonelles ORDER BY nom";
+      $requete = "SELECT * FROM informationsPersonnelles ORDER BY nom";
     }else{
-      $requete = "SELECT * FROM informationsPersonelles where nom = $nom";
+      $requete = "SELECT * FROM informationsPersonnelles where nom = $nom";
     }
     //Retourne un (statement) Objet
     $sth = $this->db->query($requete);
@@ -43,9 +43,9 @@ class DAO {
 
   function getUtilisateurByNum(int $num = 0):array{
     if($num == 0){
-      $requete = "SELECT * FROM informationsPersonelles ORDER BY numUtilisateur";
+      $requete = "SELECT * FROM informationsPersonnelles ORDER BY numAdh";
     }else{
-      $requete = "SELECT * FROM informationsPersonelles where numUtilisateur = $num";
+      $requete = "SELECT * FROM informationsPersonnelles where numAdh = $num";
     }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
@@ -54,9 +54,9 @@ class DAO {
 
   function getUtilisateurByPrenom(string $prenom = 'null'):array{
     if($prenom == 'null'){
-      $requete = "SELECT * FROM informationsPersonelles ORDER BY prenom";
+      $requete = "SELECT * FROM informationsPersonnelles ORDER BY prenom";
     }else{
-      $requete = "SELECT * FROM informationsPersonelles where prenom = $prenom";
+      $requete = "SELECT * FROM informationsPersonnelles where prenom = $prenom";
     }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
@@ -65,21 +65,21 @@ class DAO {
 
   function getUtilisateurBydateNaissance(string $dateNaissance = 'null'):array{
     if($dateNaissance == 'null'){
-      $requete = "SELECT * FROM informationsPersonelles ORDER BY dateNaissance";
+      $requete = "SELECT * FROM informationsPersonnelles ORDER BY dateNaissance";
     }else{
-      $requete = "SELECT * FROM informationsPersonelles where dateNaissance = $dateNaissance";
+      $requete = "SELECT * FROM informationsPersonnelles where dateNaissance = $dateNaissance";
     }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
-    
+
   }
 
   function getUtilisateurByPoids(int $poids = 0):array{
     if($poids == 0){
-      $requete = "SELECT * FROM informationsPersonelles ORDER BY poids";
+      $requete = "SELECT * FROM informationsPersonnelles ORDER BY poids";
     }else{
-      $requete = "SELECT * FROM informationsPersonelles where poids = $poids";
+      $requete = "SELECT * FROM informationsPersonnelles where poids = $poids";
     }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
@@ -88,9 +88,9 @@ class DAO {
 
   function getUtilisateurByTaille(int $taille = 0):array{
     if($taille == 0){
-      $requete = "SELECT * FROM informationsPersonelles ORDER BY taille";
+      $requete = "SELECT * FROM informationsPersonnelles ORDER BY taille";
     }else{
-      $requete = "SELECT * FROM informationsPersonelles where taille = $taille";
+      $requete = "SELECT * FROM informationsPersonnelles where taille = $taille";
     }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
@@ -98,28 +98,28 @@ class DAO {
   }
 
   function getUtilisateurByPaiement():array{
-    $requete = "SELECT * FROM informationsPersonelles ORDER BY paiement";
+    $requete = "SELECT * FROM informationsPersonnelles ORDER BY paiement";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
   function getUtilisateurByCertificat():array{
-    $requete = "SELECT * FROM informationsPersonelles ORDER BY certifMedical";
+    $requete = "SELECT * FROM informationsPersonnelles ORDER BY certifMedical";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
   function getUtilisateurByAutorisationParentale():array{
-    $requete = "SELECT * FROM informationsPersonelles where dateNaissance - datetime('now') >= 18";
+    $requete = "SELECT * FROM informationsPersonnelles where dateNaissance - datetime('now') >= 18";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
   function getUtilisateurBySexe():array{
-    $requete = "SELECT * FROM informationsPersonelles ORDER BY sexe";
+    $requete = "SELECT * FROM informationsPersonnelles ORDER BY sexe";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
@@ -128,24 +128,18 @@ class DAO {
 //////////////////////////////////////////////////////////
   //Normalement on en a plus besoin car valeur par defaut dans les fonctions du dessus exemple string nom = 'null'
   function getUtilisateurNom(string $nom):Adherent{
-    $requete = "SELECT * FROM informationsPersonelles where nom='$nom';";
+    $requete = "SELECT * FROM informationsPersonnelles where nom='$nom';";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat[0];
   }
 
   function inscrire(string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone): void {
-    $requete = "SELECT * FROM informationsPersonelles WHERE numUtilisateur IN (SELECT MAX(numUtilisateur) FROM informationsPersonelles)";
+    $requete = "SELECT * FROM informationsPersonnelles WHERE numAdh IN (SELECT MAX(numAdh) FROM informationsPersonnelles)";
     $rep = $this->db->query($requete);
     $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
     $maxAdh=$resultat[0];
-<<<<<<< HEAD
-    $m="INSERT INTO informationsPersonelles(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:telephone)";
-=======
-    $maxAdh = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
-    $id++;
-    $m="INSERT INTO infoPerso(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,autorisationP,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:autorisationP,:telephone)";
->>>>>>> eb9000d033035e8aa63ab6b86b1595ec502d10a2
+    $m="INSERT INTO informationsPersonnelles(numAdh,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:telephone)";
     $sth=$this->db->prepare($m);
     $sth->execute([
       ':numUtilisateur' => $maxAdh->getNumAdherent()+1,
