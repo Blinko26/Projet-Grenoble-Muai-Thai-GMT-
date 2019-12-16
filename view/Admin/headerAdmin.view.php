@@ -12,12 +12,9 @@
 <div class="topnav" id="myTopnav">
 
    <a  href="../view/accueil.view.php">Accueil</a>
-   <a href="../view/professeur.view.php">Enseignant</a>
-   <a href="../view/informations.view.php">Informations</a>
-   <a href="../view/inscription.view.php">Inscription</a>
-   <a href="../controler/monCompte.ctrl.php">Connexion</a>
-   <a href="../view/contact.view.php">Contact</a>
-
+   <a href="../view/subscribe.view.php">Gérer les Adhérents</a>
+   <a href="../view/inscription.view.php">Gérer les Articles</a>
+   <a href="../controler/monCompte.ctrl.php">Mon Compte</a>
 
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
