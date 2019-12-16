@@ -116,6 +116,13 @@ class DAO {
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
+
+  function getUtilisateurBySexe():array{
+    $requete = "SELECT * FROM infoPerso ORDER BY sexe";
+    $sth = $this->db->query($requete);
+    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    return $resultat;
+  }
 ///////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
   //Normalement on en a plus besoin car valeur par defaut dans les fonctions du dessus exemple string nom = 'null'

@@ -48,7 +48,7 @@
             <tr>
                 <td> <?php echo $value->getNom(); echo '  '; ?></td>
                 <td> <?php echo $value->getPrenom(); echo '  '; ?></td>
-                <td> <?php ?></td>
+                <td> <?php echo $value->getSexe() ?></td>
                 <td> <?php echo $value->getDateNaissance(); echo '  '; ?></td>
                 <td> <?php echo $value->getPoids(); echo '  '; ?></td>
                 <td> <?php echo $value->getTaille(); echo '  '; ?></td>
