@@ -1,5 +1,5 @@
-1|star|platinum|mail|inscrit
-2|hermit|purple|mail|adherent
+1|star|platinum|mail|admin
+2|hermit|purple|mail|moderateur
 3|magician_s|red|mail|adherent
-4|hierophant|green|mail|moderateur
-5|silver|chariot|mail|admin
+4|hierophant|green|mail|inscrit
+5|silver|chariot|mail|responsableLegal

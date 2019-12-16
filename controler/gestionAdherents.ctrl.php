@@ -14,7 +14,7 @@ if(isset($_POST['nom'])){
 }else if(isset($_POST['prenom'])){
     $utilisateur = $dao->getUtilisateurByPrenom();
 }else if(isset($_POST['sexe'])){
-    
+    $utilisateur = $dao->getUtilisateurBySexe();
 }else if(isset($_POST['dateNaissance'])){
     $utilisateur = $dao->getUtilisateurBydateNaissance();
 }else if(isset($_POST['poids'])){
@@ -31,20 +31,6 @@ if(isset($_POST['nom'])){
     $utilisateur = $dao->getUtilisateurByNum();
 }
 
-
-
-
-
-
-
-
-
-
-
-
 include '../view/Admin/adherents.view.php';
-
-
-
 
 ?>

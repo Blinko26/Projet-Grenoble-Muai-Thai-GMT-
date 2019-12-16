@@ -1,12 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../framework/gestionAdherents.css">
+    <link rel="stylesheet" href="../framework/gestionAdherents.css">
     <title>Document</title>
 </head>
 <body>
@@ -50,7 +48,7 @@
             <tr>
                 <td> <?php echo $value->getNom(); echo '  '; ?></td>
                 <td> <?php echo $value->getPrenom(); echo '  '; ?></td>
-                <td> <?php ?></td>
+                <td> <?php echo $value->getSexe() ?></td>
                 <td> <?php echo $value->getDateNaissance(); echo '  '; ?></td>
                 <td> <?php echo $value->getPoids(); echo '  '; ?></td>
                 <td> <?php echo $value->getTaille(); echo '  '; ?></td>

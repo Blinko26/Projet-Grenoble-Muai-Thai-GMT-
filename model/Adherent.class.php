@@ -42,5 +42,9 @@ class Adherent {
   function getCertifMedical() : string{
     return $this->certifMedical;
   }
+
+  function getSexe() : string{
+    return $this->sexe;
+  }
 }
 ?>
