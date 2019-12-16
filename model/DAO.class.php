@@ -105,14 +105,14 @@ class DAO {
   }
 
   function inscrire(string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone): void {
-    $requete = "SELECT MAX(numUtilisateur) FROM infoPerso";
+    $requete = "SELECT * FROM infoPerso WHERE numUtilisateur IN (SELECT MAX(numUtilisateur) FROM infoPerso)";
     $rep = $this->db->query($requete);
-    $maxAdh = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
-    $id=21;
+    $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    $maxAdh=$resultat[0];
     $m="INSERT INTO infoPerso(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,autorisationP,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:autorisationP,:telephone)";
     $sth=$this->db->prepare($m);
     $sth->execute([
-      ':numUtilisateur' => $id,
+      ':numUtilisateur' => $maxAdh->getNumAdherent()+1,
       ':nom' => $nom,
       ':prenom' => $prenom,
       ':sexe' => $sexe,

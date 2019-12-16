@@ -12,7 +12,8 @@
 <div class="topnav" id="myTopnav">
 
    <a  href="../view/accueil.view.php">Accueil</a>
-   <a href="../view/subscribe.view.php">Gérer les Adhérents</a>
+   <a href="../controler/subscribe.ctrl.php">Inscrire un Adhérent</a>
+   <a href="../controler/gestionAdherents.ctrl.php">Gérer les Adherents</a>
    <a href="../view/inscription.view.php">Gérer les Articles</a>
    <a href="../controler/monCompte.ctrl.php">Mon Compte</a>
 

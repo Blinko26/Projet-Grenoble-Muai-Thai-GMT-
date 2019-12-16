@@ -1,6 +1,6 @@
 <?php
 class Adherent {
-  public $numAdherent;
+  public $numUtilisateur;
   public $nom;
   public $prenom;
   public $sexe;
@@ -12,7 +12,7 @@ class Adherent {
   public $telephone;
 
   function getNumAdherent() : int{
-    return $this->numAdherent;
+    return $this->numUtilisateur;
   }
 
   function getNom() : string{
