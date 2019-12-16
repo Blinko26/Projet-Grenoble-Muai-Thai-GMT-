@@ -22,13 +22,10 @@
       <input type="string" name="sexe" required/>
       <br>
       Date de naissance(jj/mm/aaaa):
-<<<<<<< HEAD:view/subscribe.view.php
       <br>   
       <input type=date step=7 min=2014-09-08> 
-=======
       <br>
       <input type="string" name="date_naissance" required/>
->>>>>>> 88626f2bc46663d7ab9cdd7a55c1613ffefb336c:view/Admin/subscribe.view.php
       <br>
       Poids:
       <br>
