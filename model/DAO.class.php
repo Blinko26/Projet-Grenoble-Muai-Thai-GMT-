@@ -27,9 +27,13 @@ class DAO {
   //Afin de pouvoir mettre en place l'affichage des adherents en fonctions de ces meme criteres.
   //Pages concernees : Adherent.class.php, Utilisateur.class.php,  adherents.view.php, gestionAdherents.ctrl.php
   /////////////////////////////////////////////////////////////////////
-  function getUtilisateurByName():array{
-    //Requete sur la base de donnees afin de recuperer les infos personnelles des adherents et les triers.
-    $requete = "SELECT * FROM infoPerso ORDER BY nom";
+  function getUtilisateurByName(string $nom = 'null'):array{
+    if($nom == 'null'){
+      //Requete sur la base de donnees afin de recuperer les infos personnelles des adherents et les triers.
+      $requete = "SELECT * FROM infoPerso ORDER BY nom";
+    }else{
+      $requete = "SELECT * FROM infoPerso where nom = $nom";
+    }
     //Retourne un (statement) Objet
     $sth = $this->db->query($requete);
     //Retourne une array de lignes
@@ -37,40 +41,56 @@ class DAO {
     return $resultat;
   }
 
-  function getUtilisateurByNum():array{
-    $requete = "SELECT * FROM infoPerso ORDER BY numUtilisateur";
-    $sth = $this->db->query($requete);
-
-    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
-    return $resultat;
-  }
-
-  function getUtilisateurByPrenom():array{
-    $requete = "SELECT * FROM infoPerso ORDER BY prenom";
+  function getUtilisateurByNum(int $num = 0):array{
+    if($num == 0){
+      $requete = "SELECT * FROM infoPerso ORDER BY numUtilisateur";
+    }else{
+      $requete = "SELECT * FROM infoPerso where numUtilisateur = $num";
+    }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-
-  function getUtilisateurBydateNaissance():array{
-    $requete = "SELECT * FROM infoPerso ORDER BY dateNaissance";
+  function getUtilisateurByPrenom(string $prenom = 'null'):array{
+    if($prenom == 'null'){
+      $requete = "SELECT * FROM infoPerso ORDER BY prenom";
+    }else{
+      $requete = "SELECT * FROM infoPerso where prenom = $prenom";
+    }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-
-
-  function getUtilisateurByPoids():array{
-    $requete = "SELECT * FROM infoPerso ORDER BY poids";
+  function getUtilisateurBydateNaissance(string $dateNaissance = 'null'):array{
+    if($dateNaissance == 'null'){
+      $requete = "SELECT * FROM infoPerso ORDER BY dateNaissance";
+    }else{
+      $requete = "SELECT * FROM infoPerso where dateNaissance = $dateNaissance";
+    }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-  function getUtilisateurByTaille():array{
-    $requete = "SELECT * FROM infoPerso ORDER BY taille";
+  function getUtilisateurByPoids(int $poids = 0):array{
+    if($poids == 0){
+      $requete = "SELECT * FROM infoPerso ORDER BY poids";
+    }else{
+      $requete = "SELECT * FROM infoPerso where poids = $poids";
+    }
+    $sth = $this->db->query($requete);
+    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    return $resultat;
+  }
+
+  function getUtilisateurByTaille(int $taille = 0):array{
+    if($taille == 0){
+      $requete = "SELECT * FROM infoPerso ORDER BY taille";
+    }else{
+      $requete = "SELECT * FROM infoPerso where taille = $taille";
+    }
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
@@ -96,7 +116,9 @@ class DAO {
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
-
+///////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+  //Normalement on en a plus besoin car valeur par defaut dans les fonctions du dessus exemple string nom = 'null'
   function getUtilisateurNom(string $nom):Adherent{
     $requete = "SELECT * FROM infoPerso where nom='$nom';";
     $sth = $this->db->query($requete);
@@ -108,7 +130,7 @@ class DAO {
     $requete = "SELECT MAX(numUtilisateur) FROM infoPerso";
     $rep = $this->db->query($requete);
     $maxAdh = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
-    $id=21;
+    $id++;
     $m="INSERT INTO infoPerso(numUtilisateur,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,autorisationP,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:autorisationP,:telephone)";
     $sth=$this->db->prepare($m);
     $sth->execute([
