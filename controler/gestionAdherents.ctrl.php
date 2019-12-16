@@ -31,20 +31,6 @@ if(isset($_POST['nom'])){
     $utilisateur = $dao->getUtilisateurByNum();
 }
 
-
-
-
-
-
-
-
-
-
-
-
 include '../view/Admin/adherents.view.php';
-
-
-
 
 ?>
