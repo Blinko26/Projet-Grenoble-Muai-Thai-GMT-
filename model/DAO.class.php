@@ -139,7 +139,7 @@ class DAO {
     $rep = $this->db->query($requete);
     $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
     $maxAdh=$resultat[0];
-    $m="INSERT INTO informationsPersonnelles(numAdh,nom,prenom,sexe,dateNaissance,poids,taille,paiement,certifMedical,telephone) VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:telephone)";
+    $m="INSERT INTO informationsPersonnelles VALUES(:numUtilisateur,:nom,:prenom,:sexe,:dateNaissance,:poids,:taille,:paiement,:certifMedical,:telephone);";
     $sth=$this->db->prepare($m);
     $sth->execute([
       ':numUtilisateur' => $maxAdh->getNumAdherent()+1,
@@ -153,6 +153,7 @@ class DAO {
       ':certifMedical' => 'true',
       ':telephone' => $telephone,
     ]);
+
   }
 
 }

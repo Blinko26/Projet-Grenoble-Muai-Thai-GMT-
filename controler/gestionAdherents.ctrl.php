@@ -1,5 +1,5 @@
 
-<?php 
+<?php
 
 
 require_once('../model/Utilisateur.class.php');
@@ -10,7 +10,7 @@ require_once('../model/DAO.class.php');
 $dao = new DAO();
 
 if(isset($_POST['nom'])){
-    $utilisateur = $dao->getUtilisateurByName();    
+    $utilisateur = $dao->getUtilisateurByName();
 }else if(isset($_POST['prenom'])){
     $utilisateur = $dao->getUtilisateurByPrenom();
 }else if(isset($_POST['sexe'])){
@@ -29,8 +29,10 @@ if(isset($_POST['nom'])){
     $utilisateur = $dao->getUtilisateurByAutorisationParentale();
 }else if(isset($_POST['numero'])){
     $utilisateur = $dao->getUtilisateurByNum();
+}else{
+  $utilisateur = $dao->getUtilisateurByName();
 }
 
-include '../view/Admin/adherents.view.php';
+include '../view/Admin/gestionAdherents.view.php';
 
 ?>

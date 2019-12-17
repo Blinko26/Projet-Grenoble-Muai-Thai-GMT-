@@ -22,8 +22,8 @@
       <input type="string" name="sexe" required/>
       <br>
       Date de naissance(jj/mm/aaaa):
-      <br>   
-      <input type=date required> 
+      <br>
+      <input type="string" name="date_naissance" required/>
       <br>
       <br>
       Poids:

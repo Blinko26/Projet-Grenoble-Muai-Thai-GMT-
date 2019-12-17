@@ -1,4 +1,4 @@
-<?php include '../view/header.view.php' ?>
+<?php include '../view/Admin/headerAdmin.view.php' ?>
     <link rel="stylesheet" href="../framework/gestionAdherents.css">
     <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
  </header>
@@ -21,16 +21,13 @@
             </tr>
         </table>
     </div>
-        
+
     </form>
         <table>
-                
+
 
     <?php
     //Affichage des adherents en fonctions des criteres de selections demandes
-
-        if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['sexe']) || isset($_POST['dateNaissance'])
-        || isset($_POST['poids']) || isset($_POST['taille']) || isset($_POST['paiement']) || isset($_POST['certificatMedical']) ){
             foreach ($utilisateur as $value) { ?>
             <tr>
                 <td> <?php echo $value->getNom(); echo '  '; ?></td>
@@ -43,10 +40,7 @@
                 <td> <?php echo $value->getCertifMedical(); ?></td>
 
             </tr>
-            <?php
-            }
-        }
-    ?>
+          <?php } ?>
     </table>
     <?php include '../view/footer.view.php'?>
 </body>
