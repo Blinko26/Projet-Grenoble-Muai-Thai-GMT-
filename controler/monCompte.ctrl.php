@@ -33,9 +33,5 @@ if(isset($_SESSION["identifiant"])){
     }
   }
 }
-if(!isset($_SESSION["identifiant"]) || $utilisateur->getRole()!='admin'){
-  include "../view/monCompte.view.php";
-} else {
-  include "../view/Admin/monCompteAdmin.view.php";
-}
+include "../view/monCompte.view.php";
 ?>

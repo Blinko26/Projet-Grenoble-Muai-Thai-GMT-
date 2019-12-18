@@ -1,4 +1,5 @@
-<?php include '../controler/header.ctrl.php' ?>
+<?php session_start();
+include '../controler/header.ctrl.php'; ?>
 <link rel="stylesheet" href="../framework/informations.css">
 <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
 </header>

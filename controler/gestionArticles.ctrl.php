@@ -4,7 +4,7 @@
 require_once('../model/Utilisateur.class.php');
 require_once('../model/Adherent.class.php');
 require_once('../model/DAO.class.php');
-
+session_start();
 
 $dao = new DAO();
 

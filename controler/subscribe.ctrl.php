@@ -1,7 +1,7 @@
 <?php
 require_once('../model/Adherent.class.php');
 require_once('../model/DAO.class.php');
-
+session_start();
 
 $DAO = new DAO();
 

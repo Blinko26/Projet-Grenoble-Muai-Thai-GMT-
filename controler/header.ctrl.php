@@ -2,10 +2,10 @@
 require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
 
-session_start();
+
 $DAO = new DAO();
 
-if(!isset($_SESSION)){
+if(!isset($_SESSION['identifiant'])){
   $connexion=0;
 }else {
   if($DAO->get($_SESSION['identifiant'])->getRole()=='admin'){
