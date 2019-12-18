@@ -29,7 +29,7 @@
       <p>Mot de passe incorrect, vérifiez votre identifiant et votre mot de passe.</p>
     <?php }?>
     <br>
-    <form action="../view/subscribe.view.php">
+    <form action="../view/inscription.view.php">
       <input type="submit" value="Pas encore inscrit" />
     </form>
     <?php } else {?>
@@ -40,10 +40,15 @@
     <p><?php echo $utilisateur->getMail()?></p>
     <br>
     <form action="../view/accueil.view.php" method="post">
-      <input type="submit" value="Déconnexion" />
+      <input type="submit" value="Déconnexion" onclick="deconnct()" />
     </form>
-    <?php } ?>
-    <?php
+
+    <script>
+      function myFunction() {
+        <?php session_unset() ?>
+      }
+</script>
+    <?php }
     include '../view/footer.view.php' ?>
   </body>
 </html>

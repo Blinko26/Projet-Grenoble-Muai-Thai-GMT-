@@ -33,5 +33,10 @@ if(isset($_SESSION["identifiant"])){
     }
   }
 }
+
+function deconnect() : void {
+  session_unset();
+}
+
 include "../view/monCompte.view.php";
 ?>
