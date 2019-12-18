@@ -19,11 +19,6 @@
                 <td><input type="submit" name ="paiement" value="paiement"> <label for=""></label></td>
                 <td><input type="submit" name ="certificatMedical" value="CertificatMedical"> <label for=""></label></td>
             </tr>
-        </table>
-    </div>
-
-    </form>
-        <table>
 
 
     <?php
@@ -42,6 +37,9 @@
             </tr>
           <?php } ?>
     </table>
+  </div>
+
+  </form>
     <?php include '../view/footer.view.php'?>
 </body>
 </html>

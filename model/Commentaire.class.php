@@ -1,14 +1,16 @@
 <?php
 class Commentaire {
-  public $numAdh;
   public $numCom;
-  public $nomAdh;
+  public $numUtilisateur;
+  public $numArticle;
+  public $numComSuivant;
+  public $nomUtilisateur;
   public $dateCom;
   public $contenuCom;
 }
 
 function getNumAdh() : int{
-  return $this->numAdh;
+  return $this->numUtilisateur;
 }
 
 function getNumCom() : int{
@@ -16,14 +18,22 @@ function getNumCom() : int{
 }
 
 function getNomAdh() : string{
-  return $this->nomAdh;
+  return $this->nomUtilisateur;
+}
+
+function getNumComSuivant() : int{
+  return $this->numComSuivant;
+}
+
+function getNumArticle() : string{
+  return $this->numArticle;
 }
 
 function getDateCom() : string{
   return $this->dateCom;
 }
 
-function getContenuActu() : string{
-  return $this->contenuActu;
+function getContenuCom() : string{
+  return $this->$contenuCom;
 }
 ?>

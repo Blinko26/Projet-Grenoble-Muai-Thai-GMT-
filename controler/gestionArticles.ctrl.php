@@ -2,6 +2,7 @@
 
 
 require_once('../model/Actualite.class.php');
+require_once('../model/Commentaire.class.php');
 require_once('../model/DAO.class.php');
 session_start();
 

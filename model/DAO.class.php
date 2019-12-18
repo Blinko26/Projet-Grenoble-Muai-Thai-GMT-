@@ -1,5 +1,4 @@
 <?php
-require_once('../model/Adherent.class.php');
 
 class DAO {
   private $db;
@@ -160,6 +159,13 @@ class DAO {
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Actualite");
     return $resultat;
+  }
+
+  function getNbComsByArticle(int $id): int {
+    $m="SELECT numCom,numUtilisateur,numArticle,numComSuivant,nomUtilisateur,dateCom,contenuCom FROM Commentaire,Article WHERE numArticle=id AND id=$id  ;";
+    $sth=$this->db->query($m);
+    $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Commentaire");
+    return sizeof($resultat);
   }
 
 }
