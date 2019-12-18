@@ -25,7 +25,7 @@
   <a  href="../view/accueil.view.php">Accueil</a>
   <a href="../controler/subscribe.ctrl.php">Inscrire un Adhérent</a>
   <a href="../controler/gestionAdherents.ctrl.php">Gérer les Adherents</a>
-  <a href="../controler/gestionArticles.view.php">Gérer les Articles</a>
+  <a href="../controler/gestionArticles.ctrl.php">Gérer les Articles</a>
   <a href="../controler/monCompte.ctrl.php">Mon Compte</a>
 <?php } ?>
 
