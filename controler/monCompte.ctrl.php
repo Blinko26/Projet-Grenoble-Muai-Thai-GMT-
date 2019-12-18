@@ -3,6 +3,11 @@ require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
 
 session_start();
+if(isset($_POST['deconnect'])){
+  if($_POST['deconnect']=='Déconnexion'){
+    session_unset();
+  }
+}
 $DAO = new DAO();
 $logins=$DAO->getAllAdherents();
 if(!isset($_POST['identifiant'])){
@@ -34,9 +39,7 @@ if(isset($_SESSION["identifiant"])){
   }
 }
 
-function deconnect() : void {
-  session_unset();
-}
+
 
 include "../view/monCompte.view.php";
 ?>

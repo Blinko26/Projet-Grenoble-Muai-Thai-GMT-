@@ -14,4 +14,5 @@ if(!isset($_SESSION['identifiant'])){
     $connexion=1;
   }
 }
+
 include '../view/header.view.php' ?>

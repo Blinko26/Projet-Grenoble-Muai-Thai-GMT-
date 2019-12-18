@@ -33,6 +33,6 @@ if(isset($_POST['nom'])){
   $utilisateur = $dao->getUtilisateurByName();
 }
 
-include '../view/Admin/gestionAdherents.view.php';
+include '../view/gestionAdherents.view.php';
 
 ?>

@@ -39,15 +39,10 @@
     <br>
     <p><?php echo $utilisateur->getMail()?></p>
     <br>
-    <form action="../view/accueil.view.php" method="post">
-      <input type="submit" value="Déconnexion" onclick="deconnct()" />
+    <form action="../controler/monCompte.ctrl.php" method="post">
+      <input type="submit" name="deconnect"value="Déconnexion"/>
     </form>
 
-    <script>
-      function myFunction() {
-        <?php session_unset() ?>
-      }
-</script>
     <?php }
     include '../view/footer.view.php' ?>
   </body>
