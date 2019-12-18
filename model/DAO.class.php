@@ -153,7 +153,13 @@ class DAO {
       ':certifMedical' => 'true',
       ':telephone' => $telephone,
     ]);
+  }
 
+  function getAllArticles(): Array {
+    $m="SELECT * FROM Article ;";
+    $sth=$this->db->query($m);
+    $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Actualite");
+    return $resultat;
   }
 
 }

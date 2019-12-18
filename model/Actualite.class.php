@@ -1,24 +1,29 @@
 <?php
 class Actualite {
-  public $numAct;
+  public $id;
   public $titre;
-  public $dateActu;
-  public $contenuActu;
-}
+  public $date_time_publication;
+  public $date_time_edition;
+  public $contenu;
 
-function getNumAct() : int{
-  return $this->numAct;
-}
+  function getId() : int{
+    return $this->id;
+  }
 
-function getTitre() : string{
-  return $this->titre;
-}
+  function getTitre() : string{
+    return $this->titre;
+  }
 
-function getDateActu() : string{
-  return $this->dateActu;
-}
+  function getDatePubli() : string{
+    return $this->date_time_publication;
+  }
 
-function getContenuActu() : string{
-  return $this->contenuActu;
+  function getDateEdit() : string{
+    return $this->date_time_edition;
+  }
+
+  function getContenuActu() : string{
+    return $this->contenuActu;
+  }
 }
 ?>
