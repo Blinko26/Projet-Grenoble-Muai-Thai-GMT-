@@ -1,4 +1,4 @@
-<?php include '../view/Admin/headerAdmin.view.php' ?>
+<?php include '../controler/header.ctrl.php' ?>
     <link rel="stylesheet" href="../framework/gestionAdherents.css">
     <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
  </header>

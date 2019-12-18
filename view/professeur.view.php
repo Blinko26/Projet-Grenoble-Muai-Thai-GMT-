@@ -1,4 +1,4 @@
-<?php include '../view/header.view.php' ?>
+<?php include '../controler/header.ctrl.php' ?>
 <link rel="stylesheet" href="../framework/professeur.css">
 
   <img src="../view/Images/backgroundEquipe.jpg" alt="Background" class = "imgBackground">

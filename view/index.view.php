@@ -1,4 +1,4 @@
-<?php include '../view/header.view.php' ?>
+<?php include '../controler/header.ctrl.php' ?>
 <?php
   $bdd = new PDO("mysql:host=localhost;dbname=articles;charset=utf8","root","");
 

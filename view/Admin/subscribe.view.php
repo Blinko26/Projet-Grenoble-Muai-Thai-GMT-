@@ -1,4 +1,4 @@
-<?php include '../view/Admin/headerAdmin.view.php' ?>
+<?php include '../controler/header.ctrl.php' ?>
   <link rel="stylesheet" href="../framework/monCompte.css">
 
   <img src="../view/Images/backgroundMonCompte.jpg" alt="Background" class="imgBackground">

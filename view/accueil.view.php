@@ -1,4 +1,4 @@
-<?php include '../view/header.view.php' ?>
+<?php include '../controler/header.ctrl.php' ?>
 <link rel="stylesheet" href="../framework/accueil.css">
 
 <img src="../view/Images/backgroundAccueil.jpg" alt="Background">
