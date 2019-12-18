@@ -22,8 +22,8 @@ class Actualite {
     return $this->date_time_edition;
   }
 
-  function getContenuActu() : string{
-    return $this->contenuActu;
+  function getContenu() : string{
+    return $this->contenu;
   }
 }
 ?>
