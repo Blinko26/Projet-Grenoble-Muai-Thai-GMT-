@@ -4,36 +4,31 @@ class Commentaire {
   public $numUtilisateur;
   public $numArticle;
   public $numComSuivant;
-  public $nomUtilisateur;
   public $dateCom;
   public $contenuCom;
-}
 
-function getNumAdh() : int{
-  return $this->numUtilisateur;
-}
+  function getNumAdh() : int{
+    return $this->numUtilisateur;
+  }
 
-function getNumCom() : int{
-  return $this->numCom;
-}
+  function getNumCom() : int{
+    return $this->numCom;
+  }
 
-function getNomAdh() : string{
-  return $this->nomUtilisateur;
-}
+  function getNumComSuivant() : int{
+    return $this->numComSuivant;
+  }
 
-function getNumComSuivant() : int{
-  return $this->numComSuivant;
-}
+  function getNumArticle() : string{
+    return $this->numArticle;
+  }
 
-function getNumArticle() : string{
-  return $this->numArticle;
-}
+  function getDateCom() : string{
+    return $this->dateCom;
+  }
 
-function getDateCom() : string{
-  return $this->dateCom;
-}
-
-function getContenuCom() : string{
-  return $this->$contenuCom;
+  function getContenuCom() : string{
+    return $this->contenuCom;
+  }
 }
 ?>

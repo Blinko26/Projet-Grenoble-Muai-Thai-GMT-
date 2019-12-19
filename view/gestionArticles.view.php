@@ -6,14 +6,20 @@
  <br>
     <h1>Gestion des articles</h1>
  <!--Menu de recherche des adherents en fonction de differents criteres -->
+
+ <form action="../controler/gestionArticles.ctrl.php" method ="post">
+   <input type="submit" name ="supprimerArticle" value="Supprimer un article">
+   <input type="submit" name ="modifierArticle" value="Modifier un article">
+</form>
+<br>
  <form action="../controler/gestionComs.ctrl.php" method ="post">
  <div class = "criteres">
         <table>
           <tr>
-              <th> Id </td>
+              <th> Numéro d'article </td>
               <th> Titre </td>
-              <th> DatePubli</td>
-              <th> DateEdit </td>
+              <th> Date de publication</td>
+              <th> Date de dernière édition </td>
               <th> Nombre de commmentaires </td>
           </tr>
     <?php
@@ -25,8 +31,11 @@
                 <td> <?php echo $value->getDatePubli() ?></td>
                 <td> <?php echo $value->getDateEdit(); ?></td>
                 <td> <?php echo $DAO->getNbComsByArticle($value->getId()); ?></td>
-                <td> <input type="submit" name ="certificatMedical" value="Accéder aux commentaires"></td>
-
+                <?php if($DAO->getNbComsByArticle($value->getId())==0){?>
+                <td> <input type="submit" name ="commentaires" value="Accéder aux commentaires de l'article n°<?php echo $value->getId(); ?>" disabled></td>
+                <?php } else { ?>
+                  <td> <input type="submit" name ="commentaires" value="Accéder aux commentaires de l'article n°<?php echo $value->getId(); ?>"></td>
+                <?php } ?>
             </tr>
           <?php } ?>
     </table>

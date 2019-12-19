@@ -20,6 +20,13 @@ class DAO {
     return $resultat[0];
   }
 
+  function getAdherentById(int $id):Utilisateur{
+    $m="SELECT * FROM User WHERE numUtilisateur='$id';";
+    $sth=$this->db->query($m);
+    $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
+    return $resultat[0];
+  }
+
 
   /////////////////////////////////////////////////////////////////////
   //Fonction donnant lieu a une requete dans la BD en fonction de certain criteres (noms,prenoms...)
@@ -162,10 +169,30 @@ class DAO {
   }
 
   function getNbComsByArticle(int $id): int {
-    $m="SELECT numCom,numUtilisateur,numArticle,numComSuivant,nomUtilisateur,dateCom,contenuCom FROM Commentaire,Article WHERE numArticle=id AND id=$id  ;";
+    $m="SELECT numCom,numUtilisateur,numArticle,numComSuivant,dateCom,contenuCom FROM Commentaire,Article WHERE numArticle=id AND id=$id  ;";
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Commentaire");
     return sizeof($resultat);
+  }
+
+  function getAllComsByArticle(): Array {
+    $m="SELECT * FROM Commentaire ;";
+    $sth=$this->db->query($m);
+    $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Commentaire");
+    return $resultat;
+  }
+
+  function getArticleById(int $id): Actualite {
+    $m="SELECT * FROM Article WHERE id='$id';";
+    $sth=$this->db->query($m);
+    $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Actualite");
+    return $resultat[0];
+  }
+
+  function supprimerCom(int $id): void {
+    $m="DELETE FROM Commentaire WHERE numCom='$id';";
+    $sth=$this->db->prepare($m);
+    $sth->execute();
   }
 
 }

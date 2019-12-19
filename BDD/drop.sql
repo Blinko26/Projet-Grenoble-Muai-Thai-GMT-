@@ -1,5 +1,7 @@
-DROP TABLE Objet;
+DROP TABLE Media;
 DROP TABLE Article;
 DROP TABLE Commentaire;
-DROP TABLE infoPerso;
-DROP TABLE Utilisateur;
+DROP TABLE informationsPersonnellesMineur;
+DROP TABLE informationsPersonnelles;
+DROP TABLE informationsResponsableLegal;
+DROP TABLE User;

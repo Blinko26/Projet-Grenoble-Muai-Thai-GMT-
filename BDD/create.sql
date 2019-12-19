@@ -43,10 +43,9 @@ CREATE TABLE Commentaire (
   numUtilisateur INT NOT NULL,
   numArticle INT NOT NULL,
   numComSuivant INT,
-  nomUtilisateur VARCHAR(50) DEFAULT 'Utilisateur anonyme',
   dateCom DATE,
   contenuCom TEXT,
-  FOREIGN KEY(numUtilisateur, nomUtilisateur) REFERENCES User(numUtilisateur, login),
+  FOREIGN KEY(numUtilisateur) REFERENCES User(numUtilisateur),
   FOREIGN KEY(numArticle) REFERENCES Article(id),
   FOREIGN KEY(numComSuivant) REFERENCES Commentaire(numCom)
 );

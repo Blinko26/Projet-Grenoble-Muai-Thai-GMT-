@@ -11,32 +11,34 @@
       <p>
       Nom :
       <br>
-      <input type="string" name="nom" required/>
+      <input type="text" name="nom" required maxlength="50"/>
       <br>
       Prenom :
       <br>
-      <input type="string" name="prenom" required/>
+      <input type="text" name="prenom" required maxlength="50"/>
       <br>
-      Sexe(h|f):
+      Sexe:
       <br>
-      <input type="string" name="sexe" required/>
+      h
+      <input type="radio" name="sexe" value="h" required/>
+      f
+      <input type="radio" name="sexe" value="f" required/>
       <br>
-      Date de naissance(jj/mm/aaaa):
+      Date de naissance :
       <br>
-      <input type="string" name="date_naissance" required/>
-      <br>
-      <br>
-      Poids:
-      <br>
-      <input type="string" name="poids" required/>
-      <br>
-      Taille:
-      <br>
-      <input type="string" name="taille" required/>
+      <input type="date" name="date_naissance" required />
       <br>
       Téléphone:
       <br>
-      <input type="string" name="telephone" required/>
+      <input type="tel" name="telephone" required pattern="0[0-9]{9}"/>
+      <br>
+      Poids:
+      <br>
+      <input type="number" name="poids" required value="65" min="20" max="200"/>
+      <br>
+      Taille:
+      <br>
+      <input type="number" name="taille" required value="170" min="100" max="250"/>
       <br>
 
       <input type="submit" value="Valider" />
