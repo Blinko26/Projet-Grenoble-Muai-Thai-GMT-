@@ -9,11 +9,10 @@ session_start();
 $DAO = new DAO();
 
 if(isset($_POST['supprimer'])){
-  $DAO->supprimerCom($_POST['com']);
+  $DAO->supprimerCom($_POST['supprimer']);
 }
-
-$commentaires=$DAO->getAllComsByArticle();
-$article=$DAO->getArticleById($commentaires[0]->getNumArticle());
+$commentaires=$DAO->getAllComsByArticle($_POST['commentaires']);
+$article=$DAO->getArticleById($_POST['commentaires']);
 include '../view/gestionComs.view.php';
 
 ?>

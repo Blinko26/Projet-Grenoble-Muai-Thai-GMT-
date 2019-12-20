@@ -32,9 +32,9 @@
                 <td> <?php echo $value->getDateEdit(); ?></td>
                 <td> <?php echo $DAO->getNbComsByArticle($value->getId()); ?></td>
                 <?php if($DAO->getNbComsByArticle($value->getId())==0){?>
-                <td> <input type="submit" name ="commentaires" value="Accéder aux commentaires de l'article n°<?php echo $value->getId(); ?>" disabled></td>
+                <td> Accéder aux commentaires n°<input type="submit" name ="commentaires" value=<?php echo $value->getId(); ?> disabled ></td>
                 <?php } else { ?>
-                  <td> <input type="submit" name ="commentaires" value="Accéder aux commentaires de l'article n°<?php echo $value->getId(); ?>"></td>
+                  <td> Accéder aux commentaires n°<input type="submit" name ="commentaires" value=<?php echo $value->getId(); ?>></td>
                 <?php } ?>
             </tr>
           <?php } ?>
