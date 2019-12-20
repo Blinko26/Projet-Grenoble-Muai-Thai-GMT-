@@ -35,11 +35,11 @@ class Adherent {
     return $this->taille;
   }
 
-  function getPaiement() : string{
+  function getPaiement() : bool{
     return $this->paiement;
   }
 
-  function getCertifMedical() : string{
+  function getCertifMedical() : bool{
     return $this->certifMedical;
   }
 

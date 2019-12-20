@@ -130,6 +130,13 @@ class DAO {
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
+
+  function getAdherentByUtilisateur(int $numUtilisateur): Adherent{
+    $requete="SELECT * FROM informationspersonnelles WHERE numAdh='$numUtilisateur';";
+    $sth = $this->db->query($requete);
+    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    return $resultat[0];
+  }
 ///////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
   //Normalement on en a plus besoin car valeur par defaut dans les fonctions du dessus exemple string nom = 'null'
