@@ -183,8 +183,8 @@ class DAO {
     return sizeof($resultat);
   }
 
-  function getAllComsByArticle(): Array {
-    $m="SELECT * FROM Commentaire ;";
+  function getAllComsByArticle(int $id): Array {
+    $m="SELECT * FROM Commentaire WHERE numArticle='$id' ;";
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Commentaire");
     return $resultat;
@@ -197,9 +197,22 @@ class DAO {
     return $resultat[0];
   }
 
+  function getComById(int $id): Commentaire {
+    $m="SELECT * FROM Commentaire WHERE numCom='$id';";
+    $sth=$this->db->query($m);
+    $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Commentaire");
+    return $resultat[0];
+  }
+
   function supprimerCom(int $id): void {
+    $comASuppr=$this->getComById($id)->getNumCom();
     $m="DELETE FROM Commentaire WHERE numCom='$id';";
     $sth=$this->db->prepare($m);
+    $sth->execute();
+    $m="UPDATE Commentaire SET numCom=numCom-1 WHERE numCom>$id;";
+    var_dump($m);
+    $sth=$this->db->prepare($m);
+    var_dump($sth);
     $sth->execute();
   }
 
