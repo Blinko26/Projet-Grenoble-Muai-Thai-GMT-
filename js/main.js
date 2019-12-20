@@ -1,8 +1,8 @@
-var content = document.querySelector('#hamburger-content');
-var sidebarBody = document.querySelector('#hamburger-sidebar-body');
-var button = document.querySelector('#hamburger-button');
-var overlay = document.querySelector('#hamburger-overlay');
-var activatedClass = 'hamburger-activated';
+const content = document.querySelector('#hamburger-content');
+const sidebarBody = document.querySelector('#hamburger-sidebar-body');
+const button = document.querySelector('#hamburger-button');
+const overlay = document.querySelector('#hamburger-overlay');
+const  activatedClass = 'hamburger-activated';
 
 sidebarBody.innerHTML = content.innerHTML;
 

@@ -10,6 +10,11 @@ class Adherent {
   public $paiement;
   public $certifMedical;
   public $telephone;
+  public $statutInscription;
+
+  function getStatut() : bool{
+    return $this->$statutInscription;
+  }
 
   function getNumAdherent() : int{
     return $this->numAdh;
@@ -46,6 +51,10 @@ class Adherent {
   function getSexe() : string{
     return $this->sexe;
 
+  }
+
+  function getTelephone() : string {
+    return $this->telephone;
   }
 }
 ?>

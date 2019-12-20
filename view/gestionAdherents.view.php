@@ -21,6 +21,7 @@
                 <th><input type="submit" name ="taille" value="Taille"> <label for=""></label></th>
                 <th><input type="submit" name ="paiement" value="Paiement"> <label for=""></label></th>
                 <th><input type="submit" name ="certificatMedical" value="Certificat medical"> <label for=""></label></th>
+                <th><input type="submit" name ="telephone" value="Telephone"> <label for=""></label></th>
             </tr>
      </table>
     </div>
@@ -54,7 +55,9 @@
                 <td> <?php echo $value->getTaille(); echo '  '; ?></td>
                 <td> <?php if($value->getPaiement()=='true'){ echo 'effectué';}else{echo 'non effectué';}; echo '  '; ?></td>
                 <td> <?php if($value->getCertifMedical()=='true'){ echo 'donné';}else{echo 'non donné';}; ?></td>
-
+                <td> <?php echo $value->getTelephone(); echo ' ';?></td>
+                <th><input type="submit" name ="<?php $value->getNumAdherent() ?>" value="supprimer"> <label for=""></label></th>
+                <?php if(isset($value->getNumAdherent())) ?>
             </tr>
           <?php } ?>
     </table>

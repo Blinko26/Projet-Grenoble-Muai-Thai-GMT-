@@ -9,30 +9,42 @@ session_start();
 
 $dao = new DAO();
 
+
 if(isset($_POST['nom'])){
-    $utilisateur = $dao->getUtilisateurByName();
+    $utilisateur = $dao->getAdherentByName();
 }else if(isset($_POST['prenom'])){
-    $utilisateur = $dao->getUtilisateurByPrenom();
+    $utilisateur = $dao->getAdherentByPrenom();
 }else if(isset($_POST['sexe'])){
-    $utilisateur = $dao->getUtilisateurBySexe();
+    $utilisateur = $dao->getAdherentBySexe();
 }else if(isset($_POST['dateNaissance'])){
-    $utilisateur = $dao->getUtilisateurBydateNaissance();
+    $utilisateur = $dao->getAdherentBydateNaissance();
 }else if(isset($_POST['poids'])){
-    $utilisateur = $dao->getUtilisateurByPoids();
+    $utilisateur = $dao->getAdherentByPoids();
 }else if(isset($_POST['taille'])){
-    $utilisateur = $dao->getUtilisateurByTaille();
+    $utilisateur = $dao->getAdherentByTaille();
 }else if(isset($_POST['paiement'])){
-    $utilisateur = $dao->getUtilisateurByPaiement();
+    $utilisateur = $dao->getAdherentByPaiement();
 }else if(isset($_POST['certificatMedical'])){
-    $utilisateur = $dao->getUtilisateurByCertificat();
+    $utilisateur = $dao->getAdherentByCertificat();
 }else if(isset($_POST['autorisationParentale'])){
-    $utilisateur = $dao->getUtilisateurByAutorisationParentale();
+    $utilisateur = $dao->getAdherentByAutorisationParentale();
 }else if(isset($_POST['numero'])){
-    $utilisateur = $dao->getUtilisateurByNum();
+    $utilisateur = $dao->getAdherentByNum();
+}else if(isset($_POST['telephone'])){
+    $utilisateur = $dao->getAdherentByTelephone();
+
 }else{
-  $utilisateur = $dao->getUtilisateurByName();
+  $utilisateur = $dao->getAdherentByName();
 }
 
 include '../view/gestionAdherents.view.php';
+
+
+function eliminer(int $numAdh = 0){
+    $requete = "DELETE FROM informationsPersonnelles where numAdh = $numAdh ";
+    $rep = $this->db->prepare($requete);
+    $sth->execute();
+    
+  }
 
 ?>
