@@ -175,8 +175,8 @@ class DAO {
     return sizeof($resultat);
   }
 
-  function getAllComsByArticle(): Array {
-    $m="SELECT * FROM Commentaire ;";
+  function getAllComsByArticle(int $id): Array {
+    $m="SELECT * FROM Commentaire WHERE numArticle='$id' ;";
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Commentaire");
     return $resultat;

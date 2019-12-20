@@ -7,7 +7,6 @@
     <h1>Gestion des commentaires</h1>
  <!--Menu de recherche des adherents en fonction de differents criteres -->
 
-
 <h2>Article</h2>
 <form action="../controler/gestionArticles.ctrl.php" method ="post">
   <table>
@@ -29,6 +28,7 @@
     </table>
 </form>
 <h2>Commentaires</h2>
+<?php if(sizeof($commentaires)>0){?>
  <form action="../controler/gestionComs.ctrl.php" method ="post">
  <div class = "criteres">
         <table>
@@ -48,14 +48,17 @@
                 <td> <?php echo $value->getNumArticle(); ?></td>
                 <td> <?php echo $value->getDateCom(); ?></td>
                 <td> <?php echo $value->getContenuCom(); ?></td>
-                <td> <input type="submit" name ="supprimer" value="Supprimer ce commentaire"></td>
-                <input type="hidden" name ="com" value=<?php echo $value->getNumCom(); ?>>
+                <td> Supprimer le commentaire n°<input type="submit" name ="supprimer" value=<?php echo $value->getNumCom(); ?>></td>
+                <input type="hidden" name ="commentaires" value=<?php echo $_POST['commentaires']; ?>>
             </tr>
           <?php } ?>
     </table>
   </div>
 
   </form>
+<?php } else {?>
+  <p>Il n'y a aucun commentaire pour cet article</p>
+  <?php }?>
     <?php include '../view/footer.view.php'?>
 </body>
 </html>
