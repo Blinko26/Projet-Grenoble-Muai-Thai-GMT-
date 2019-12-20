@@ -12,9 +12,7 @@ class Adherent {
   public $telephone;
   public $statutInscription;
 
-  function getStatut() : bool{
-    return $this->$statutInscription;
-  }
+ 
 
   function getNumAdherent() : int{
     return $this->numAdh;

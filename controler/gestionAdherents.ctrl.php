@@ -9,6 +9,9 @@ session_start();
 
 $dao = new DAO();
 
+if(isset($_POST['supprimer'])){
+    $dao->supprimerAdherent($_POST['supprimer']);
+}
 
 if(isset($_POST['nom'])){
     $utilisateur = $dao->getAdherentByName();
@@ -37,14 +40,9 @@ if(isset($_POST['nom'])){
   $utilisateur = $dao->getAdherentByName();
 }
 
+
 include '../view/gestionAdherents.view.php';
 
 
-function eliminer(int $numAdh = 0){
-    $requete = "DELETE FROM informationsPersonnelles where numAdh = $numAdh ";
-    $rep = $this->db->prepare($requete);
-    $sth->execute();
-    
-  }
 
 ?>

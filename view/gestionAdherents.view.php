@@ -28,7 +28,7 @@
 
   </form>
     <br>
-    <form>
+    <form action="../controler/gestionAdherents.ctrl.php" method ="post">
       <table>
             <tr>
                 <th>Nom</label></th>
@@ -56,8 +56,7 @@
                 <td> <?php if($value->getPaiement()=='true'){ echo 'effectué';}else{echo 'non effectué';}; echo '  '; ?></td>
                 <td> <?php if($value->getCertifMedical()=='true'){ echo 'donné';}else{echo 'non donné';}; ?></td>
                 <td> <?php echo $value->getTelephone(); echo ' ';?></td>
-                <th><input type="submit" name ="<?php $value->getNumAdherent() ?>" value="supprimer"> <label for=""></label></th>
-                <?php if(isset($value->getNumAdherent())) ?>
+                <td>Supprimer l'adhérent <input type="submit" name ="supprimer" value=<?php echo $value->getNumAdherent()  ?>> </td> 
             </tr>
           <?php } ?>
     </table>

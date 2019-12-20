@@ -167,6 +167,28 @@ class DAO {
       ':telephone' => $telephone,
     ]);
   }
+  function supprimerCom(int $id): void {
+    $comASuppr=$this->getComById($id)->getNumCom();
+    $m="DELETE FROM Commentaire WHERE numCom='$id';";
+    $sth=$this->db->prepare($m);
+    $sth->execute();
+    $m="UPDATE Commentaire SET numCom=numCom-1 WHERE numCom>$id;";
+    var_dump($m);
+    $sth=$this->db->prepare($m);
+    var_dump($sth);
+    $sth->execute();
+  }
+
+  function supprimerAdherent(int $numAdh) : void {
+    $AdherentASuppr = $this->getAdherentByNum($numAdh);
+    $requete = "DELETE FROM informationsPersonnelles where numAdh = '$numAdh';";
+    $sth= $this->db->prepare($requete);
+    echo $sth->execute();
+
+    $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh";
+    $sth=$this->db->prepare($m);
+    $sth->execute();
+  }
 
   /////////Articles///////////////
   function getAllArticles(): Array {
@@ -204,17 +226,7 @@ class DAO {
     return $resultat[0];
   }
 
-  function supprimerCom(int $id): void {
-    $comASuppr=$this->getComById($id)->getNumCom();
-    $m="DELETE FROM Commentaire WHERE numCom='$id';";
-    $sth=$this->db->prepare($m);
-    $sth->execute();
-    $m="UPDATE Commentaire SET numCom=numCom-1 WHERE numCom>$id;";
-    var_dump($m);
-    $sth=$this->db->prepare($m);
-    var_dump($sth);
-    $sth->execute();
-  }
+ 
 
 }
 ?>
