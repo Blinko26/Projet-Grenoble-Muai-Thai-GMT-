@@ -21,13 +21,14 @@
                 <th><input type="submit" name ="taille" value="Taille"> <label for=""></label></th>
                 <th><input type="submit" name ="paiement" value="Paiement"> <label for=""></label></th>
                 <th><input type="submit" name ="certificatMedical" value="Certificat medical"> <label for=""></label></th>
+                <th><input type="submit" name ="telephone" value="Telephone"> <label for=""></label></th>
             </tr>
      </table>
     </div>
 
   </form>
     <br>
-    <form>
+    <form action="../controler/gestionAdherents.ctrl.php" method ="post">
       <table>
             <tr>
                 <th>Nom</label></th>
@@ -54,7 +55,8 @@
                 <td> <?php echo $value->getTaille(); echo '  '; ?></td>
                 <td> <?php if($value->getPaiement()=='true'){ echo 'effectué';}else{echo 'non effectué';}; echo '  '; ?></td>
                 <td> <?php if($value->getCertifMedical()=='true'){ echo 'donné';}else{echo 'non donné';}; ?></td>
-
+                <td> <?php echo $value->getTelephone(); echo ' ';?></td>
+                <td>Supprimer l'adhérent <input type="submit" name ="supprimer" value=<?php echo $value->getNumAdherent()  ?>> </td> 
             </tr>
           <?php } ?>
     </table>

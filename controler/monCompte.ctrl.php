@@ -1,6 +1,7 @@
 <?php
 require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
+require_once('../model/Adherent.class.php');
 
 session_start();
 if(isset($_POST['deconnect'])){
@@ -8,6 +9,7 @@ if(isset($_POST['deconnect'])){
     session_unset();
   }
 }
+
 $DAO = new DAO();
 $logins=$DAO->getAllAdherents();
 if(!isset($_POST['identifiant'])){
@@ -25,6 +27,9 @@ if(!isset($_POST['identifiant'])){
       $_SESSION["identifiant"]=$_POST['identifiant'];
       $_SESSION["mot_de_passe"]=$_POST['mot_de_passe'];
       $mdp=1;
+      if ($utilisateur->getRole()=='adherent') {
+        $adherent=$DAO->getAdherentByUtilisateur($utilisateur->getNumUtilisateur());
+      }
     } else{
       $mdp=-2;
     }
@@ -38,8 +43,5 @@ if(isset($_SESSION["identifiant"])){
     }
   }
 }
-
-
-
 include "../view/monCompte.view.php";
 ?>

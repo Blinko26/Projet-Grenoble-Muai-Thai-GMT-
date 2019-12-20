@@ -33,7 +33,7 @@ class DAO {
   //Afin de pouvoir mettre en place l'affichage des adherents en fonctions de ces meme criteres.
   //Pages concernees : Adherent.class.php, Utilisateur.class.php,  adherents.view.php, gestionAdherents.ctrl.php
   /////////////////////////////////////////////////////////////////////
-  function getUtilisateurByName(string $nom = 'null'):array{
+  function getAdherentByName(string $nom = 'null'):array{
     if($nom == 'null'){
       //Requete sur la base de donnees afin de recuperer les infos personnelles des adherents et les triers.
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY nom";
@@ -47,7 +47,7 @@ class DAO {
     return $resultat;
   }
 
-  function getUtilisateurByNum(int $num = 0):array{
+  function getAdherentByNum(int $num = 0):array{
     if($num == 0){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY numAdh";
     }else{
@@ -58,7 +58,7 @@ class DAO {
     return $resultat;
   }
 
-  function getUtilisateurByPrenom(string $prenom = 'null'):array{
+  function getAdherentByPrenom(string $prenom = 'null'):array{
     if($prenom == 'null'){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY prenom";
     }else{
@@ -69,7 +69,7 @@ class DAO {
     return $resultat;
   }
 
-  function getUtilisateurBydateNaissance(string $dateNaissance = 'null'):array{
+  function getAdherentBydateNaissance(string $dateNaissance = 'null'):array{
     if($dateNaissance == 'null'){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY dateNaissance";
     }else{
@@ -81,7 +81,7 @@ class DAO {
 
   }
 
-  function getUtilisateurByPoids(int $poids = 0):array{
+  function getAdherentByPoids(int $poids = 0):array{
     if($poids == 0){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY poids";
     }else{
@@ -92,7 +92,7 @@ class DAO {
     return $resultat;
   }
 
-  function getUtilisateurByTaille(int $taille = 0):array{
+  function getAdherentByTaille(int $taille = 0):array{
     if($taille == 0){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY taille";
     }else{
@@ -103,32 +103,47 @@ class DAO {
     return $resultat;
   }
 
-  function getUtilisateurByPaiement():array{
+  function getAdherentByPaiement():array{
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY paiement";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-  function getUtilisateurByCertificat():array{
+  function getAdherentByCertificat():array{
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY certifMedical";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-  function getUtilisateurByAutorisationParentale():array{
+  function getAdherentByAutorisationParentale():array{
     $requete = "SELECT * FROM informationsPersonnelles where dateNaissance - datetime('now') >= 18";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-  function getUtilisateurBySexe():array{
+  function getAdherentBySexe():array{
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY sexe";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
+  }
+
+<<<<<<< HEAD
+  function getAdherentByTelephone():array{
+    $requete = "SELECT * FROM informationsPersonnelles ORDER BY telephone";
+    $sth = $this->db->query($requete);
+    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    return $resultat;
+=======
+  function getAdherentByUtilisateur(int $numUtilisateur): Adherent{
+    $requete="SELECT * FROM informationspersonnelles WHERE numAdh='$numUtilisateur';";
+    $sth = $this->db->query($requete);
+    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    return $resultat[0];
+>>>>>>> 4f5bfbb2001300061eaee43a0f872218e38d9407
   }
 ///////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
@@ -160,7 +175,30 @@ class DAO {
       ':telephone' => $telephone,
     ]);
   }
+  function supprimerCom(int $id): void {
+    $comASuppr=$this->getComById($id)->getNumCom();
+    $m="DELETE FROM Commentaire WHERE numCom='$id';";
+    $sth=$this->db->prepare($m);
+    $sth->execute();
+    $m="UPDATE Commentaire SET numCom=numCom-1 WHERE numCom>$id;";
+    var_dump($m);
+    $sth=$this->db->prepare($m);
+    var_dump($sth);
+    $sth->execute();
+  }
 
+  function supprimerAdherent(int $numAdh) : void {
+    $AdherentASuppr = $this->getAdherentByNum($numAdh);
+    $requete = "DELETE FROM informationsPersonnelles where numAdh = '$numAdh';";
+    $sth= $this->db->prepare($requete);
+    echo $sth->execute();
+
+    $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh";
+    $sth=$this->db->prepare($m);
+    $sth->execute();
+  }
+
+  /////////Articles///////////////
   function getAllArticles(): Array {
     $m="SELECT * FROM Article ;";
     $sth=$this->db->query($m);
@@ -196,17 +234,7 @@ class DAO {
     return $resultat[0];
   }
 
-  function supprimerCom(int $id): void {
-    $comASuppr=$this->getComById($id)->getNumCom();
-    $m="DELETE FROM Commentaire WHERE numCom='$id';";
-    $sth=$this->db->prepare($m);
-    $sth->execute();
-    $m="UPDATE Commentaire SET numCom=numCom-1 WHERE numCom>$id;";
-    var_dump($m);
-    $sth=$this->db->prepare($m);
-    var_dump($sth);
-    $sth->execute();
-  }
+ 
 
 }
 ?>
