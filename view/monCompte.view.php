@@ -30,7 +30,7 @@
     <?php }?>
     <br>
     <form action="../view/inscription.view.php">
-      <input type="submit" value="Pas encore inscrit" />
+      <input type="submit" value="Pas encore inscrit sur le site" />
     </form>
     <?php } else {?>
 

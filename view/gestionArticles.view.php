@@ -6,12 +6,13 @@
  <br>
     <h1>Gestion des articles</h1>
  <!--Menu de recherche des adherents en fonction de differents criteres -->
-
+<?php if($role!='moderateur'){?>
  <form action="../controler/gestionArticles.ctrl.php" method ="post">
    <input type="submit" name ="supprimerArticle" value="Supprimer un article">
    <input type="submit" name ="modifierArticle" value="Modifier un article">
 </form>
 <br>
+<?php } ?>
  <form action="../controler/gestionComs.ctrl.php" method ="post">
  <div class = "criteres">
         <table>
