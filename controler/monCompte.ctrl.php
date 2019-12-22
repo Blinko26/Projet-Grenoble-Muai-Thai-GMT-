@@ -27,9 +27,6 @@ if(!isset($_POST['identifiant'])){
       $_SESSION["identifiant"]=$_POST['identifiant'];
       $_SESSION["mot_de_passe"]=$_POST['mot_de_passe'];
       $mdp=1;
-      if ($utilisateur->getRole()=='adherent') {
-        $adherent=$DAO->getAdherentByUtilisateur($utilisateur->getNumUtilisateur());
-      }
     } else{
       $mdp=-2;
     }
@@ -40,6 +37,10 @@ if(isset($_SESSION["identifiant"])){
   foreach ($logins as $value) {
     if($value->getLogin()==$_SESSION["identifiant"]){
       $utilisateur=$DAO->get($_SESSION["identifiant"]);
+    }
+  }if(isset($utilisateur)){
+    if ($utilisateur->getRole()=='adherent') {
+      $adherent=$DAO->getAdherentByUtilisateur($utilisateur->getNumUtilisateur());
     }
   }
 }
