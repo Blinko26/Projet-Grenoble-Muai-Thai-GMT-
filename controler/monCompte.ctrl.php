@@ -32,6 +32,8 @@ if(!isset($_POST['identifiant'])){
     }
   }
 }
+
+
 if(isset($_SESSION["identifiant"])){
   $mdp=1;
   foreach ($logins as $value) {

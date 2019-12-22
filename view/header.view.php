@@ -11,7 +11,7 @@
 
 <div class="topnav" id="myTopnav">
    <a  href="../controler/accueil.ctrl.php">Accueil</a>
-  <?php if($connexion==0 || $connexion==1){ ?>
+  <?php if($connexion==0 || $connexion==1 ||$connexion==2){ ?>
    <a href="../view/professeur.view.php">Enseignant</a>
    <a href="../view/informations.view.php">Informations</a>
    <a href="../view/inscription.view.php">Inscription</a>
@@ -21,7 +21,7 @@
    <a href="../controler/monCompte.ctrl.php">Mon Compte</a>
  <?php } ?>
    <a href="../view/contact.view.php">Contact</a>
-<?php } else if($connexion==2){ ?>
+<?php } else if($connexion==3 || $connexion=4){ ?>
   <a href="../controler/subscribe.ctrl.php">Inscrire un Adhérent</a>
   <a href="../controler/gestionAdherents.ctrl.php">Gérer les Adherents</a>
   <a href="../controler/gestionArticles.ctrl.php">Gérer les Articles</a>

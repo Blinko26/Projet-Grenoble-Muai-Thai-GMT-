@@ -8,10 +8,19 @@ $DAO = new DAO();
 if(!isset($_SESSION['identifiant'])){
   $connexion=0;
 }else {
-  if($DAO->get($_SESSION['identifiant'])->getRole()=='admin'){
+  switch ($DAO->get($_SESSION['identifiant'])->getRole()){
+    case 'admin':
+    $connexion=4;
+    break;
+    case 'moderateur':
+    $connexion=3;
+    break;
+    case 'adherent':
     $connexion=2;
-  }else{
+    break;
+    default:
     $connexion=1;
+    break;
   }
 }
 

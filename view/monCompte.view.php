@@ -12,11 +12,11 @@
         <p>
         Identifiant :
         <br>
-        <input type="string" name="identifiant" />
+        <input type="string" name="identifiant" required/>
         <br>
         Mot de passe :
         <br>
-        <input type="password" name="mot_de_passe"/>
+        <input type="password" name="mot_de_passe" required/>
         <br>
         <input type="submit" value="Valider" />
         </p>
