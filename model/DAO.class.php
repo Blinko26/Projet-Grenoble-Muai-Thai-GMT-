@@ -131,30 +131,19 @@ class DAO {
     return $resultat;
   }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> c041560a9f6599a16c08a7c458444b15b636ac97
   function getAdherentByTelephone():array{
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY telephone";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
-<<<<<<< HEAD
- }
-
-=======
 }
->>>>>>> c041560a9f6599a16c08a7c458444b15b636ac97
   function getAdherentByUtilisateur(int $numUtilisateur): Adherent{
     $requete="SELECT * FROM informationspersonnelles WHERE numAdh='$numUtilisateur';";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat[0];
-<<<<<<< HEAD
-=======
 
->>>>>>> c041560a9f6599a16c08a7c458444b15b636ac97
   }
 ///////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
