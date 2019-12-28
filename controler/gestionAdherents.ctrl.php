@@ -6,7 +6,7 @@ require_once('../model/Utilisateur.class.php');
 require_once('../model/Adherent.class.php');
 require_once('../model/DAO.class.php');
 session_start();
-
+var_dump($_POST);
 $dao = new DAO();
 
 if(isset($_POST['supprimer'])){
