@@ -2,18 +2,20 @@
     <link rel="stylesheet" href="../framework/gestionAdherents.css">
     <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
  </header>
+ <div class="Adherents">
+   <section id = "Adherents"></section>
  <br>
  <br>
     <h1>Gestion des adherents</h1>
     <?php if(!isset($_POST['supprimerAdherent'])){?>
-      <form action="../controler/gestionAdherents.ctrl.php#listeAdherents" method ="post">
+      <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post">
       <input type="submit" name ="supprimerAdherent" value="Supprimer un adhérent">
       <input type="submit" name ="modifierAdherent" value="Modifier un adhérent">
       <br>
       <h2>Trier par : </h2>
+
       <table>
         <!--Menu de recherche des adherents en fonction de differents criteres -->
-
         <tr>
             <th><input type="submit" name ="nom" value="Nom"> <label for=""></label></th>
             <th><input type="submit" name ="prenom" value="Prenom"> <label for=""></label></th>
@@ -31,7 +33,7 @@
           return confirm("Êtes-vous sur de vouloir supprimer ces adhérents ?");
         }
         </script>
-        <form action="../controler/gestionAdherents.ctrl.php" method ="post" onsubmit="return confirmer();">
+        <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post" onsubmit="return confirmer();">
         <h2>Cochez les adhérents à supprimer : </h2>
         <table>
           <tr>
@@ -45,9 +47,8 @@
               <th>Certificat medical</th>
               <th>Téléphone</th>
           </tr>
-          <div class="listeAdherents">
-    <?php }
-    //Affichage des adherents en fonctions des criteres de selections demandes
+    <?php }?>
+    <?php //Affichage des adherents en fonctions des criteres de selections demandes
             foreach ($utilisateur as $value) { ?>
             <tr>
                 <td> <?php echo $value->getNom(); echo '  '; ?></td>
@@ -64,13 +65,20 @@
               <?php } ?>
             </tr>
           <?php } ?>
-        </div>
     </table>
     <?php if(isset($_POST['supprimerAdherent'])){?>
         <input type="submit" name ="validerSuppression" value="Valider">
-        <input type="submit" name ="annulerSuppression" value="Annuler">
+        <br>
+        <br>
+        <input type="reset" value="Décocher tout">
     <?php }?>
+    </div>
   </form>
-    <?php include '../view/footer.view.php'?>
+  <?php if(isset($_POST['supprimerAdherent'])){?>
+  <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post">
+    <input type="submit" name ="annulerSuppression" value="Annuler">
+  </form>
+  <?php }
+   include '../view/footer.view.php'?>
 </body>
 </html>
