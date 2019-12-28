@@ -185,7 +185,7 @@ class DAO {
   }
 
   function modifierAdherent(string $numAdh,string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone,string $paiement,string $certificatMedical): void {
-    $m="UPDATE informationsPersonnelles SET nom='$nom', prenom='$prenom', sexe='$sexe', dateNaissance='$date_naissance', poids='$poids' ,taille='$taille' ,paiement='$paiement' ,certifMedical='$certificatMedical' ,telephone='$telephone' WHERE numAdh='$numAdh';";
+    $m="UPDATE informationsPersonnelles SET nom='$nom', prenom='$prenom', sexe='$sexe', dateNaissance='$date_naissance', poids='$poids' ,taille='$taille' ,paiement=$paiement ,certifMedical=$certificatMedical ,telephone='$telephone' WHERE numAdh='$numAdh';";
     $sth=$this->db->prepare($m);
     $sth->execute();
   }

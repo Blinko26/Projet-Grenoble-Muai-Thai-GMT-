@@ -8,4 +8,4 @@
 8|Kakyoin|Noriaki|h|1971-07-31|65|178|true|true|0505050505
 9|Kujo|Jotaro|h|1971-03-05|70|195|true|true|0117171717
 10|Polnareff|Jean-Pierre|h|1965-12-19|72|188|true|true|0707070707
-11|Vieillard|Bruno|f|2008-07-31|800|60|false|false|0304050607
+11|Viellard|Bruno|f|2008-07-31|800|60|false|false|0304050607
