@@ -145,6 +145,14 @@ class DAO {
     return $resultat[0];
 
   }
+
+  function getAdherents(): Array{
+    $requete="SELECT * FROM informationspersonnelles;";
+    $sth = $this->db->query($requete);
+    $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
+    return $resultat;
+
+  }
 ///////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
   //Normalement on en a plus besoin car valeur par defaut dans les fonctions du dessus exemple string nom = 'null'

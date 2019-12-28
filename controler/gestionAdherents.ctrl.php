@@ -6,11 +6,15 @@ require_once('../model/Utilisateur.class.php');
 require_once('../model/Adherent.class.php');
 require_once('../model/DAO.class.php');
 session_start();
-var_dump($_POST);
 $dao = new DAO();
-
-if(isset($_POST['supprimer'])){
-    $dao->supprimerAdherent($_POST['supprimer']);
+$utilisateur=$dao->getAdherents();
+$nbSupp=0;
+foreach ($utilisateur as $value) {
+  $num=$value->getNumAdherent();
+  if(isset($_POST[$num]) && $_POST[$num]=="on"){
+    $dao->supprimerAdherent($num-$nbSupp);
+    $nbSupp++;
+  }
 }
 
 if(isset($_POST['nom'])){

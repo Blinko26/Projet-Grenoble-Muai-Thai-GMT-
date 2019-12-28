@@ -62,13 +62,15 @@
                 <td> <?php echo $value->getTelephone(); echo ' ';?></td>
                 <?php if(isset($_POST['supprimerAdherent'])){?>
                 <td><input type="checkbox" id=<?php echo $value->getNumAdherent()?> name =<?php echo $value->getNumAdherent()?>></td>
-              <?php } ?>
+                <?php } ?>
+                <?php if(isset($_POST['modifierAdherent'])){?>
+                <td><input type="radio" id=<?php echo $value->getNumAdherent()?> name =<?php echo $value->getNumAdherent()?>></td>
+                <?php } ?>
             </tr>
           <?php } ?>
     </table>
     <?php if(isset($_POST['supprimerAdherent'])){?>
         <input type="submit" name ="validerSuppression" value="Valider">
-        <br>
         <br>
         <input type="reset" value="Décocher tout">
     <?php }?>
