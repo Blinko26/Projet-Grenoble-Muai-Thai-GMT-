@@ -183,13 +183,19 @@ class DAO {
       ':telephone' => $telephone,
     ]);
   }
+
+  function modifierAdherent(string $numAdh,string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone,string $paiement,string $certificatMedical): void {
+    $m="UPDATE informationsPersonnelles SET nom='$nom', prenom='$prenom', sexe='$sexe', dateNaissance='$date_naissance', poids='$poids' ,taille='$taille' ,paiement='$paiement' ,certifMedical='$certificatMedical' ,telephone='$telephone' WHERE numAdh='$numAdh';";
+    $sth=$this->db->prepare($m);
+    $sth->execute();
+  }
+
   function supprimerCom(int $id): void {
     $comASuppr=$this->getComById($id)->getNumCom();
     $m="DELETE FROM Commentaire WHERE numCom='$id';";
     $sth=$this->db->prepare($m);
     $sth->execute();
     $m="UPDATE Commentaire SET numCom=numCom-1 WHERE numCom>$id;";
-    var_dump($m);
     $sth=$this->db->prepare($m);
     var_dump($sth);
     $sth->execute();
@@ -199,12 +205,14 @@ class DAO {
     $AdherentASuppr = $this->getAdherentByNum($numAdh);
     $requete = "DELETE FROM informationsPersonnelles where numAdh = '$numAdh';";
     $sth= $this->db->prepare($requete);
-    echo $sth->execute();
+    $sth->execute();
 
     $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh";
     $sth=$this->db->prepare($m);
     $sth->execute();
   }
+
+
 
   /////////Articles///////////////
   function getAllArticles(): Array {
