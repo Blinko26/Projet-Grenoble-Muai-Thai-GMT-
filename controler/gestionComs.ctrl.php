@@ -11,8 +11,11 @@ $DAO = new DAO();
 if(isset($_POST['supprimer'])){
   $DAO->supprimerCom($_POST['supprimer']);
 }
-$commentaires=$DAO->getAllComsByArticle($_POST['commentaires']);
-$article=$DAO->getArticleById($_POST['commentaires']);
+
+if(isset($_POST['validerComsAConsulter'])){
+  $commentaires=$DAO->getAllComsByArticle($_POST['comsAConsulter']);
+  $article=$DAO->getArticleById($_POST['comsAConsulter']);
+}
 include '../view/gestionComs.view.php';
 
 ?>

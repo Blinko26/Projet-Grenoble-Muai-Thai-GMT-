@@ -30,6 +30,7 @@
 <h2>Commentaires</h2>
 <?php if(sizeof($commentaires)>0){?>
  <form action="../controler/gestionComs.ctrl.php" method ="post">
+   <input type="submit" name ="supprimerComs" value="Supprimer des commentaires">
  <div class = "criteres">
         <table>
           <tr>
@@ -48,8 +49,9 @@
                 <td> <?php echo $value->getNumArticle(); ?></td>
                 <td> <?php echo $value->getDateCom(); ?></td>
                 <td> <?php echo $value->getContenuCom(); ?></td>
-                <td> Supprimer le commentaire n°<input type="submit" name ="supprimer" value=<?php echo $value->getNumCom(); ?>></td>
-                <input type="hidden" name ="commentaires" value=<?php echo $_POST['commentaires']; ?>>
+                <?php if(isset($_POST['supprimerComs'])){ ?>
+                  <td> Supprimer le commentaire n°<input type="submit" name ="supprimer" value=<?php echo $value->getNumCom(); ?>></td>
+                <?php } ?>
             </tr>
           <?php } ?>
     </table>

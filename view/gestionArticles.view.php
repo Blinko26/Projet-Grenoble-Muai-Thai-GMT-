@@ -10,6 +10,7 @@
  <form action="../controler/gestionArticles.ctrl.php" method ="post">
    <input type="submit" name ="supprimerArticle" value="Supprimer un article">
    <input type="submit" name ="modifierArticle" value="Modifier un article">
+   <input type="submit" name ="consulterComs" value="Consulter les commentaires">
 </form>
 <br>
 <?php } ?>
@@ -32,14 +33,19 @@
                 <td> <?php echo $value->getDatePubli() ?></td>
                 <td> <?php echo $value->getDateEdit(); ?></td>
                 <td> <?php echo $DAO->getNbComsByArticle($value->getId()); ?></td>
-                <?php if($DAO->getNbComsByArticle($value->getId())==0){?>
-                <td> Accéder aux commentaires n°<input type="submit" name ="commentaires" value=<?php echo $value->getId(); ?> disabled ></td>
-                <?php } else { ?>
-                  <td> Accéder aux commentaires n°<input type="submit" name ="commentaires" value=<?php echo $value->getId(); ?>></td>
+                <?php if(isset($_POST['consulterComs'])){?>
+                  <?php if($DAO->getNbComsByArticle($value->getId())==0){?>
+                  <td> <input type="radio" id=<?php echo $value->getId()?> name="comsAConsulter" value="<?php echo $value->getId()?>" disabled/></td>
+                  <?php } else { ?>
+                    <td> <input type="radio" id=<?php echo $value->getId()?> name="comsAConsulter" value="<?php echo $value->getId()?>"/></td>
+                  <?php } ?>
                 <?php } ?>
             </tr>
           <?php } ?>
     </table>
+    <?php if(isset($_POST['consulterComs'])){?>
+      <input type="submit" name="validerComsAConsulter" value="Valider"/>
+    <?php } ?>
   </div>
 
   </form>
