@@ -7,7 +7,12 @@
 
 <?php if(!(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['sexe']) && isset($_POST['poids']) && isset($_POST['taille']) && isset($_POST['telephone']) && isset($_POST['date_naissance']))){ ?>
     <h2>Inscription : </h2>
-  <form action="../controler/subscribe.ctrl.php" method="post">
+    <script>
+    function confirmer(){
+      return confirm("Êtes-vous sur de vouloir inscrire cet adhérent ?");
+    }
+    </script>
+  <form action="../controler/subscribe.ctrl.php" method="post" onsubmit="return confirmer()">
       <p>
       Nom :
       <br>
@@ -40,14 +45,15 @@
       <br>
       <input type="number" name="taille" required value="170" min="100" max="250"/>
       <br>
-
       <input type="submit" value="Valider" />
       </p>
   </form>
 <?php }else{?>
   <p> <?php echo $DAO->getUtilisateurNom($_POST['nom'])->getPrenom() ?> <?php echo $DAO->getUtilisateurNom($_POST['nom'])->getNom() ?> a été inscrit</p>
+  <form action="../controler/subscribe.ctrl.php" method="post">
+    <input type="submit" value="Continuer les inscriptions" />
+  </form>
 <?php } ?>
-
   <?php include '../view/footer.view.php' ?>
 </body>
 </html>
