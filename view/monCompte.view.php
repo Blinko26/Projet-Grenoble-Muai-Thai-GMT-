@@ -41,30 +41,42 @@
     <br>
     <p>Votre rôle : <?php echo $utilisateur->getRole()?></p>
     <br>
-    <?php if( $utilisateur->getRole() == 'adherent'){
+    <?php if( $utilisateur->getRole() != 'inscrit'){
       ?>
       <h2>Informations Personnelles :</h2>
-      <p>Votre Nom : <?php echo $adherent->getPrenom() ?></p>
+      <p>Votre nom : <?php echo $adherent->getPrenom() ?></p>
       <p>Votre prénom : <?php echo $adherent->getNom() ?></p>
       <p>Votre date de naissance : <?php echo $adherent->getDateNaissance() ?></p>
       <p>Votre poids : <?php echo $adherent->getPoids() ?></p>
       <p>Votre taille : <?php echo $adherent->getTaille() ?></p>
-      <p>Etat de votre paiement :</p>
+      <p>Etat de votre paiement :
       <?php if($adherent->getPaiement()){
         echo "Votre paiement a été remis. ";
       }
       else {
         echo "Votre paiement n'a pas été remis. ";
       } ?>
-      <p>Votre Certificat Médical : </p>
+      </p>
+      <p>Votre certificat médical :
       <?php if($adherent->getCertifMedical()){
         echo "Votre certificat médical a été remis. ";
       }
       else {
         echo "Votre certificat n'a pas été remis. ";
       } ?>
-      <p>Votre Sexe : <?php  ?></p>
-  <?php  } ?>
+      </p>
+      <p>Votre sexe :
+        <?php if($adherent->getSexe()=='h'){
+        echo "Homme";
+      }
+      else {
+        echo "Femme";
+      } ?></p>
+  <?php  if($age<18){?>
+    mineur
+    <?php } ?>
+    <?php } ?>
+
 
 
 

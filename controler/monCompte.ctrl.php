@@ -41,8 +41,9 @@ if(isset($_SESSION["identifiant"])){
       $utilisateur=$DAO->get($_SESSION["identifiant"]);
     }
   }if(isset($utilisateur)){
-    if ($utilisateur->getRole()=='adherent') {
+    if ($utilisateur->getRole()!='inscrit') {
       $adherent=$DAO->getAdherentByUtilisateur($utilisateur->getNumUtilisateur());
+      $age= (int)((time()-strtotime($adherent->getDateNaissance()))/3600/24/365);
     }
   }
 }

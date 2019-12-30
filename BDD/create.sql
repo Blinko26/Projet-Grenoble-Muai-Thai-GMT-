@@ -7,7 +7,7 @@ CREATE TABLE User (
 );
 
 CREATE TABLE informationsResponsableLegal (
-  numUtilisateur INT PRIMARY KEY NOT NULL,
+  numRespLegal INT PRIMARY KEY NOT NULL,
   nom VARCHAR(50),
   prenom VARCHAR(50),
   telephone VARCHAR(10),
