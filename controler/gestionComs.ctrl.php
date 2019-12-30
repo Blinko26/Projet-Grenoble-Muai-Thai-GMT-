@@ -8,14 +8,22 @@ session_start();
 
 $DAO = new DAO();
 
+$commentaires=$DAO->getAllComsByArticle($_POST['comsAConsulter']);
+$nbSupp=0;
+foreach ($commentaires as $value) {
+  $num=$value->getNumCom();
+  if(isset($_POST[$num]) && $_POST[$num]=="on"){
+    $DAO->supprimerCom($num-$nbSupp);
+    $nbSupp++;
+  }
+}
+
 if(isset($_POST['supprimer'])){
   $DAO->supprimerCom($_POST['supprimer']);
 }
 
-if(isset($_POST['validerComsAConsulter'])){
-  $commentaires=$DAO->getAllComsByArticle($_POST['comsAConsulter']);
-  $article=$DAO->getArticleById($_POST['comsAConsulter']);
-}
+$commentaires=$DAO->getAllComsByArticle($_POST['comsAConsulter']);
+$article=$DAO->getArticleById($_POST['comsAConsulter']);
 include '../view/gestionComs.view.php';
 
 ?>
