@@ -38,7 +38,7 @@ CREATE TABLE informationsPersonnellesMineur (
   FOREIGN KEY(numParent) REFERENCES informationsResponsableLegal(numUtilisateur)
 );
 
-CREATE TABLE Commentaire (
+CREATE TABLE Commentaire ( -- yo
   numCom INT PRIMARY KEY NOT NULL,
   numUtilisateur INT NOT NULL,
   numArticle INT NOT NULL,
