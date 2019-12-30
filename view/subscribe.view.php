@@ -5,7 +5,7 @@
 
   </header>
 
-<?php if(!(isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['sexe']) && isset($_POST['poids']) && isset($_POST['taille']) && isset($_POST['telephone']) && isset($_POST['date_naissance']))){ ?>
+<?php if(!(isset($_POST['validerInscription']))){ ?>
     <h2>Inscription : </h2>
     <script>
     function confirmer(){
@@ -45,9 +45,11 @@
       <br>
       <input type="number" name="taille" required value="170" min="100" max="250"/>
       <br>
-      <input type="submit" value="Valider" />
+      <input type="submit" name="validerInscription" value="Valider" />
       </p>
   </form>
+<?php }else if(isset($_POST['validerInscription']) && (int)((time()-strtotime($_POST['date_naissance']))/3600/24/365)<18){?>
+  info mineur à rentrer
 <?php }else{?>
   <p> <?php echo $DAO->getUtilisateurNom($_POST['nom'])->getPrenom() ?> <?php echo $DAO->getUtilisateurNom($_POST['nom'])->getNom() ?> a été inscrit</p>
   <form action="../controler/subscribe.ctrl.php" method="post">
