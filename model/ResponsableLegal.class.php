@@ -1,5 +1,5 @@
 <?php
-class Adherent {
+class ResponsableLegal {
   public $numRespLegal;
   public $nom;
   public $prenom;
