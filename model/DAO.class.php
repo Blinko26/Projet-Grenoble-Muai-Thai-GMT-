@@ -279,5 +279,12 @@ function inscrireResponsableLegal(int $numEnfant, string $nom, string $prenom, s
   ]);
 }
 
+function getResponsablesLegauxByEnfant(int $numEnfant): array{
+  $requete = "SELECT * FROM informationsResponsableLegal WHERE numEnfant=$numEnfant ;";
+  $rep = $this->db->query($requete);
+  $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"ResponsableLegal");
+  return $resultat;
+}
+
 }
 ?>

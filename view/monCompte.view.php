@@ -73,7 +73,12 @@
         echo "Femme";
       } ?></p>
   <?php  if($age<18){?>
-    mineur
+    <h2>Informations sur vos responsables légaux :</h2>
+      <?php foreach ($responsablesLegaux as $value) {?>
+            <p>Nom de votre responsable legal <?php echo $nbRespLeg?> : <?php echo $value->getNom()?></p>
+            <p>Prénom de votre responsable legal <?php echo $nbRespLeg?> : <?php echo $value->getPrenom()?></p>
+            <p>Téléphone de votre responsable legal <?php echo $nbRespLeg?> : <?php echo $value->getTelephone()?></p>
+      <?php $nbRespLeg++;} ?>
     <?php } ?>
     <?php } ?>
 

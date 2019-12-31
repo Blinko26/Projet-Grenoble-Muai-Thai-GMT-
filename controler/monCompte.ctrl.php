@@ -2,6 +2,7 @@
 require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
 require_once('../model/Adherent.class.php');
+require_once('../model/ResponsableLegal.class.php');
 
 session_start();
 if(isset($_POST['deconnect'])){
@@ -44,6 +45,10 @@ if(isset($_SESSION["identifiant"])){
     if ($utilisateur->getRole()!='inscrit') {
       $adherent=$DAO->getAdherentByUtilisateur($utilisateur->getNumUtilisateur());
       $age= (int)((time()-strtotime($adherent->getDateNaissance()))/3600/24/365);
+      if($age<18){
+        $nbRespLeg=1;
+        $responsablesLegaux=$DAO->getResponsablesLegauxByEnfant($adherent->getNumAdherent());
+      }
     }
   }
 }
