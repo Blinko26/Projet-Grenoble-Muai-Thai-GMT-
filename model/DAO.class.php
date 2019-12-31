@@ -163,7 +163,7 @@ class DAO {
     return $resultat[0];
   }
 
-  function inscrire(string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone): void {
+  function inscrire(string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone , string $paiement, string $certificatMedical): void {
     $requete = "SELECT * FROM informationsPersonnelles WHERE numAdh IN (SELECT MAX(numAdh) FROM informationsPersonnelles)";
     $rep = $this->db->query($requete);
     $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
@@ -178,8 +178,8 @@ class DAO {
       ':dateNaissance' => $date_naissance,
       ':poids' => $poids,
       ':taille' => $taille,
-      ':paiement' => 'true',
-      ':certifMedical' => 'true',
+      ':paiement' => $paiement,
+      ':certifMedical' => $certificatMedical,
       ':telephone' => $telephone,
     ]);
   }
@@ -202,14 +202,16 @@ class DAO {
   }
 
   function supprimerAdherent(int $numAdh) : void {
-    $AdherentASuppr = $this->getAdherentByNum($numAdh);
-    $requete = "DELETE FROM informationsPersonnelles where numAdh = '$numAdh';";
-    $sth= $this->db->prepare($requete);
-    $sth->execute();
+    if($numAdh!="1"){
+      $AdherentASuppr = $this->getAdherentByNum($numAdh);
+      $requete = "DELETE FROM informationsPersonnelles where numAdh = '$numAdh';";
+      $sth= $this->db->prepare($requete);
+      $sth->execute();
 
-    $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh";
-    $sth=$this->db->prepare($m);
-    $sth->execute();
+      $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh";
+      $sth=$this->db->prepare($m);
+      $sth->execute();
+    }
   }
 
 
@@ -250,7 +252,33 @@ class DAO {
     return $resultat[0];
   }
 
+function getNumDernierAdherent(): int{
+  $requete = "SELECT * FROM informationsPersonnelles WHERE numAdh IN (SELECT MAX(numAdh) FROM informationsPersonnelles)";
+  $rep = $this->db->query($requete);
+  $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
+  return $resultat[0]->getNumAdherent();
+}
 
+function inscrireResponsableLegal(int $numEnfant, string $nom, string $prenom, string $telephone): void {
+  $requete = "SELECT * FROM informationsResponsableLegal WHERE numRespLegal IN (SELECT MAX(numRespLegal) FROM informationsResponsableLegal)";
+  $rep = $this->db->query($requete);
+  $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"ResponsableLegal");
+  if(isset($resultat[0])){
+    $maxRespLeg=$resultat[0];
+  }else{
+    $maxRespLeg=0;
+  }
+  $m="INSERT INTO informationsResponsableLegal VALUES(:numRespLegal,:nom,:prenom,:telephone,:numEnfant);";
+  $sth=$this->db->prepare($m);
+  $sth->execute([
+    ':numRespLegal' => $maxRespLeg->getRespLegal()+1,
+    ':nom' => $nom,
+    ':prenom' => $prenom,
+    ':telephone' => $telephone,
+    ':numEnfant' => $numEnfant,
+
+  ]);
+}
 
 }
 ?>

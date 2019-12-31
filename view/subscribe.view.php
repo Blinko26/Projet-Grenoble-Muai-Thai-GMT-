@@ -84,6 +84,10 @@
       <br>
       <input type="text" name="nomResp1" required maxlength="50"/>
       <br>
+      Prenom du responsable légal 1 :
+      <br>
+      <input type="text" name="prenomResp1" required maxlength="50"/>
+      <br>
       Téléphone du responsable légal 1:
       <br>
       <input type="tel" name="telephoneResp1" required pattern="0[0-9]{9}"/>
@@ -91,6 +95,10 @@
       Nom du responsable légal 2 (facultatif) :
       <br>
       <input type="text" name="nomResp2" maxlength="50"/>
+      <br>
+      Prenom du responsable légal 2 :
+      <br>
+      <input type="text" name="prenomResp2" required maxlength="50"/>
       <br>
       Téléphone du responsable légal 2 (facultatif) :
       <br>
