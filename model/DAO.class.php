@@ -264,19 +264,18 @@ function inscrireResponsableLegal(int $numEnfant, string $nom, string $prenom, s
   $rep = $this->db->query($requete);
   $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"ResponsableLegal");
   if(isset($resultat[0])){
-    $maxRespLeg=$resultat[0];
+    $maxRespLeg=$resultat[0]->getNumResponsableLegal();
   }else{
     $maxRespLeg=0;
   }
   $m="INSERT INTO informationsResponsableLegal VALUES(:numRespLegal,:nom,:prenom,:telephone,:numEnfant);";
   $sth=$this->db->prepare($m);
   $sth->execute([
-    ':numRespLegal' => $maxRespLeg->getRespLegal()+1,
+    ':numRespLegal' => $maxRespLeg+1,
     ':nom' => $nom,
     ':prenom' => $prenom,
     ':telephone' => $telephone,
     ':numEnfant' => $numEnfant,
-
   ]);
 }
 

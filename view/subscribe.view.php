@@ -5,7 +5,7 @@
 
   </header>
 
-<?php if(!(isset($_POST['validerInscription']))){ ?>
+<?php if(!(isset($_POST['validerInscription'])) && !(isset($_POST['validerInscriptionMineur']))){ ?>
     <h2>Inscription : </h2>
     <script>
     function confirmer(){
@@ -98,7 +98,7 @@
       <br>
       Prenom du responsable légal 2 :
       <br>
-      <input type="text" name="prenomResp2" required maxlength="50"/>
+      <input type="text" name="prenomResp2" maxlength="50"/>
       <br>
       Téléphone du responsable légal 2 (facultatif) :
       <br>
