@@ -12,8 +12,7 @@ CREATE TABLE informationsResponsableLegal (
   prenom VARCHAR(50),
   telephone VARCHAR(10),
   numEnfant INT NOT NULL,
-  FOREIGN KEY(numUtilisateur) REFERENCES User(numUtilisateur),
-  FOREIGN KEY(numEnfant) REFERENCES informationsPersonnellesMineur(numAdh)
+  FOREIGN KEY(numEnfant) REFERENCES informationsPersonnelles(numAdh)
 );
 
 CREATE TABLE informationsPersonnelles (
@@ -28,14 +27,6 @@ CREATE TABLE informationsPersonnelles (
   certifMedical BOOLEAN,
   telephone VARCHAR(10),
   FOREIGN KEY(numAdh) REFERENCES User(numUtilisateur)
-);
-
-CREATE TABLE informationsPersonnellesMineur (
-  numAdh INT PRIMARY KEY NOT NULL,
-  autorisationP BOOLEAN,
-  numParent INT NOT NULL,
-  FOREIGN KEY(numAdh) REFERENCES informationsPersonnelles(numAdh),
-  FOREIGN KEY(numParent) REFERENCES informationsResponsableLegal(numUtilisateur)
 );
 
 CREATE TABLE Commentaire ( -- yo
