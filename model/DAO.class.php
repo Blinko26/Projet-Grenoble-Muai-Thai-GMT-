@@ -201,21 +201,6 @@ class DAO {
     $sth->execute();
   }
 
-  function supprimerAdherent(int $numAdh) : void {
-    if($numAdh!="1"){
-      $AdherentASuppr = $this->getAdherentByNum($numAdh);
-      $requete = "DELETE FROM informationsPersonnelles where numAdh = '$numAdh';";
-      $sth= $this->db->prepare($requete);
-      $sth->execute();
-
-      $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh";
-      $sth=$this->db->prepare($m);
-      $sth->execute();
-    }
-  }
-
-
-
   /////////Articles///////////////
   function getAllArticles(): Array {
     $m="SELECT * FROM Article ;";
@@ -284,6 +269,33 @@ function getResponsablesLegauxByEnfant(int $numEnfant): array{
   $rep = $this->db->query($requete);
   $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"ResponsableLegal");
   return $resultat;
+}
+
+function supprimerAdherent(int $numAdh) : void {
+  if($numAdh!="1"){
+    $AdherentASuppr = $this->getAdherentByNum($numAdh);
+    $requete = "DELETE FROM informationsPersonnelles where numAdh = '$numAdh';";
+    $sth= $this->db->prepare($requete);
+    $sth->execute();
+
+    $respLegaux=$this->getResponsablesLegauxByEnfant($numAdh);
+
+    $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh";
+    $sth=$this->db->prepare($m);
+    $sth->execute();
+
+    $num1=$respLegaux[0]->getNumResponsableLegal();
+    foreach ($respLegaux as $value) {
+
+      $requete = "DELETE FROM informationsResponsableLegal where numRespLegal = $num1;";
+      $sth= $this->db->prepare($requete);
+      $sth->execute();
+
+      $m = "UPDATE informationsResponsableLegal SET numRespLegal = numRespLegal-1 WHERE numRespLegal>$num1;";
+      $sth=$this->db->prepare($m);
+      $sth->execute();
+    }
+  }
 }
 
 }
