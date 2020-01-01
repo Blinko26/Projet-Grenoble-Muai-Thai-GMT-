@@ -298,5 +298,13 @@ function supprimerAdherent(int $numAdh) : void {
   }
 }
 
+function getUtilisateurByAdherent(int $numAdherent): Utilisateur{
+  $requete="SELECT * FROM user WHERE numUtilisateur='$numAdherent';";
+  $sth = $this->db->query($requete);
+  $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
+  return $resultat[0];
+
+}
+
 }
 ?>

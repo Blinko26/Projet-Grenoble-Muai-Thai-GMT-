@@ -7,11 +7,12 @@
  <br>
  <br>
     <h1>Gestion des adherents</h1>
-    <?php if(!isset($_POST['validerAdherentAModifier'])){
+    <?php if(!isset($_POST['validerAdherentAModifier']) && !isset($_POST['validerAdherentAConsulter'])){
     if(!isset($_POST['supprimerAdherent']) && !isset($_POST['modifierAdherent'])){?>
       <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post">
       <input type="submit" name ="supprimerAdherent" value="Supprimer un adhérent">
       <input type="submit" name ="modifierAdherent" value="Modifier un adhérent">
+      <input type="submit" name ="consulterAdherent" value="Consulter un adhérent">
       <br>
       <h2>Trier par : </h2>
 
@@ -73,6 +74,9 @@
                 <?php if(isset($_POST['modifierAdherent'])){?>
                 <td><input type="radio" id=<?php echo $value->getNumAdherent()?> name =adherentAModifier value=<?php echo $value->getNumAdherent()?> checked></td>
                 <?php } ?>
+                <?php if(isset($_POST['consulterAdherent'])){?>
+                <td><input type="radio" id=<?php echo $value->getNumAdherent()?> name =adherentAConsulter value=<?php echo $value->getNumAdherent()?> checked></td>
+                <?php } ?>
             </tr>
           <?php } ?>
     </table>
@@ -82,6 +86,8 @@
         <input type="reset" value="Décocher tout">
     <?php }else if(isset($_POST['modifierAdherent'])){?>
         <input type="submit" name ="validerAdherentAModifier" value="Valider">
+    <?php } else if(isset($_POST['consulterAdherent'])){?>
+        <input type="submit" name ="validerAdherentAConsulter" value="Valider">
     <?php }?>
     </div>
   </form>
@@ -90,7 +96,7 @@
     <input type="submit" name ="annuler" value="Annuler">
   </form>
   <?php }
-} else {?>
+} else if(isset($adherentAModifier)){?>
   <script>
   function confirmer(){
     return confirm("Êtes-vous sur de vos modifications sur cet adhérent ?");
@@ -107,7 +113,7 @@
       <br>
       <input type="text" name="prenom" value=<?php echo $adherentAModifier[0]->getPrenom() ?> required maxlength="50"/>
       <br>
-      Sexe:
+      Sexe :
       <br>
       <?php if($adherentAModifier[0]->getSexe()=='h'){ ?>
         h
@@ -125,19 +131,19 @@
       <br>
       <input type="date" name="date_naissance" value=<?php echo $adherentAModifier[0]->getDateNaissance() ?> required />
       <br>
-      Téléphone:
+      Téléphone :
       <br>
       <input type="tel" name="telephone" value=<?php echo $adherentAModifier[0]->getTelephone()?> required pattern="0[0-9]{9}"/>
       <br>
-      Poids:
+      Poids :
       <br>
       <input type="number" name="poids" value=<?php echo $adherentAModifier[0]->getPoids()?> required value="65" min="20" max="200"/>
       <br>
-      Taille:
+      Taille :
       <br>
       <input type="number" name="taille" value=<?php echo $adherentAModifier[0]->getTaille()?> required value="170" min="100" max="250"/>
       <br>
-      Paiement:
+      Paiement :
       <br>
       <?php if($adherentAModifier[0]->getPaiement()=='true'){ ?>
         effectué
@@ -151,7 +157,7 @@
         <input type="radio" name="paiement" value="false" checked required/>
       <?php } ?>
       <br>
-      Certificat médical:
+      Certificat médical :
       <br>
       <?php if($adherentAModifier[0]->getCertifMedical()=='true'){ ?>
         donné
@@ -172,6 +178,77 @@
     <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
     <input type="submit" value="Annuler" />
     </form>
+<?php } else{?>
+  <h2>Informations de l'adhérent</h2>
+  <p>
+  Nom :
+  <?php echo $adherentAConsulter[0]->getNom() ?>
+  <br>
+  Prenom :
+  <?php echo $adherentAConsulter[0]->getPrenom() ?>
+  <br>
+  Sexe :
+  <?php if($adherentAConsulter[0]->getSexe()=='h'){ ?>
+    Homme
+  <?php } else { ?>
+    Femme
+  <?php } ?>
+  <br>
+  Date de naissance :
+  <?php echo $adherentAConsulter[0]->getDateNaissance() ?>
+  <br>
+  Téléphone:
+  <?php echo $adherentAConsulter[0]->getTelephone()?>
+  <br>
+  Poids :
+  <?php echo $adherentAConsulter[0]->getPoids()?>
+  <br>
+  Taille :
+  <?php echo $adherentAConsulter[0]->getTaille()?>
+  <br>
+  Paiement :
+  <?php if($adherentAConsulter[0]->getPaiement()=='true'){ ?>
+    effectué
+  <?php } else { ?>
+    non effectué
+  <?php } ?>
+  <br>
+  Certificat médical :
+  <?php if($adherentAConsulter[0]->getCertifMedical()=='true'){ ?>
+    donné
+  <?php } else { ?>
+    non donné
+  <?php } ?>
+</p>
+<h2>Information sur le compte utilisateur de l'adhérent</h2>
+<p>
+Login :
+<?php echo $utilisateurAConsulter->getLogin() ?>
+<br>
+Mail :
+<?php echo $utilisateurAConsulter->getMail() ?>
+<br>
+Role :
+<?php echo $utilisateurAConsulter->getRole() ?>
+<br>
+</p>
+<?php  if($age<18){?>
+  <h2>Informations sur les responsables légaux de l'adherent :</h2>
+    <?php foreach ($responsablesLegauxAConsulter as $value) {?>
+          <p>Nom du responsable legal <?php echo $nbRespLeg?> :
+          <?php echo $value->getNom()?>
+          <br>
+          Prénom du responsable legal <?php echo $nbRespLeg?> :
+          <?php echo $value->getPrenom()?>
+          <br>
+          Téléphone du responsable legal <?php echo $nbRespLeg?> :
+          <?php echo $value->getTelephone()?>
+          <br>
+    <?php $nbRespLeg++;} ?>
+  <?php } ?>
+  <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
+  <input type="submit" value="Retour" />
+  </form>
 <?php }
    include '../view/footer.view.php'?>
 </body>

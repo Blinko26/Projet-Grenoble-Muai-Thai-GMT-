@@ -23,6 +23,16 @@ if(isset($_POST['validerAdherentAModifier'])){
   $adherentAModifier=$dao->getAdherentByNum($_POST['adherentAModifier']);
 }
 
+if(isset($_POST['validerAdherentAConsulter'])){
+  $adherentAConsulter=$dao->getAdherentByNum($_POST['adherentAConsulter']);
+  $utilisateurAConsulter=$dao->getUtilisateurByAdherent($adherentAConsulter[0]->getNumAdherent());
+  $age= (int)((time()-strtotime($adherentAConsulter[0]->getDateNaissance()))/3600/24/365);
+  if($age<18){
+    $responsablesLegauxAConsulter=$dao->getResponsablesLegauxByEnfant($adherentAConsulter[0]->getNumAdherent());
+    $nbRespLeg=$responsablesLegauxAConsulter[0]->getNumResponsableLegal();
+  }
+}
+
 if(isset($_POST['validerModification'])){
   $dao->modifierAdherent($_POST['numAdh'],$_POST['nom'],$_POST['prenom'],$_POST['sexe'],$_POST['date_naissance'],$_POST['poids'],$_POST['taille'],$_POST['telephone'],$_POST['paiement'],$_POST['certificatMedical']);
 }

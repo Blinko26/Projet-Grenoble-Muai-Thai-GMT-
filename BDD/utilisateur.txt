@@ -9,3 +9,4 @@
 9|silver|chariot|Jean-Pierre_Polnareff@mail.com|admin
 10|viellarb|girly|Bruno_Viellard@mail.com|inscrit
 11|dutrevec|elcalvo|Calvin_Dutreve@mail.com|adherent
+12|berguert|crackenar|Teo_Berguerre@mail.com|adherent
