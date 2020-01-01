@@ -246,6 +246,7 @@ Role :
           <?php echo $value->getTelephone()?>
           <br>
     <?php $nbRespLeg++;} ?>
+    <input type="hidden" name="adherentAConsulterModifRespLeg" value="<?php echo $adherentAConsulter[0]->getNumAdherent();?>" >
     <input type="submit" name="modifierRespLegaux" value="Modifier les responsables légaux" />
     </form>
   <?php } ?>
@@ -255,11 +256,12 @@ Role :
 <?php } else {?>
   <script>
   function confirmer(){
-    return confirm("Êtes-vous sur de vouloir continuer l'inscription ?");
+    return confirm("Êtes-vous sur de vos modifications ?");
   }
   </script>
-  <form action="../controler/subscribe.ctrl.php" method="post" onsubmit="return confirmer()">
+  <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post" onsubmit="return confirmer()">
       <p>
+      <input type="hidden" name="numResp1" value="<?php echo $responsablesLegauxAConsulter[0]->getNumResponsableLegal();?>" >
       Nom du responsable légal 1 :
       <br>
       <input type="text" name="nomResp1" value=<?php echo $responsablesLegauxAConsulter[0]->getNom()?> required maxlength="50"/>
@@ -272,20 +274,22 @@ Role :
       <br>
       <input type="tel" name="telephoneResp1" value=<?php echo $responsablesLegauxAConsulter[0]->getTelephone()?> required pattern="0[0-9]{9}"/>
       <br>
-      Nom du responsable légal 2 :
-      <br>
-      <input type="text" name="nomResp2" maxlength="50"/>
-      <br>
-      Prenom du responsable légal 2 :
-      <br>
-      <input type="text" name="prenomResp2" maxlength="50"/>
-      <br>
-      Téléphone du responsable légal 2 :
-      <br>
-      <input type="tel" name="telephoneResp2" pattern="0[0-9]{9}"/>
-      <br>
-      <input type="submit" name="validerInscriptionMineur" value="Valider" />
-      <input type="reset" value="Réinitialiser le formulaire" />
+      <?php if(isset($responsablesLegauxAConsulter[1])) {?>
+        <input type="hidden" name="numResp2" value="<?php echo $responsablesLegauxAConsulter[1]->getNumResponsableLegal();?>" >
+        Nom du responsable légal 2 :
+        <br>
+        <input type="text" name="nomResp2" value=<?php echo $responsablesLegauxAConsulter[1]->getNom()?> requiered maxlength="50"/>
+        <br>
+        Prenom du responsable légal 2 :
+        <br>
+        <input type="text" name="prenomResp2" value=<?php echo $responsablesLegauxAConsulter[1]->getPrenom()?> requiered maxlength="50"/>
+        <br>
+        Téléphone du responsable légal 2 :
+        <br>
+        <input type="tel" name="telephoneResp2" value=<?php echo $responsablesLegauxAConsulter[1]->getTelephone()?> requiered pattern="0[0-9]{9}"/>
+        <br>
+      <?php } ?>
+      <input type="submit" name="validerModificationRespLeg" value="Valider" />
       </p>
   </form>
   <form action="../controler/subscribe.ctrl.php" method="post">

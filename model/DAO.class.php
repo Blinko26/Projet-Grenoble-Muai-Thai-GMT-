@@ -303,7 +303,12 @@ function getUtilisateurByAdherent(int $numAdherent): Utilisateur{
   $sth = $this->db->query($requete);
   $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
   return $resultat[0];
+}
 
+function modifierResponsableLegal(string $numResp,string $nom, string $prenom, string $telephone): void {
+  $m="UPDATE informationsResponsableLegal SET nom='$nom', prenom='$prenom',telephone='$telephone' WHERE numRespLegal='$numResp';";
+  $sth=$this->db->prepare($m);
+  $sth->execute();
 }
 
 }
