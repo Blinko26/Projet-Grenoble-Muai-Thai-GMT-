@@ -96,7 +96,7 @@
       <br>
       <input type="text" name="nomResp2" maxlength="50"/>
       <br>
-      Prenom du responsable légal 2 :
+      Prenom du responsable légal 2 (facultatif) :
       <br>
       <input type="text" name="prenomResp2" maxlength="50"/>
       <br>

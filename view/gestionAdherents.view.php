@@ -7,7 +7,7 @@
  <br>
  <br>
     <h1>Gestion des adherents</h1>
-    <?php if(!isset($_POST['validerAdherentAModifier']) && !isset($_POST['validerAdherentAConsulter'])){
+    <?php if(!isset($_POST['validerAdherentAModifier']) && !isset($_POST['validerAdherentAConsulter']) && !isset($_POST['modifierRespLegaux'])){
     if(!isset($_POST['supprimerAdherent']) && !isset($_POST['modifierAdherent'])){?>
       <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post">
       <input type="submit" name ="supprimerAdherent" value="Supprimer un adhérent">
@@ -178,7 +178,7 @@
     <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
     <input type="submit" value="Annuler" />
     </form>
-<?php } else{?>
+<?php } else if(isset($adherentAConsulter)){?>
   <h2>Informations de l'adhérent</h2>
   <p>
   Nom :
@@ -234,6 +234,7 @@ Role :
 </p>
 <?php  if($age<18){?>
   <h2>Informations sur les responsables légaux de l'adherent :</h2>
+  <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
     <?php foreach ($responsablesLegauxAConsulter as $value) {?>
           <p>Nom du responsable legal <?php echo $nbRespLeg?> :
           <?php echo $value->getNom()?>
@@ -245,9 +246,50 @@ Role :
           <?php echo $value->getTelephone()?>
           <br>
     <?php $nbRespLeg++;} ?>
+    <input type="submit" name="modifierRespLegaux" value="Modifier les responsables légaux" />
+    </form>
   <?php } ?>
   <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
   <input type="submit" value="Retour" />
+  </form>
+<?php } else {?>
+  <script>
+  function confirmer(){
+    return confirm("Êtes-vous sur de vouloir continuer l'inscription ?");
+  }
+  </script>
+  <form action="../controler/subscribe.ctrl.php" method="post" onsubmit="return confirmer()">
+      <p>
+      Nom du responsable légal 1 :
+      <br>
+      <input type="text" name="nomResp1" value=<?php echo $responsablesLegauxAConsulter[0]->getNom()?> required maxlength="50"/>
+      <br>
+      Prenom du responsable légal 1 :
+      <br>
+      <input type="text" name="prenomResp1" value=<?php echo $responsablesLegauxAConsulter[0]->getPrenom()?> required maxlength="50"/>
+      <br>
+      Téléphone du responsable légal 1:
+      <br>
+      <input type="tel" name="telephoneResp1" value=<?php echo $responsablesLegauxAConsulter[0]->getTelephone()?> required pattern="0[0-9]{9}"/>
+      <br>
+      Nom du responsable légal 2 :
+      <br>
+      <input type="text" name="nomResp2" maxlength="50"/>
+      <br>
+      Prenom du responsable légal 2 :
+      <br>
+      <input type="text" name="prenomResp2" maxlength="50"/>
+      <br>
+      Téléphone du responsable légal 2 :
+      <br>
+      <input type="tel" name="telephoneResp2" pattern="0[0-9]{9}"/>
+      <br>
+      <input type="submit" name="validerInscriptionMineur" value="Valider" />
+      <input type="reset" value="Réinitialiser le formulaire" />
+      </p>
+  </form>
+  <form action="../controler/subscribe.ctrl.php" method="post">
+    <input type="submit" value="Annuler" />
   </form>
 <?php }
    include '../view/footer.view.php'?>
