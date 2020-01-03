@@ -3,7 +3,7 @@ CREATE TABLE User ( -- Table de l'utilisateur (détenteur d'un compte sur le sit
   login VARCHAR(25),
   password VARCHAR(50),
   mail VARCHAR(50),
-  role TEXT CHECK( role IN ('admin','moderateur','adherent', 'inscrit', 'responsableLegal') ) -- Différents rôles qu'un utilisateur du site pourra avoir. Ce rôle lui donnera des droits plus ou moins avancés.
+  role TEXT CHECK( role IN ('admin','moderateur','adherent', 'inscrit') ) -- Différents rôles qu'un utilisateur du site pourra avoir. Ce rôle lui donnera des droits plus ou moins avancés.
 );
 
 CREATE TABLE informationsResponsableLegal ( -- Table d'informations concernant le responsable légal d'un adhérent mineur. Dépend de son numéro d'Utilisateur.
