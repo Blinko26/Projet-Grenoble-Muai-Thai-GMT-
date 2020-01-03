@@ -311,5 +311,25 @@ function modifierResponsableLegal(string $numResp,string $nom, string $prenom, s
   $sth->execute();
 }
 
+function inscrireUtilisateur(string $login, string $password, string $mail): void {
+  $requete = "SELECT * FROM User WHERE numUtilisateur IN (SELECT MAX(numUtilisateur) FROM User)";
+  $rep = $this->db->query($requete);
+  $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
+  if(isset($resultat[0])){
+    $maxUser=$resultat[0]->getNumUtilisateur();
+  }else{
+    $maxUser=0;
+  }
+  $m="INSERT INTO User VALUES(:numUtilisateur,:login,:mail,:password,:role);";
+  $sth=$this->db->prepare($m);
+  $sth->execute([
+    ':numUtilisateur' => $maxUser+1,
+    ':login' => $login,
+    ':mail' => $mail,
+    ':password' => $password,
+    ':role' => 'inscrit',
+  ]);
+}
+
 }
 ?>

@@ -29,7 +29,7 @@
       <p>Mot de passe incorrect, vérifiez votre identifiant et votre mot de passe.</p>
     <?php }?>
     <br>
-    <form action="../view/inscription.view.php">
+    <form action="../controler/inscriptionUtilisateur.ctrl.php">
       <input type="submit" value="Pas encore inscrit sur le site" />
     </form>
     <?php } else {?>

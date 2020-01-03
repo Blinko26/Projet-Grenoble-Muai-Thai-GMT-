@@ -179,7 +179,7 @@
     <input type="submit" value="Annuler" />
     </form>
 <?php } else if(isset($adherentAConsulter)){?>
-  <h2>Informations de l'adhérent</h2>
+  <h2>Informations de l'adhérent :</h2>
   <p>
   Nom :
   <?php echo $adherentAConsulter[0]->getNom() ?>
@@ -220,7 +220,7 @@
     non donné
   <?php } ?>
 </p>
-<h2>Information sur le compte utilisateur de l'adhérent</h2>
+<h2>Information sur le compte utilisateur de l'adhérent :</h2>
 <p>
 Login :
 <?php echo $utilisateurAConsulter->getLogin() ?>

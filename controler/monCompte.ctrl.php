@@ -12,6 +12,7 @@ if(isset($_POST['deconnect'])){
 }
 
 $DAO = new DAO();
+
 $logins=$DAO->getAllAdherents();
 if(!isset($_POST['identifiant'])){
   $mdp=0;

@@ -12,7 +12,7 @@ class Adherent {
   public $telephone;
   public $statutInscription;
 
- 
+
 
   function getNumAdherent() : int{
     return $this->numAdh;
@@ -38,11 +38,11 @@ class Adherent {
     return $this->taille;
   }
 
-  function getPaiement() : bool{
+  function getPaiement() : string{
     return $this->paiement;
   }
 
-  function getCertifMedical() : bool{
+  function getCertifMedical() : string{
     return $this->certifMedical;
   }
 
