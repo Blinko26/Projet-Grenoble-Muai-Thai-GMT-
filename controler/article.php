@@ -8,9 +8,9 @@
     $article = $bdd->prepare('SELECT * FROM articles WHERE id = ?');
     $article->execute(array($get_id));
 
-    if ($article->rowCount()==1) {
-      $article = $article->fetch();
-      $id = $article['id'];
+    if ($article->rowCount()==1) { // Vérifie que l'article courant existe.
+      $article = $article->fetch(); // Cherche l'article courant dans la base de données.
+      $id = $article['id']; // Récupère dans chaque variable un attribut de l'article courant.
       $titre = $article['titre'];
       $contenu = $article['contenu'];
     }else {

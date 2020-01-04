@@ -6,7 +6,7 @@ require_once('../model/Utilisateur.class.php');
 require_once('../model/Adherent.class.php');
 require_once('../model/ResponsableLegal.class.php');
 require_once('../model/DAO.class.php');
-session_start();
+session_start(); // Démarre une nouvelle connexion.
 $dao = new DAO();
 
 $utilisateur=$dao->getAdherents();

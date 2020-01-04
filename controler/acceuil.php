@@ -1,7 +1,7 @@
 <?php
   $bdd = new PDO("mysql:host=localhost;dbname=articles;charset=utf8","root","");
 
-  $articles = $bdd->query('SELECT * FROM articles ORDER BY date_time_publication DESC');
+  $articles = $bdd->query('SELECT * FROM articles ORDER BY date_time_publication DESC'); // Récupère tous les articles par date de publication, du plus récent au plus ancien.
  ?>
 
 
@@ -17,7 +17,7 @@
      <a href="redaction.php">Creer un Article</a>
 
      <ul>
-       <?php while ($a = $articles->fetch()) { ?>
+       <?php while ($a = $articles->fetch()) { ?> <!-- Parcourt tous les articles afin de les afficher. -->
          <li>
            <a href="article.php?id=<?= $a['id'] ?>">
            <img src="miniatures/<?= $a['id'] ?>.jpg" alt="" width="100"> <br>
