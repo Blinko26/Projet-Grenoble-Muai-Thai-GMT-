@@ -8,7 +8,7 @@ session_start();
 
 $DAO = new DAO();
 
-$commentaires=$DAO->getAllComsByArticle($_POST['comsAConsulter']);
+$commentaires=$DAO->getAllComsByArticle($_POST['comsAConsulter']); // On récupère tous les commentaires d'un article donné.
 $nbSupp=0;
 foreach ($commentaires as $value) {
   $num=$value->getNumCom();

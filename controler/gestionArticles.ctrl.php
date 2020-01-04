@@ -9,8 +9,8 @@ session_start();
 
 $DAO = new DAO();
 
-$articles=$DAO->getAllArticles();
-$role=$DAO->get($_SESSION['identifiant'])->getRole();
+$articles=$DAO->getAllArticles(); // On récupère tous les articles dans la base de données.
+$role=$DAO->get($_SESSION['identifiant'])->getRole(); // On récupère le rôle de l'utilisateur connecté.
 
 include '../view/gestionArticles.view.php';
 
