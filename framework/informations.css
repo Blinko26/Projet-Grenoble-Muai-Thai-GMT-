@@ -6,40 +6,54 @@ body {font-family: Verdana, sans-serif; margin:0}
   width: 100%;
 }
 
-body{
-  text-align: center;
+body div {
+  margin-bottom: 15px;
 }
 
 h2 {
-  color: white;
-  background-color: black;
-}
-
-header+div{
-  top:0;
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: flex-start;
-  background-color: black;
-  opacity: 90%;
-  z-index: 1;
-}
-
-header+div a{
-  float: left;
-  display: block;
-  color: white;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-header+div a:hover{
-  background-color: red;
-}
-
-header+div a:active{
+  color: white;
   background-color: black;
+}
+
+.textHistoire {
+  padding-right : 10px;
+  padding-left: 10px;
+}
+
+.textHistoire p {
+  margin : 0px;
+  text-align: justify;
+}
+
+.DescriptionClub p {
+  padding-right : 10px;
+  padding-left: 10px;
+  text-align: justify;
+}
+
+.Horaires {
+
+}
+
+.Horaires img {
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.map-responsive {
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;>
+height:0;
+}
+
+.map-responsive iframe {
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
 }
