@@ -1,5 +1,5 @@
 <?php
-class Adherent {
+class Adherent { // Création d'une classe Adherent avec pour attributs : numAdh (clé primaire) ainsi que les différentes infos personnelles pour chaque adhérent et la vérification sur leur paiement et leur certificat médical
   public $numAdh;
   public $nom;
   public $prenom;
@@ -10,7 +10,6 @@ class Adherent {
   public $paiement;
   public $certifMedical;
   public $telephone;
-  public $statutInscription;
 
 
 
@@ -48,7 +47,6 @@ class Adherent {
 
   function getSexe() : string{
     return $this->sexe;
-
   }
 
   function getTelephone() : string {
