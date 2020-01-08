@@ -21,7 +21,7 @@ include '../controler/header.ctrl.php'; ?>
 
 <h2>Feuille Inscription</h2>
 <div class="Feuille_d'inscription">
-<img src="../view/Images/FeuilleInscription.jpg" alt="Image montrant une feuille d'inscription a remplir" height = "600" width = "600">
+<img src="../view/Images/FeuilleInscription.jpg" alt="Feuille Inscription" height = "600" width = "600">
 <button type="button" name="button"><a href="FicheInscription.html" download = "../view/Images/FeuilleInscription.jpg">Fiche d'Inscription</a></button>
 </div>
 
