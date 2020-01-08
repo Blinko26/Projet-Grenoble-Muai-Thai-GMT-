@@ -9,9 +9,13 @@ include '../controler/header.ctrl.php'; ?>
 
     <div class="Presentation">
       <h2> Professeur </h2>
-      <img src="Images/photoProf.jpg" alt="photo du professeur">
-      <h3> Rassavong Somchanh </h3>
-      <p>Professeur de Muay thaï originaire du Laos, il gère aujourd'hui l'association Grenoble Muay Thaï et enseigne sa discipline dans les environs de Grenoble.</p>
+      <div class="Contenue">
+          <img src="Images/photoProf.jpg" alt="photo du professeur">
+          <div class="">
+            <h3> Rassavong Somchanh </h3>
+            <p>Professeur de Muay thaï originaire du Laos, il gère aujourd'hui l'association Grenoble Muay Thaï et enseigne sa discipline dans les environs de Grenoble.</p>
+          </div>  
+      </div>
     </div>
     <?php include '../view/footer.view.php' ?>
   </body>
