@@ -1,11 +1,11 @@
 <?php
-class Commentaire {
-  public $numCom;
-  public $numUtilisateur;
-  public $numArticle;
-  public $numComSuivant;
-  public $dateCom;
-  public $contenuCom;
+class Commentaire { // Création d'une classe commentaire qui a pour attributs
+  public $numCom; // clé primaire de la classe
+  public $numUtilisateur; // Utilisateur ayant écrit le commentaire
+  public $numArticle; // Article pour lequel ce commentaire répond
+  public $numComSuivant; // numCom du commentaire en réponse si celui-ci existe
+  public $dateCom; // Date à laquelle ce commentaire a été écrit
+  public $contenuCom; // Contenu du commentaire
 
   function getNumAdh() : int{
     return $this->numUtilisateur;
