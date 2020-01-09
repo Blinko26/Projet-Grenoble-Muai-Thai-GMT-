@@ -1,7 +1,6 @@
 <?php session_start();
 include '../controler/header.ctrl.php'; ?>
 <link rel="stylesheet" href="../framework/contact.css">
-
 <img src="../view/Images/backgroundContact.jpg" alt="Background" class="imgBackground">
 
 
