@@ -2,6 +2,9 @@
 include '../controler/header.ctrl.php'; ?>
 <link rel="stylesheet" href="../framework/inscription.css">
 <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
+<!-- Permet l'ajout de l'icone download -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </header>
 
 <h2>Deroulement inscription</h2>
@@ -10,23 +13,21 @@ include '../controler/header.ctrl.php'; ?>
    La feuille d'inscription du club telechargeable sur le site mais aussi disponible au club. <br>
    Un cheque de 235 Euros au nom de l'association. </p>
 
-
-
 <h2>Le Certificat medical</h2>
 <div class="certificatmedical">
-<img src="../view/Images/certificatMedical.jpg" alt="Certificat Medical">
-<button class="button" type="button" name="button"><a href="FicheInscription.html" download ="../view/Images/certificatMedical.jpg">Certificat Medical Type</a></button>
+  <img src="../view/Images/certificatMedical.jpg" alt="Certificat Medical">
+  <a class="download" href="../view/Images/certificatMedical.jpg" download="certificatMedical.jpg">Certificat Médical    <i class="material-icons">cloud_download</i> </a>
 </div>
 
 <h2>Feuille D'inscription</h2>
 <div class="feuilleInscription">
-<img src="../view/Images/FeuilleInscription.jpg" alt="Feuille Inscription">
-<button class="button" type="button" name="button"><a href="FeuilleInscription.html" download ="../view/Images/FeuilleInscription.jpg">Feuille Inscription</a></button>
+  <img src="../view/Images/FeuilleInscription.jpg" alt="Feuille Inscription">
+  <a class="download" href="../view/Images/FeuilleInscription.jpg" download="../view/Images/FeuilleInscription.jpg">Feuille Inscription    <i class="material-icons">cloud_download</i> </a>
 </div>
 
 <h2>Cheque</h2>
-<div class="Cheque">
-<img src="../view/Images/cheque-specimen.png" alt="image d'un cheque de 235 euros au nom de l'association Grenoble Muay Thai">
+  <div class="Cheque">
+  <img src="../view/Images/cheque-specimen.png" alt="image d'un cheque de 235 euros au nom de l'association Grenoble Muay Thai">
 </div>
 
 
