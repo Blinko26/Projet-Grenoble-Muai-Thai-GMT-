@@ -1,5 +1,5 @@
 <?php
-class ResponsableLegal {
+class ResponsableLegal { // Création d'une classe Adherent avec pour attributs : numRespLegal (clé primaire) ainsi les informations nécessaires à l'enregistrement d'un responsable légal et le numéro d'adhérent du mineur à charge de ce responsable légal 
   public $numRespLegal;
   public $nom;
   public $prenom;

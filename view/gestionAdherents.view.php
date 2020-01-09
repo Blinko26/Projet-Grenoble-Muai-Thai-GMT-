@@ -1,3 +1,4 @@
+<!-- Fichier consacré à la page regroupant les informations de chaque adhérent et accessible uniquement par l'administrateur -->
 <?php include '../controler/header.ctrl.php' ?>
     <link rel="stylesheet" href="../framework/gestionAdherents.css">
     <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
@@ -7,9 +8,9 @@
  <br>
  <br>
     <h1>Gestion des adherents</h1>
-    <?php if(!isset($_POST['validerAdherentAModifier']) && !isset($_POST['validerAdherentAConsulter']) && !isset($_POST['modifierRespLegaux'])){
-    if(!isset($_POST['supprimerAdherent']) && !isset($_POST['modifierAdherent'])){?>
-      <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post">
+    <?php if(!isset($_POST['validerAdherentAModifier']) && !isset($_POST['validerAdherentAConsulter']) && !isset($_POST['modifierRespLegaux'])){ // Si l'utilisateur n'utilise pas un de ces boutons
+    if(!isset($_POST['supprimerAdherent']) && !isset($_POST['modifierAdherent'])){?> <!-- Si l'utilisateur n'utilise pas un de ces boutons -->
+      <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post"> <!-- Retourne un formulaire donnant la possibilité pour l'utilisateur de réaliser une des trois actions suivantes -->
       <input type="submit" name ="supprimerAdherent" value="Supprimer un adhérent">
       <input type="submit" name ="modifierAdherent" value="Modifier un adhérent">
       <input type="submit" name ="consulterAdherent" value="Consulter un adhérent">
@@ -30,7 +31,7 @@
             <th>Téléphone</th>
         </tr>
       <?php }  else {?>
-        <?php if(isset($_POST['supprimerAdherent'])){?>
+        <?php if(isset($_POST['supprimerAdherent'])){?> <!-- Si l'utilisateur décide de supprimer un adhérent, il recevra une demande de confirmation -->
         <script>
         function confirmer(){
           return confirm("Êtes-vous sur de vouloir supprimer ces adhérents ?");
@@ -38,12 +39,12 @@
         </script>
       <?php } ?>
         <form action="../controler/gestionAdherents.ctrl.php#Adherents" method ="post" onsubmit="return confirmer();">
-          <?php if(isset($_POST['supprimerAdherent'])){?>
+          <?php if(isset($_POST['supprimerAdherent'])){?> <!-- Si l'utilisateur reclique pour supprimer un adhérent -->
         <h2>Cochez les adhérents à supprimer : </h2>
       <?php } else{?>
         <h2>Cochez l'adhérent à modifier</h2>
       <?php } ?>
-        <table>
+        <table> <!-- Donne une table regroupant tous les attributs modifiables pour un adhérent -->
           <tr>
               <th>Nom</th>
               <th>Prenom</th>

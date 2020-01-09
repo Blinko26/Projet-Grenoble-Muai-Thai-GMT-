@@ -19,11 +19,11 @@ var_dump($allByNum);
 
 $allByPrenom = $adherent->getUtilisateurByPrenom();
 print("ByPrenom");
-var_dump($allByPrenom); 
+var_dump($allByPrenom);
 
 $allBydateNaissance = $adherent->getUtilisateurBydateNaissance();
 print("ByNaissance");
-var_dump($allBydateNaissance); 
+var_dump($allBydateNaissance);
 
 $allByPoids = $adherent->getUtilisateurByPoids();
 print("ByPoids");
@@ -35,10 +35,10 @@ var_dump($allByTaille);
 
 $allByPaiement = $adherent->getUtilisateurByPaiement();
 print("ByPaiement");
-var_dump($allByPaiement);  
+var_dump($allByPaiement);
 RAJOUTER POUR SEULEMENT TRUE OR FALSE ? */
 
-$allByCertif = $adherent->getUtilisateurByCertificat();
+$allByCertif = $adherent->getUtilisateurByCertificat(); // Tri du tableau regroupant tous les adhérents par le rendu ou non du certificat médical
 print("ByCertif");
 var_dump($allByCertif);
 

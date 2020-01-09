@@ -1,5 +1,5 @@
 <?php
-class Utilisateur {
+class Utilisateur { // Création d'une classe Adherent avec pour attributs : numUtilisateur (clé primaire) ainsi que les informations servant à se connecter sur le site internet. Le rôle permet quant à lui de définir les droits de l'utilisateur.
   public $numUtilisateur;
   public $login;
   public $password;
