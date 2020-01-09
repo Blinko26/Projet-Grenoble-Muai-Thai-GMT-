@@ -6,16 +6,37 @@ body {font-family: Verdana, sans-serif; margin:0}
   width: 100%;
 }
 
-.boutons{
+.connexion {
+  margin : 30px;
+
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(167,26,26,.1);
 }
 
-button{
-  border:none;
-	padding:6px 0 6px 0;
-  margin:6px;
-	border-radius:8px;
-	background:#a71a1a;
-	font:bold 13px Arial;
-	color:#fff;
+.champ {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+form input {
+  margin: 5px;
+}
+
+.bouton {
+  background-color: #a71a1a;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: auto;
+}
+
+.bouton:hover {
+  background-color: black;
 }
