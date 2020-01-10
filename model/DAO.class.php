@@ -282,8 +282,9 @@ function supprimerAdherent(int $numAdh) : void { // Fonction qui permet de suppr
     $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
     $sth=$this->db->prepare($m);
     $sth->execute();
+    var_dump($numAdh);
 
-    if((int)((time()-strtotime($this->getAdherents()[$numAdh-1]->getDateNaissance())/3600/24/365)<18)){
+    if(isset($this->getAdherents()[$numAdh-1]) && (int)((time()-strtotime($this->getAdherents()[$numAdh-1]->getDateNaissance())/3600/24/365)<18)){
       $respLegaux=$this->getResponsablesLegauxByEnfant($numAdh); // On récupère les responsables légaux s'il y en a.
 
       $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh"; // Pour tous les adhérents ayant un numéro supérieur à celui de l'adhérent supprimé, on diminue leur nuéro.

@@ -112,7 +112,7 @@
     <input type="submit" value="Annuler" />
   </form>
 <?php }else{?>
-  <p> <?php echo $DAO->getUtilisateurNom($_POST['nom'])->getPrenom() ?> <?php echo $DAO->getUtilisateurNom($_POST['nom'])->getNom() ?> a été inscrit</p>
+  <p> L'adhérent a été inscrit</p>
   <form action="../controler/subscribe.ctrl.php" method="post">
     <input type="submit" value="Continuer les inscriptions" />
   </form>

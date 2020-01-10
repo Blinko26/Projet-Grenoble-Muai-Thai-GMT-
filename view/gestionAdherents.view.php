@@ -69,10 +69,15 @@
                 <td> <?php if($value->getPaiement()=='true'){ echo 'effectué';}else{echo 'non effectué';}; echo '  '; ?></td>
                 <td> <?php if($value->getCertifMedical()=='true'){ echo 'donné';}else{echo 'non donné';}; ?></td>
                 <td> <?php echo $value->getTelephone(); echo ' ';?></td>
-                <?php if(isset($_POST['supprimerAdherent'])){?>
-                <td><input type="checkbox" id=<?php echo $value->getNumAdherent()?> name =<?php echo $value->getNumAdherent()?>></td>
-                <?php } ?>
-                <?php if(isset($_POST['modifierAdherent'])){?>
+                <?php if(isset($_POST['supprimerAdherent'])){
+                        if($value->getNumAdherent()==1){?>
+
+                          <td><input type="checkbox" id=<?php echo $value->getNumAdherent()?> name =<?php echo $value->getNumAdherent()?> disabled></td>
+                  <?php } else{ ?>
+                          <td><input type="checkbox" id=<?php echo $value->getNumAdherent()?> name =<?php echo $value->getNumAdherent()?>></td>
+                  <?php }
+                          }
+                       if(isset($_POST['modifierAdherent'])){?>
                 <td><input type="radio" id=<?php echo $value->getNumAdherent()?> name =adherentAModifier value=<?php echo $value->getNumAdherent()?> checked></td>
                 <?php } ?>
                 <?php if(isset($_POST['consulterAdherent'])){?>
