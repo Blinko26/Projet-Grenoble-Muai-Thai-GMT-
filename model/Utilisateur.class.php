@@ -4,6 +4,7 @@ class Utilisateur { // Création d'une classe Adherent avec pour attributs : num
   public $login;
   public $password;
   public $mail;
+  public $numAdh;
   public $role;
 
 
@@ -21,6 +22,10 @@ class Utilisateur { // Création d'une classe Adherent avec pour attributs : num
 
   function getMail() : string{
     return $this->mail;
+  }
+
+  function getNumAdh() : int{
+    return $this->numAdh;
   }
 
   function getRole() : string{

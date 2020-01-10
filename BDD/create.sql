@@ -3,6 +3,7 @@ CREATE TABLE User ( -- Table de l'utilisateur (détenteur d'un compte sur le sit
   login VARCHAR(25),
   password VARCHAR(50),
   mail VARCHAR(50),
+  numAdh NUMERIC,
   role TEXT CHECK( role IN ('admin','moderateur','adherent', 'inscrit') ) -- Différents rôles qu'un utilisateur du site pourra avoir. Ce rôle lui donnera des droits plus ou moins avancés.
 );
 

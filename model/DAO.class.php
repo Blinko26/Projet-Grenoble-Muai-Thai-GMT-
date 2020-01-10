@@ -183,6 +183,7 @@ class DAO {
       ':certifMedical' => $certificatMedical,
       ':telephone' => $telephone,
     ]);
+    inscrireUtilisateur($login,$mail],$password,$maxAdh->getNumAdherent()+1,'adherent');
   }
 
   function modifierAdherent(string $numAdh,string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone,string $paiement,string $certificatMedical): void { // Fonction qui permet de modifier les informations d'un adhérent.
@@ -319,7 +320,7 @@ function modifierResponsableLegal(string $numResp,string $nom, string $prenom, s
   $sth->execute();
 }
 
-function inscrireUtilisateur(string $login, string $password, string $mail): void { // Fonction qui permet d'enregistrer un nouvel utilisateur dans la base de données.
+function inscrireUtilisateur(string $login, string $password, string $mail, int $numAdh, string $role): void { // Fonction qui permet d'enregistrer un nouvel utilisateur dans la base de données.
   $requete = "SELECT * FROM User WHERE numUtilisateur IN (SELECT MAX(numUtilisateur) FROM User)"; // On récupère les informations du dernier utilisateur enregistré dans la base.
   $rep = $this->db->query($requete);
   $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
@@ -328,14 +329,15 @@ function inscrireUtilisateur(string $login, string $password, string $mail): voi
   }else{
     $maxUser=0; // Sinon, on initialise maxUser à 0.
   }
-  $m="INSERT INTO User VALUES(:numUtilisateur,:login,:mail,:password,:role);"; // On insère le nouvel utilisateur avec les valeurs suivantes.
+  $m="INSERT INTO User VALUES(:numUtilisateur,:login,:mail,:password,:numAdh,:role);"; // On insère le nouvel utilisateur avec les valeurs suivantes.
   $sth=$this->db->prepare($m);
   $sth->execute([
     ':numUtilisateur' => $maxUser+1, // Le nouvel utilisateur a pour numéro le numéro du dernier utilisateur+1.
     ':login' => $login, // On entre comme valeur dans la base de données la valeur donnée en paramètre.
     ':mail' => $mail,
     ':password' => $password,
-    ':role' => 'inscrit',
+    ':numAdh' => $numAdh,
+    ':role' => $role,
   ]);
 }
 

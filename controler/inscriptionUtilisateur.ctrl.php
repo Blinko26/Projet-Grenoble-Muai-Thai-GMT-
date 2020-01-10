@@ -13,8 +13,8 @@ if(isset($_POST['validerInscriptionUtilisateur'])){ // Si l'utilisateur clique s
         $inscription_confirme=1;
       }
     }
-    if($inscription_confirme!=1){
-      $DAO->inscrireUtilisateur($_POST['identifiant'],$_POST['mail'],$_POST['mot_de_passe']); // On ajoute le nouvel utilisateur dans la base de données si l'inscription est possible.
+    if($inscription_confirme==2){
+      $DAO->inscrireUtilisateur($_POST['identifiant'],$_POST['mail'],$_POST['mot_de_passe'],0,'inscrit'); // On ajoute le nouvel utilisateur dans la base de données si l'inscription est possible.
     }
   } else{
     $inscription_confirme=0;

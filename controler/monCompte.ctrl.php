@@ -44,7 +44,7 @@ if(isset($_SESSION["identifiant"])){
     }
   }if(isset($utilisateur)){
     if ($utilisateur->getRole()!='inscrit') { // Si l'utilisateur n'a pas le rôle inscrit, alors on récupère ses informations d'adhérent.
-      $adherent=$DAO->getAdherentByUtilisateur($utilisateur->getNumUtilisateur());
+      $adherent=$DAO->getAdherentByUtilisateur($utilisateur->getNumAdh());
       $age= (int)((time()-strtotime($adherent->getDateNaissance()))/3600/24/365);
       if($age<18){ // Si l'adhérent a moins de 18 ans, on récupère les informations de son/ses responsables légaux.
         $nbRespLeg=1;

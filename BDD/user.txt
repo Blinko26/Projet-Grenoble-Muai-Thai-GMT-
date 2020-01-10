@@ -1,1 +1,1 @@
-1|silver|chariot|Jean-Pierre_Polnareff@mail.com|admin
+1|silver|chariot|Jean-Pierre_Polnareff@mail.com|1|admin
