@@ -24,14 +24,33 @@
 
 
  <!DOCTYPE html>
- <html lang="fr" dir="ltr">
-   <head>
-     <meta charset="utf-8">
+ <?php session_start();
+ include '../controler/header.ctrl.php'; ?>
+   <link rel="stylesheet" href="../framework/accueil.css">
+
+   <img src="../view/Images/backgroundAccueil.jpg" alt="Background">
+   </header>
      <title>Article</title>
    </head>
    <body>
-     <img src="miniatures/<?= $id ?>.jpg" alt="" width="400">
-     <h1><?= $titre ?></h1>
-     <p><?= $contenu ?></p>
-   </body>
- </html>
+     <div class="contenu">
+       <img  class="mini" src="miniatures/<?= $id ?>.jpg" alt="" width="400">
+       <style media="screen">
+          .mini{
+            width: 400px;
+            margin-top: 50px;
+          }
+          .contenu{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+       </style>
+       <h1><?= $titre ?></h1>
+       <p><?= $contenu ?></p>
+       </div>
+       <?php include '../view/footer.view.php' ?>
+
+
+     </body>
+     </html>

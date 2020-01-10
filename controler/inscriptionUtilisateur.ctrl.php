@@ -3,7 +3,7 @@ require_once('../model/Utilisateur.class.php');
 require_once('../model/DAO.class.php');
 
 $DAO = new DAO();
-$logins=$DAO->getAllAdherents();
+$logins=$DAO->getAllUtilisateurs();
 
 if(isset($_POST['validerInscriptionUtilisateur'])){ // Si l'utilisateur clique sur le bouton "validerInscriptionUtilisateur", alors on vérifie les conditions suivantes.
   if($_POST['mot_de_passe']==$_POST['confirmerMot_de_passe']){ // Si la zone de texte "mot_de_passe" est égale à celle de "confirmer_mot_de_passe", alors l'inscription de l'utilisateur peut être validée.
@@ -21,10 +21,10 @@ if(isset($_POST['validerInscriptionUtilisateur'])){ // Si l'utilisateur clique s
   }
 }
 if(isset($inscription_confirme) && $inscription_confirme==2){
-  $logins=$DAO->getAllAdherents();
+  $logins=$DAO->getAllUtilisateurs();
   foreach ($logins as $value) {
     if($value->getLogin()==$_POST["identifiant"]){
-      $utilisateur=$DAO->get($_POST["identifiant"]);
+      $utilisateur=$DAO->getUtilisateurByLogin($_POST["identifiant"]);
     }
   }
 }

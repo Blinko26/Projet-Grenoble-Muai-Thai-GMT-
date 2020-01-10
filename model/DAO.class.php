@@ -6,26 +6,26 @@ class DAO {
     $this->db = new PDO('sqlite:../BDD/projet.db');
   }
 
-  function getAllAdherents(): Array { // Fonction qui récupère et retourne une liste des logins de tous les utilisateurs.
+  function getAllUtilisateurs(): Array { // Fonction qui récupère et retourne une liste des logins de tous les utilisateurs.
     $m="SELECT login FROM User ;";
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
     return $resultat;
   }
 
-  function get(string $id):Utilisateur{ // Fonction qui retourne un utilisateur à partir de son login.
+  function getUtilisateurByLogin(string $id):Utilisateur{ // Fonction qui retourne un utilisateur à partir de son login.
     $m="SELECT * FROM User WHERE login='$id';";
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
     return $resultat[0];
   }
 
-  function getAdherentById(int $id):Utilisateur{ // Fonction qui retourne un utilisateur à partir de son numéro d'utilisateur.
+  /*function getUtilisateurById(int $id):Utilisateur{ // Fonction qui retourne un utilisateur à partir de son numéro d'utilisateur.
     $m="SELECT * FROM User WHERE numUtilisateur='$id';";
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
     return $resultat[0];
-  }
+  }*/
 
 
   /////////////////////////////////////////////////////////////////////
@@ -33,7 +33,7 @@ class DAO {
   //Afin de pouvoir mettre en place l'affichage des adherents en fonction de ces meme criteres.
   //Pages concernees : Adherent.class.php, Utilisateur.class.php,  adherents.view.php, gestionAdherents.ctrl.php
   /////////////////////////////////////////////////////////////////////
-  function getAdherentByName(string $nom = 'null'):array{ // Fonction qui récupère et retourne une liste d'un ou plusieurs adhérents à partir de leur nom. Par défaut, il n'y a pas de noms, afin de pouvoir récupérer tous les adhérents.
+  function getAdherentOrderByName(string $nom = 'null'):array{ // Fonction qui récupère et retourne une liste d'un ou plusieurs adhérents à partir de leur nom. Par défaut, il n'y a pas de noms, afin de pouvoir récupérer tous les adhérents.
     if($nom == 'null'){
       //Requete sur la base de donnees afin de recuperer les infos personnelles des adherents et les trier.
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY nom"; // S'il n'y a pas de nom, la variable requete récupère tous les adhérents de la base de données en les triant par nom, par ordre alphabétique.
@@ -58,7 +58,7 @@ class DAO {
     return $resultat;
   }
 
-  function getAdherentByPrenom(string $prenom = 'null'):array{ // Fonction qui récupère et retourne une liste d'un ou plusieurs adhérents à partir de leur prénom. Par défaut, il n'y a pas de prénoms, afin de pouvoir récupérer tous les adhérents.
+  function getAdherentOrderByPrenom(string $prenom = 'null'):array{ // Fonction qui récupère et retourne une liste d'un ou plusieurs adhérents à partir de leur prénom. Par défaut, il n'y a pas de prénoms, afin de pouvoir récupérer tous les adhérents.
     if($prenom == 'null'){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY prenom"; // S'il n'y a pas de prénom, la variable requete récupère tous les adhérents de la base de données en les triant par prénom, par ordre alphabétique.
     }else{
@@ -69,7 +69,7 @@ class DAO {
     return $resultat;
   }
 
-  function getAdherentBydateNaissance(string $dateNaissance = 'null'):array{ // Même principe que la fonction getAdherentByPrenom.
+  function getAdherentOrderBydateNaissance(string $dateNaissance = 'null'):array{ // Même principe que la fonction getAdherentByPrenom.
     if($dateNaissance == 'null'){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY dateNaissance";
     }else{
@@ -81,7 +81,7 @@ class DAO {
 
   }
 
-  function getAdherentByPoids(int $poids = 0):array{ // Même principe que la fonction getAdherentByPrenom.
+  function getAdherentOrderByPoids(int $poids = 0):array{ // Même principe que la fonction getAdherentByPrenom.
     if($poids == 0){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY poids";
     }else{
@@ -92,7 +92,7 @@ class DAO {
     return $resultat;
   }
 
-  function getAdherentByTaille(int $taille = 0):array{ // Même principe que la fonction getAdherentByPrenom.
+  function getAdherentOrderByTaille(int $taille = 0):array{ // Même principe que la fonction getAdherentByPrenom.
     if($taille == 0){
       $requete = "SELECT * FROM informationsPersonnelles ORDER BY taille";
     }else{
@@ -103,28 +103,28 @@ class DAO {
     return $resultat;
   }
 
-  function getAdherentByPaiement():array{ // Fonction qui retourne une liste d'adhérents en fonction de leur paiement. Les adhérents ayant payés seront classés en premier, les autres ensuite.
+  function getAdherentOrderByPaiement():array{ // Fonction qui retourne une liste d'adhérents en fonction de leur paiement. Les adhérents ayant payés seront classés en premier, les autres ensuite.
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY paiement";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-  function getAdherentByCertificat():array{ // Fonction qui retourne une liste d'adhérents en fonction de leur certificat médical. Les adhérents ayant rendus leur certificat seront classés en premier, les autres ensuite.
+  function getAdherentOrderByCertificat():array{ // Fonction qui retourne une liste d'adhérents en fonction de leur certificat médical. Les adhérents ayant rendus leur certificat seront classés en premier, les autres ensuite.
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY certifMedical";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
   }
 
-  function getAdherentByAutorisationParentale():array{ // Fonction qui retourne tous les adhérents majeurs.
+  /*function getAdherentOrderByAutorisationParentale():array{ // Fonction qui retourne tous les adhérents majeurs.
     $requete = "SELECT * FROM informationsPersonnelles where dateNaissance - datetime('now') >= 18";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
-  }
+  }*/
 
-  function getAdherentBySexe():array{ // Même principe que la fonction getAdherentByPrenom.
+  function getAdherentOrderBySexe():array{ // Même principe que la fonction getAdherentByPrenom.
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY sexe";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
@@ -132,12 +132,13 @@ class DAO {
   }
 
 
-  function getAdherentByTelephone():array{ // Même principe que la fonction getAdherentByPrenom.
+  /*function getAdherentByTelephone():array{ // Même principe que la fonction getAdherentByPrenom.
     $requete = "SELECT * FROM informationsPersonnelles ORDER BY telephone";
     $sth = $this->db->query($requete);
     $resultat = $sth->fetchAll(PDO::FETCH_CLASS,"Adherent");
     return $resultat;
-}
+}*/
+
   function getAdherentByUtilisateur(int $numUtilisateur): Adherent{ // Fonction qui retourne les informations personnelles d'un adhérent caractérisé par un numéro d'utilisateur égal à numUtilisateur.
     $requete="SELECT * FROM informationspersonnelles WHERE numAdh='$numUtilisateur';";
     $sth = $this->db->query($requete);
@@ -278,22 +279,29 @@ function supprimerAdherent(int $numAdh) : void { // Fonction qui permet de suppr
     $sth= $this->db->prepare($requete);
     $sth->execute();
 
-    $respLegaux=$this->getResponsablesLegauxByEnfant($numAdh); // On récupère les responsables légaux s'il y en a.
-
-    $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh"; // Pour tous les adhérents ayant un numéro supérieur à celui de l'adhérent supprimé, on diminue leur nuéro.
+    $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
     $sth=$this->db->prepare($m);
     $sth->execute();
+    var_dump($numAdh);
 
-    $num1=$respLegaux[0]->getNumResponsableLegal(); // On récupère le responsable légal de l'adhérent supprimé.
-    foreach ($respLegaux as $value) {
+    if(isset($this->getAdherents()[$numAdh-1]) && (int)((time()-strtotime($this->getAdherents()[$numAdh-1]->getDateNaissance())/3600/24/365)<18)){
+      $respLegaux=$this->getResponsablesLegauxByEnfant($numAdh); // On récupère les responsables légaux s'il y en a.
 
-      $requete = "DELETE FROM informationsResponsableLegal where numRespLegal = $num1;"; // On supprime ce responsable légal.
-      $sth= $this->db->prepare($requete);
-      $sth->execute();
-
-      $m = "UPDATE informationsResponsableLegal SET numRespLegal = numRespLegal-1 WHERE numRespLegal>$num1;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
+      $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh"; // Pour tous les adhérents ayant un numéro supérieur à celui de l'adhérent supprimé, on diminue leur nuéro.
       $sth=$this->db->prepare($m);
       $sth->execute();
+
+      $num1=$respLegaux[0]->getNumResponsableLegal(); // On récupère le responsable légal de l'adhérent supprimé.
+      foreach ($respLegaux as $value) {
+
+        $requete = "DELETE FROM informationsResponsableLegal where numRespLegal = $num1;"; // On supprime ce responsable légal.
+        $sth= $this->db->prepare($requete);
+        $sth->execute();
+
+        $m = "UPDATE informationsResponsableLegal SET numRespLegal = numRespLegal-1 WHERE numRespLegal>$num1;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
+        $sth=$this->db->prepare($m);
+        $sth->execute();
+      }
     }
   }
 }

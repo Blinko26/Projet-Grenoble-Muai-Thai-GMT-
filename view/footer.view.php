@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="../framework/footer.css">
 
 
-<footer>
+<footer> <!-- Ce fichier sera inclue dans chaque autre fichier afin de pouvoir garder les informations importantes sur chaque page -->
   <div class="">
     <h3>Grenoble Muai Thai</h3>
 
-    <h4>Adresse :</h4>
+    <h4>Adresse :</h4> <!-- On donne les informations importantes concernant l'adresse du gymnase et les personnes à contacter en cas de renseignements -->
     <p>CS Hoch François Raoult
         38 000 Grenoble</p>
     <h4>Contacts :</h4>
@@ -20,7 +20,7 @@
 
   </div>
 
-  <div class="navFooter">
+  <div class="navFooter"> <!-- On regroupe les liens vers les différentes pages du site internet afin de faciliter la navigation -->
     <ul>
     <li><a  href="accueil.view.php">Accueil</a></li>
     <li><a href="professeur.view.php">Enseignant</a></li>
@@ -31,7 +31,7 @@
     </ul>
   </div>
 
-  <div class="suivezNous">
+  <div class="suivezNous"> <!-- On ajoute un lien vers la pages facebook de l'association -->
     <h4>Suivez Nous !</h4>
     <a  href="https://www.facebook.com/groups/340653808697/"> <img class="logoFacebook" src="../view/Images/facebook-icone.png" alt="logoFacebook"height="50" width="50">
  </a>

@@ -1,4 +1,5 @@
-<?php session_start();
+<!-- Page regroupant les informations sur l'histoire du club, les horaires d'entrainement et le lieu du gymnase -->
+<?php session_start(); // L'utilisateur est connecté
 include '../controler/header.ctrl.php'; ?>
 <link rel="stylesheet" href="../framework/informations.css">
 <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">

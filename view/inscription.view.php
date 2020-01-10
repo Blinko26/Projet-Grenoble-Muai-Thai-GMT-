@@ -1,4 +1,5 @@
-<?php session_start();
+<!-- Page permettant de s'inscrire au club grâce à des informations sur les modalités d'inscription ainsi qu'un certificat médical et une feuille d'inscriptions vierges, et du prix de l'inscription pour l'année -->
+<?php session_start(); // L'utilisateur est connecté
 include '../controler/header.ctrl.php'; ?>
 <link rel="stylesheet" href="../framework/inscription.css">
 <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">

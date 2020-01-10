@@ -1,4 +1,4 @@
-<?php session_start();
+<?php session_start(); // L'utilisateur est connecté
 include '../controler/header.ctrl.php'; ?>
 <link rel="stylesheet" href="../framework/accueil.css">
 
@@ -8,10 +8,10 @@ include '../controler/header.ctrl.php'; ?>
 
 
 
-<?php foreach ($articles as $value){ ?>
-  <article class="">
-    <h2> <?php echo $value->getTitre()?> </h2>
-    <p> <?php echo $value->getContenu()?> </p>
+<?php foreach ($articles as $value){ ?> <!-- On parcourt l'ensemble de la liste des articles -->
+  <article class=""> <!-- On utilise une balise article afin que chaque article puisse être affiché comme tel -->
+    <h2> <?php echo $value->getTitre()?> </h2> <!-- On récupère et on écrit le titre de l'article -->
+    <p> <?php echo $value->getContenu()?> </p> <!-- On récupère et on écrit le contenu de l'article -->
     <br>
   </article>
 <?php } ?>

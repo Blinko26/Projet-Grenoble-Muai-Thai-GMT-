@@ -11,7 +11,7 @@
 
 <div class="topnav" id="myTopnav">
    <a  href="../controler/accueil.ctrl.php">Accueil</a>
-   <?php if($connexion==0){ ?>
+   <?php if($connexion==0){ ?> <!-- Suivant la valeur de la varibale connexion, les liens affichés en haut eront différents -->
      <a href="../view/professeur.view.php">Enseignant</a>
      <a href="../view/informations.view.php">Informations</a>
      <a href="../view/inscription.view.php">Inscription</a>

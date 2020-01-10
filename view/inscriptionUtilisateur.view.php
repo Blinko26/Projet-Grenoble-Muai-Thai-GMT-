@@ -71,7 +71,7 @@
       </p>
   </form>
 <?php } else {?>
-  <p>Vous avez été inscrit en tant que <?php echo $utilisateur->getLogin(); ?>, pour fusionner ce compte avec un autre rendez vous sur la page de votre compte.
+  <p>Vous avez été inscrit, pour fusionner ce compte avec un autre rendez vous sur la page de votre compte.
     <form action="../controler/monCompte.ctrl.php" method="post">
         <input type="hidden" name="identifiant" value="<?php echo $utilisateur->getLogin(); ?>" >
         <input type="hidden" name="mot_de_passe" value="<?php echo $utilisateur->getPassword(); ?>" >

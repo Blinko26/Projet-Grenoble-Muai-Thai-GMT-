@@ -1,4 +1,5 @@
-<?php session_start();
+<!-- Page regroupant les informations sur le professeur -->
+<?php session_start(); // L'utilisateur est connecté
 include '../controler/header.ctrl.php'; ?>
 <link rel="stylesheet" href="../framework/professeur.css">
 
@@ -14,7 +15,7 @@ include '../controler/header.ctrl.php'; ?>
           <div class="">
             <h3> Rassavong Somchanh </h3>
             <p>Professeur de Muay thaï originaire du Laos, il gère aujourd'hui l'association Grenoble Muay Thaï et enseigne sa discipline dans les environs de Grenoble.</p>
-          </div>  
+          </div>
       </div>
     </div>
     <?php include '../view/footer.view.php' ?>
