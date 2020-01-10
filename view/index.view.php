@@ -15,21 +15,23 @@ include '../controler/header.ctrl.php'; ?>
 
 </head>
 <body>
+ <div class="actu">
+   <h1>Actualités</h1>
 
-  <h1>Actualités</h1>
+   <a class="redaction" href="redaction.php">Creer un Article</a> <!-- Lien permettant de rédiger un nouvel article -->
 
-  <a href="redaction.php">Creer un Article</a> <!-- Lien permettant de rédiger un nouvel article -->
+   <ul>
+     <?php while ($a = $articles->fetch()) { // Parcourt la liste de tous les articles?>
+       <li>
+         <a class="titre" href="article.php?id=<?= $a['id'] ?>">
+         <img src="miniatures/<?= $a['id'] ?>.jpg" alt="" width="200"> <br>
+           <?= $a['titre'] ?>  </a>
+         <a class="bouton" href="redaction.php?edit=<?= $a['id'] ?>">Modifier</a>  <a class="bouton" href="supprimer.php?id=<?= $a['id'] ?>">Supprimer</a> ____________________<!-- Deux liens permettant de modifier ou supprimer l'article -->
+       </li>
+    <?php } ?>
+   </ul>
+ </div>
 
-  <ul>
-    <?php while ($a = $articles->fetch()) { // Parcourt la liste de tous les articles?>
-      <li>
-        <a href="article.php?id=<?= $a['id'] ?>">
-        <img src="miniatures/<?= $a['id'] ?>.jpg" alt="" width="100"> <br>
-          <?= $a['titre'] ?>  </a> |
-        <a href="redaction.php?edit=<?= $a['id'] ?>">Modifier</a> | <a href="supprimer.php?id=<?= $a['id'] ?>">Supprimer</a> <!-- Deux liens permettant de modifier ou supprimer l'article -->
-      </li>
-   <?php } ?>
-  </ul>
 
 
 
