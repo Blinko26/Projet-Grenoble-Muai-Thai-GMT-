@@ -164,7 +164,7 @@ class DAO {
     return $resultat[0];
   }
 
-  function inscrire(string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone , string $paiement, string $certificatMedical): void { // Fonction qui permet d'inscrire un nouvel adhérent dans la base de données.
+  function inscrire(string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone , string $paiement, string $certificatMedical, string $mail): void { // Fonction qui permet d'inscrire un nouvel adhérent dans la base de données.
     $requete = "SELECT * FROM informationsPersonnelles WHERE numAdh IN (SELECT MAX(numAdh) FROM informationsPersonnelles)"; // On récupère le numéro d'adhérent du dernier adhérent enregistré.
     $rep = $this->db->query($requete);
     $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Adherent");
@@ -183,7 +183,8 @@ class DAO {
       ':certifMedical' => $certificatMedical,
       ':telephone' => $telephone,
     ]);
-    inscrireUtilisateur($login,$mail],$password,$maxAdh->getNumAdherent()+1,'adherent');
+    $login=$nom.$prenom;
+    $this->inscrireUtilisateur($login,$mail,$password,$maxAdh->getNumAdherent()+1,'adherent');
   }
 
   function modifierAdherent(string $numAdh,string $nom, string $prenom, string $sexe, string $date_naissance, string $poids, string $taille, string $telephone,string $paiement,string $certificatMedical): void { // Fonction qui permet de modifier les informations d'un adhérent.
