@@ -13,13 +13,13 @@ if(isset($_POST['deconnect'])){
 
 $DAO = new DAO();
 
-$logins=$DAO->getAllAdherents(); // On récupère la liste de tous les adhérents.
+$logins=$DAO->getAllUtilisateurs(); // On récupère la liste de tous les utilisateurs.
 if(!isset($_POST['identifiant'])){ // Si l'utilisateur n'a pas entré d'identifiant, alors mdp = 0.
   $mdp=0; // La valeur mdp sert à définir le message retourné.
 }else{
   foreach ($logins as $value) { // On parcourt la liste de tous les adhérents.
     if($value->getLogin()==$_POST['identifiant']){ // Si le login d'un utilisateur enregistré dans la BDD correspond à ce qui a été entré, alors on récupère les informations de cet utilisateur.
-      $utilisateur=$DAO->get($_POST['identifiant']);
+      $utilisateur=$DAO->getUtilisateurByLogin($_POST['identifiant']);
     }
   }
   if(!isset($utilisateur)){
@@ -40,7 +40,7 @@ if(isset($_SESSION["identifiant"])){
   $mdp=1;
   foreach ($logins as $value) {
     if($value->getLogin()==$_SESSION["identifiant"]){
-      $utilisateur=$DAO->get($_SESSION["identifiant"]);
+      $utilisateur=$DAO->getUtilisateurByLogin($_SESSION["identifiant"]);
     }
   }if(isset($utilisateur)){
     if ($utilisateur->getRole()!='inscrit') { // Si l'utilisateur n'a pas le rôle inscrit, alors on récupère ses informations d'adhérent.
