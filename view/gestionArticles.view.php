@@ -1,5 +1,5 @@
 <?php include '../controler/header.ctrl.php' ?>
-    <link rel="stylesheet" href="../framework/gestionAdherents.css">
+    <link rel="stylesheet" href="../framework/gestionArticles.css">
     <img src="../view/Images/backgroundInformation.jpg" alt="Background" class="imgBackground">
  </header>
  <br>
@@ -8,10 +8,10 @@
  <!--Menu de recherche des adherents en fonction de differents criteres -->
  <form action="../controler/gestionArticles.ctrl.php" method ="post">
    <?php if($role!='moderateur'){?>
-     <input type="submit" name ="supprimerArticle" value="Supprimer un article">
-     <input type="submit" name ="modifierArticle" value="Modifier un article">
+     <input class="bouton" type="submit" name ="supprimerArticle" value="Supprimer un article">
+     <input class="bouton" type="submit" name ="modifierArticle" value="Modifier un article">
    <?php } ?>
-   <input type="submit" name ="consulterComs" value="Consulter les commentaires">
+   <input class="bouton" type="submit" name ="consulterComs" value="Consulter les commentaires">
 </form>
 <br>
  <form action="../controler/gestionComs.ctrl.php" method ="post">
@@ -44,7 +44,7 @@
           <?php } ?>
     </table>
     <?php if(isset($_POST['consulterComs'])){?>
-      <input type="submit" name="validerComsAConsulter" value="Valider"/>
+      <input class="bouton" type="submit" name="validerComsAConsulter" value="Valider"/>
     <?php } ?>
   </div>
 
