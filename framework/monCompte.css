@@ -1,6 +1,8 @@
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
+body {
+    font-family: Verdana, sans-serif;
+    margin:0;
+    background: rgba(167,26,26,.1);
+}
 
 .imgBackground{
   width: 100%;
@@ -12,7 +14,6 @@ body {font-family: Verdana, sans-serif; margin:0}
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgba(167,26,26,.1);
 }
 
 .champ {
@@ -21,6 +22,13 @@ body {font-family: Verdana, sans-serif; margin:0}
   flex-direction: column;
   align-items: center;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 form input {
   margin: 5px;
 }
@@ -39,4 +47,10 @@ form input {
 
 .bouton:hover {
   background-color: black;
+}
+
+.case {
+  border: 2px solid #a71a1a;
+  margin : 30px;
+  padding : 15px;
 }

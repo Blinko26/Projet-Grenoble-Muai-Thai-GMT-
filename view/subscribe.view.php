@@ -1,5 +1,5 @@
 <?php include '../controler/header.ctrl.php' ?>
-  <link rel="stylesheet" href="../framework/monCompte.css">
+  <link rel="stylesheet" href="../framework/subscribe.css">
 
   <img src="../view/Images/backgroundMonCompte.jpg" alt="Background" class="imgBackground">
 
@@ -47,20 +47,20 @@
       <br>
       Paiement :
       <br>
-      effectué
+      Effectué
       <input type="radio" name="paiement" value="true" required/>
-      non effectué
+      Non Effectué
       <input type="radio" name="paiement" value="false" required/>
       <br>
       Certificat médical :
       <br>
-      donné
+      Donné
       <input type="radio" name="certificat_medical" value="true" required/>
-      non donné
+      Non Donné
       <input type="radio" name="certificat_medical" value="false" required/>
       <br>
-      <input type="submit" name="validerInscription" value="Valider" />
-      <input type="reset" value="Réinitialiser le formulaire" />
+      <input class="bouton" type="submit" name="validerInscription" value="Valider" />
+      <input class="bouton" type="reset" value="Réinitialiser le formulaire" />
       </p>
   </form>
 <?php }else if(isset($_POST['validerInscription']) && (int)((time()-strtotime($_POST['date_naissance']))/3600/24/365)<18){?>
