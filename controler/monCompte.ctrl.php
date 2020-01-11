@@ -50,6 +50,7 @@ if(isset($_SESSION["identifiant"])){
         $nbRespLeg=1;
         $responsablesLegaux=$DAO->getResponsablesLegauxByEnfant($adherent->getNumAdherent());
       }
+      
     }
   }
 }

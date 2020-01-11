@@ -20,12 +20,12 @@ class DAO {
     return $resultat[0];
   }
 
-  /*function getUtilisateurById(int $id):Utilisateur{ // Fonction qui retourne un utilisateur à partir de son numéro d'utilisateur.
+  function getUtilisateurById(int $id):Utilisateur{ // Fonction qui retourne un utilisateur à partir de son numéro d'utilisateur.
     $m="SELECT * FROM User WHERE numUtilisateur='$id';";
     $sth=$this->db->query($m);
     $resultat=$sth->fetchAll(PDO::FETCH_CLASS,"Utilisateur");
     return $resultat[0];
-  }*/
+  }
 
 
   /////////////////////////////////////////////////////////////////////
@@ -201,7 +201,6 @@ class DAO {
     $sth->execute();
     $m="UPDATE Commentaire SET numCom=numCom-1 WHERE numCom>$id;"; // Chaque id de commentaire étant suppérieur à celui du commentaire supprimé diminue.
     $sth=$this->db->prepare($m);
-    var_dump($sth);
     $sth->execute();
   }
 
@@ -285,7 +284,6 @@ function supprimerAdherent(int $numAdh) : void { // Fonction qui permet de suppr
     $m = "UPDATE informationsPersonnelles SET numAdh = numAdh-1 WHERE numAdh>$numAdh;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
     $sth=$this->db->prepare($m);
     $sth->execute();
-    var_dump($numAdh);
 
     if(isset($this->getAdherents()[$numAdh-1]) && (int)((time()-strtotime($this->getAdherents()[$numAdh-1]->getDateNaissance())/3600/24/365)<18)){
       $respLegaux=$this->getResponsablesLegauxByEnfant($numAdh); // On récupère les responsables légaux s'il y en a.
@@ -341,6 +339,28 @@ function inscrireUtilisateur(string $login, string $password, string $mail, int 
     ':numAdh' => $numAdh,
     ':role' => $role,
   ]);
+}
+
+function supprimerArticle(int $numAct) : void { // Fonction qui permet de supprimer un adhérent de la base de données.
+    $comASuppr=$this->getAllComsByArticle($numAct);
+    foreach ($comASuppr as $value) {
+      $numCom=$value->getNumCom();
+      $requete = "DELETE FROM Commentaire where numCom = '$numCom';"; // On supprime l'adhérent ayant pour nuéro le numéro entr& en paramètre.
+      $sth= $this->db->prepare($requete);
+      $sth->execute();
+
+      $m = "UPDATE Commentaire SET numCom = numCom-1, numArticle=numArticle-1 WHERE numCom>$numCom;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
+      $sth=$this->db->prepare($m);
+      $sth->execute();
+    }
+
+    $requete = "DELETE FROM Article where id = '$numAct';"; // On supprime l'adhérent ayant pour nuéro le numéro entr& en paramètre.
+    $sth= $this->db->prepare($requete);
+    $sth->execute();
+
+    $m = "UPDATE Article SET id = id-1 WHERE id>$numAct;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
+    $sth=$this->db->prepare($m);
+    $sth->execute();
 }
 
 }
