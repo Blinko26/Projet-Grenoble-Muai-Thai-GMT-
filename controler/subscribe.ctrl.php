@@ -1,4 +1,5 @@
 <?php
+require_once('../model/Utilisateur.class.php');
 require_once('../model/Adherent.class.php');
 require_once('../model/ResponsableLegal.class.php');
 require_once('../model/DAO.class.php');

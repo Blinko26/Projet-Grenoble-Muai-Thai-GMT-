@@ -184,6 +184,7 @@ class DAO {
       ':telephone' => $telephone,
     ]);
     $login=$nom.$prenom;
+    $password=$nom.$prenom[0];
     $this->inscrireUtilisateur($login,$mail,$password,$maxAdh->getNumAdherent()+1,'adherent');
   }
 
