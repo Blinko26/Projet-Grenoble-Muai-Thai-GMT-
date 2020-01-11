@@ -59,6 +59,10 @@
       Non Donné
       <input type="radio" name="certificat_medical" value="false" required/>
       <br>
+      Mail :
+      <br>
+      <input type="mail" name="mail" required maxlength="50"/>
+      <br>
       <input class="bouton" type="submit" name="validerInscription" value="Valider" />
       <input class="bouton" type="reset" value="Réinitialiser le formulaire" />
       </p>
@@ -80,6 +84,7 @@
       <input type="hidden" name="poids" value="<?php echo $_POST['poids'];?>" >
       <input type="hidden" name="paiement" value="<?php echo $_POST['paiement'];?>" >
       <input type="hidden" name="certificat_medical" value="<?php echo $_POST['certificat_medical'];?>" >
+      <input type="hidden" name="mail" value="<?php echo $_POST['mail'];?>" >
       Nom du responsable légal 1 :
       <br>
       <input type="text" name="nomResp1" required maxlength="50"/>
