@@ -17,7 +17,7 @@
         <th> Date de dernière édition</td>
         <th> Contenu </td>
     </tr>
-      <tr>
+      <tr> <!-- Création d'un tableau affichant les informations du commentaire précédemment sélectionné ainsi qu'un bouton pour revenir aux articles -->
           <td> <?php echo $article->getId(); ?></td>
           <td> <?php echo $article->getTitre(); ?></td>
           <td> <?php echo $article->getDateEdit(); ?></td>
@@ -27,21 +27,21 @@
     </table>
 </form>
 <h2>Commentaires</h2>
-<?php if(isset($_POST['supprimerComs'])){ ?>
+<?php if(isset($_POST['supprimerComs'])){ ?> <!-- Si l'utilisateur décide de supprimer le commentaire, un message de confirmation d'affichera -->
 <script>
 function confirmer(){
   return confirm("Êtes-vous sur de vouloir supprimer ces commentaires ?");
 }
 </script>
 <?php } ?>
-<?php if(sizeof($commentaires)>0){?>
+<?php if(sizeof($commentaires)>0){?> <!-- S'il existe au moins un commentaire -->
  <form action="../controler/gestionComs.ctrl.php#Commentaires" method ="post" onsubmit="return confirmer()">
-   <?php if(!isset($_POST['supprimerComs'])){?>
+   <?php if(!isset($_POST['supprimerComs'])){?> <!-- Si l'utilisateur ne supprime pas de commentaires, alors le bouton pour en supprimer s'affiche -->
      <input type="submit" name ="supprimerComs" value="Supprimer des commentaires"/>
    <?php } ?>
    <input type="hidden" name="comsAConsulter" value="<?php echo $_POST['comsAConsulter']; ?>"/>
  <div class = "criteres">
-        <table>
+        <table> <!-- Crée un nouveau tableau afin d'afficher les informations sur chaque commentaire selon les attributs suivants -->
           <tr>
               <th> Auteur </th>
               <th> Article</th>
@@ -56,7 +56,7 @@ function confirmer(){
                 <td> <?php echo $value->getNumArticle(); ?></td>
                 <td> <?php echo $value->getDateCom(); ?></td>
                 <td> <?php echo $value->getContenuCom(); ?></td>
-                <?php if(isset($_POST['supprimerComs'])){ ?>
+                <?php if(isset($_POST['supprimerComs'])){ ?> <!-- Si le bouton supprimerComs est sélectionné, une checkbox s'affiche -->
                   <td> <input type="checkbox" id=<?php echo $value->getNumCom(); ?> name="<?php echo $value->getNumCom(); ?>"></td>
                 <?php } ?>
             </tr>
@@ -70,7 +70,7 @@ function confirmer(){
   <?php } ?>
 
   </form>
-<?php } else {?>
+<?php } else {?> <!-- if (sizeof($commentaires)==0) -->
   <p>Il n'y a aucun commentaire pour cet article</p>
   <?php }?>
   <?php if(isset($_POST['supprimerComs'])){?>

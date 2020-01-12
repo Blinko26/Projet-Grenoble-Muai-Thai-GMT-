@@ -13,36 +13,36 @@ $utilisateur=$dao->getAdherents(); // La variable utilisateur récupère tous le
 $nbSupp=0;
 foreach ($utilisateur as $value) { // On parcourt la liste des adhérents.
   $num=$value->getNumAdherent(); // On récupère le numéro d'adhérent de l'adhérent courant.
-  if(isset($_POST[$num]) && $_POST[$num]=="on"){
-    $dao->supprimerAdherent($num-$nbSupp);
+  if(isset($_POST[$num]) && $_POST[$num]=="on"){ // Si le bouton radio a été sélectionné
+    $dao->supprimerAdherent($num-$nbSupp); // Comme le numAdh se met à jour, on supprimme l'adhérent ayant pour numAdh celui entré dans la variable utilisateur, auquel on soustrait le nombre d'adhérents déjà supprimés
     $nbSupp++;
   }
 }
 
-if(isset($_POST['validerAdherentAModifier'])){
+if(isset($_POST['validerAdherentAModifier'])){ // Si l'utilisateur valide le choix de l'adhérent qu'il veut modifier, alors on retourne les informations de l'adhérent choisi
   $adherentAModifier=$dao->getAdherentByNum($_POST['adherentAModifier']);
 }
 
-if(isset($_POST['validerAdherentAConsulter'])){
-  $adherentAConsulter=$dao->getAdherentByNum($_POST['adherentAConsulter']);
-  $utilisateurAConsulter=$dao->getUtilisateurByAdherent($adherentAConsulter[0]->getNumAdherent());
-  $age= (int)((time()-strtotime($adherentAConsulter[0]->getDateNaissance()))/3600/24/365);
+if(isset($_POST['validerAdherentAConsulter'])){ // Si l'utilisateur valide le choix de l'adhérent qu'il veut consulter
+  $adherentAConsulter=$dao->getAdherentByNum($_POST['adherentAConsulter']); // On récupère les infos de l'adhérent sélectionné
+  $utilisateurAConsulter=$dao->getUtilisateurByAdherent($adherentAConsulter[0]->getNumAdherent()); // On récupère les informations de l'utilisateur ayant le même numéro que l'adhérent à consulter
+  $age= (int)((time()-strtotime($adherentAConsulter[0]->getDateNaissance()))/3600/24/365); // On récupère l'âge (dâte courante-date de naissance)
   if($age<18){
-    $responsablesLegauxAConsulter=$dao->getResponsablesLegauxByEnfant($adherentAConsulter[0]->getNumAdherent());
-    $nbRespLeg=$responsablesLegauxAConsulter[0]->getNumResponsableLegal();
+    $responsablesLegauxAConsulter=$dao->getResponsablesLegauxByEnfant($adherentAConsulter[0]->getNumAdherent()); // Si l'adhérent est mineur, on récupère les infos de ses responsables légaux
+    $nbRespLeg=$responsablesLegauxAConsulter[0]->getNumResponsableLegal(); // On récupère le nombre de responsables légaux
   }
 }
 
-if(isset($_POST['modifierRespLegaux'])){
+if(isset($_POST['modifierRespLegaux'])){ // Si l'utilisateur décide de modifier les responsables légaux
   $adherentAConsulterModifRespLeg=$dao->getAdherentByNum($_POST['adherentAConsulterModifRespLeg']);
   $responsablesLegauxAConsulter=$dao->getResponsablesLegauxByEnfant($adherentAConsulterModifRespLeg[0]->getNumAdherent());
 }
 
-if(isset($_POST['validerModification'])){
+if(isset($_POST['validerModification'])){ // Si l'utilisateur décide de valider une modification , alors la BDD se modifie selon les nouveaux attributs
   $dao->modifierAdherent($_POST['numAdh'],$_POST['nom'],$_POST['prenom'],$_POST['sexe'],$_POST['date_naissance'],$_POST['poids'],$_POST['taille'],$_POST['telephone'],$_POST['paiement'],$_POST['certificatMedical']);
 }
 
-if(isset($_POST['validerModificationRespLeg'])){
+if(isset($_POST['validerModificationRespLeg'])){ // Si l'utilisateur décide de valider un modification sur un responsable légal, alors la BDD se modifie selon les nouveaux attributs
   $dao->modifierResponsableLegal($_POST['numResp1'],$_POST['nomResp1'],$_POST['prenomResp1'],$_POST['telephoneResp1']);
   $dao->modifierResponsableLegal($_POST['numResp2'],$_POST['nomResp2'],$_POST['prenomResp2'],$_POST['telephoneResp2']);
 }

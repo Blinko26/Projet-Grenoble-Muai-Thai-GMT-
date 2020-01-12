@@ -22,7 +22,8 @@
            <a href="article.php?id=<?= $a['id'] ?>">
            <img src="miniatures/<?= $a['id'] ?>.jpg" alt="" width="100"> <br>
              <?= $a['titre'] ?>  </a> |
-           <a href="redaction.php?edit=<?= $a['id'] ?>">Modifier</a> | <a href="supprimer.php?id=<?= $a['id'] ?>">Supprimer</a>
+           <a href="redaction.php?edit=<?= $a['id'] ?>">Modifier</a>
+           <a href="supprimer.php?id=<?= $a['id'] ?>">Supprimer</a>
          </li>
       <?php } ?>
      </ul>

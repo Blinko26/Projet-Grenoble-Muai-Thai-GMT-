@@ -5,7 +5,7 @@
 
   </header>
 
-<?php if(!(isset($_POST['validerInscription'])) && !(isset($_POST['validerInscriptionMineur']))){ ?>
+<?php if(!(isset($_POST['validerInscription'])) && !(isset($_POST['validerInscriptionMineur']))){ ?> <!-- Si l'utilisateur n'a pas encore tenté de s'inscrire, le formulaire apparaît -->
     <h2>Inscription : </h2>
     <script>
     function confirmer(){
@@ -67,7 +67,7 @@
       <input class="bouton" type="reset" value="Réinitialiser le formulaire" />
       </p>
   </form>
-<?php }else if(isset($_POST['validerInscription']) && (int)((time()-strtotime($_POST['date_naissance']))/3600/24/365)<18){?>
+<?php }else if(isset($_POST['validerInscription']) && (int)((time()-strtotime($_POST['date_naissance']))/3600/24/365)<18){?> <!-- Si l'utilisateur a validé son inscription et qu'il est mineur, alors une confirmation est demandée -->
   <script>
   function confirmer(){
     return confirm("Êtes-vous sur de vouloir continuer l'inscription ?");
@@ -85,7 +85,7 @@
       <input type="hidden" name="paiement" value="<?php echo $_POST['paiement'];?>" >
       <input type="hidden" name="certificat_medical" value="<?php echo $_POST['certificat_medical'];?>" >
       <input type="hidden" name="mail" value="<?php echo $_POST['mail'];?>" >
-      Nom du responsable légal 1 :
+      Nom du responsable légal 1 : <!-- Affiche des zones textes pour renseigner les infos principales sur le/les potentiels responsables légaux -->
       <br>
       <input type="text" name="nomResp1" required maxlength="50"/>
       <br>

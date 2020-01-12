@@ -6,7 +6,7 @@
 
 
   </header>
-    <?php if($mdp!=1){ ?>
+    <?php if($mdp!=1){ ?> <!-- Si l'utilisateur n'est pas connecté, deux champs de texte lui permettront de se connecter -->
     <div class="connexion">
         <h2>Connexion :</h2>
         <form class="champ" action="../controler/monCompte.ctrl.php" method="post">
@@ -23,10 +23,10 @@
             </p>
         </form>
     </div>
-    <?php if($mdp==-1){ ?>
+    <?php if($mdp==-1){ ?> <!-- Si l'utilisateur a entré un login qui n'existe pas dans la BDD, alors un message d'erreur s'affiche -->
       <br>
       <p>Identifiant inconnu, si vous n'êtes pas encore inscrit cliquez sur le bouton ci-dessous. </p>
-    <?php } else if($mdp==-2){?>
+    <?php } else if($mdp==-2){?> <!-- Si l'utilisateur a entré un mot de passe qui ne correspond pas au mot de passe du login entré, alors un message d'erreur s'affiche -->
       <br>
       <p>Mot de passe incorrect, vérifiez votre identifiant et votre mot de passe.</p>
     <?php }?>
@@ -34,14 +34,14 @@
     <form action="../controler/inscriptionUtilisateur.ctrl.php">
       <input class="bouton" type="submit" value="Pas encore inscrit sur le site" />
     </form>
-    <?php } else {?>
+    <?php } else {?> <!-- Si l'utilisateur est connecté, alors les informations concernant son compte sont affichées -->
       <div class="case">
           <h2>Mon compte :</h2>
           <p>Votre identifiant : <?php echo $utilisateur->getLogin()?></p>
           <br>
           <p>Votre mail : <?php echo $utilisateur->getMail()?></p>
           <br>
-          <p>Votre rôle : <?php echo $utilisateur->getRole()?></p>
+          <p>Votre rôle : <?php echo $utilisateur->getRole() // Si l'utilisateur n'est pas simplement "inscrit", alors ses informations d'adhérent sont également affichées ?></p>
           <br>
       </div>
 
@@ -77,7 +77,7 @@
       else {
         echo "Femme";
       } ?></p>
-  <?php  if($age<18){?>
+  <?php  if($age<18){?> <!-- Si l'adhérent est mineur, les informations sur ses responsables légaux sont également affichées -->
     <h2>Informations sur vos responsables légaux :</h2>
       <?php foreach ($responsablesLegaux as $value) {?>
             <p>Nom de votre responsable legal <?php echo $nbRespLeg?> : <?php echo $value->getNom()?></p>
