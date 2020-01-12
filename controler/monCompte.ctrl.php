@@ -51,7 +51,7 @@ if(isset($_Post["validerFusion"])){
 }else if(($role2="adherent" || $role2="moderateur" || $role2="admin")&& $role1="inscrit"){
   $role=$role2;
 }
-$DAO->fusionnerComptes($utilisateur1->getNumUtilisateur(),$utilisateur2->getNumUtilisateur(),$utilisateur1->getLogin(),$utilisateur1->getPassword(),$utilisateur1->getMail(),$role)
+$DAO->fusionnerComptes($utilisateur1->getNumUtilisateur(),$utilisateur2->getNumUtilisateur(),$utilisateur1->getLogin(),$utilisateur1->getPassword(),$utilisateur1->getMail(),$role);
 $_SESSION["identifiant"]=$utilisateur1->getLogin();
 $_SESSION["mot_de_passe"]=$utilisateur1->getPassword();
 }
