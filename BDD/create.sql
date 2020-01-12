@@ -45,9 +45,10 @@ CREATE TABLE Commentaire ( -- Table des commentaires (affichés sous les différ
 CREATE TABLE Article ( -- Table des articles (informations données par l'administrateur aux différents utilisateurs et visiteurs à travers le site internet). Dépend de son numéro d'article (id).
   id INT PRIMARY KEY NOT NULL,
   titre VARCHAR(255),
-  date_time_publication DATETIME, -- Date à laquelle l'article a été publié.
-  date_time_edition DATETIME DEFAULT NULL, -- Date à laquelle l'article a été modifié pour la dernière fois.
-  contenu TEXT
+  date_time_edition DATETIME, -- Date à laquelle l'article a été modifié pour la dernière fois.
+  contenu TEXT,
+  mediaArticle INT,
+  FOREIGN KEY(mediaArticle) REFERENCES Media(id)
 );
 
 CREATE TABLE Media ( -- Table des médias (vidéo ou image) ajoutés aux articles ou aux commentaires. Dépend de son id qui est le même que celui de la table Article.

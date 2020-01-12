@@ -14,14 +14,12 @@
     <tr>
         <th> Numero d'article </td>
         <th> Titre </td>
-        <th> Date de publication</td>
         <th> Date de dernière édition</td>
         <th> Contenu </td>
     </tr>
       <tr>
           <td> <?php echo $article->getId(); ?></td>
           <td> <?php echo $article->getTitre(); ?></td>
-          <td> <?php echo $article->getDatePubli() ?></td>
           <td> <?php echo $article->getDateEdit(); ?></td>
           <td> <?php echo $article->getContenu(); ?></td>
           <td> <input type="submit" name ="retour" value="Retour aux articles"/></td>
@@ -54,7 +52,7 @@ function confirmer(){
     //Affichage des adherents en fonctions des criteres de selections demandes
             foreach ($commentaires as $value) { ?>
             <tr>
-                <td> <?php echo $DAO->getAdherentById($value->getNumAdh())->getLogin(); ?></td>
+                <td> <?php echo $DAO->getUtilisateurById($value->getNumAdh())->getLogin(); ?></td>
                 <td> <?php echo $value->getNumArticle(); ?></td>
                 <td> <?php echo $value->getDateCom(); ?></td>
                 <td> <?php echo $value->getContenuCom(); ?></td>

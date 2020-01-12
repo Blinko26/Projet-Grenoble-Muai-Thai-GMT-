@@ -1,8 +1,14 @@
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides {display: none}
+
 img {vertical-align: middle;
-width: 100%;
+width:100%;
+}
+
+.imgArticles{
+  width:25%;
+  height:25%
 }
 
 .actu{
