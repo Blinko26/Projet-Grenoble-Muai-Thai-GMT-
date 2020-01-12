@@ -20,11 +20,11 @@ if(isset($_POST['validerInscriptionUtilisateur'])){ // Si l'utilisateur clique s
     $inscription_confirme=0;
   }
 }
-if(isset($inscription_confirme) && $inscription_confirme==2){
+if(isset($inscription_confirme) && $inscription_confirme==2){ // Si la confirmation d'inscription a été faite et que le mot de passe correspond à confirmer mot de passe
   $logins=$DAO->getAllUtilisateurs();
-  foreach ($logins as $value) {
+  foreach ($logins as $value) { // On parcourt la liste de tous les adhérents
     if($value->getLogin()==$_POST["identifiant"]){
-      $utilisateur=$DAO->getUtilisateurByLogin($_POST["identifiant"]);
+      $utilisateur=$DAO->getUtilisateurByLogin($_POST["identifiant"]); // Si un des utilisateurs possède un login correspondant à l'identifiant entré, on récupère l'adhérent ayant ce login
     }
   }
 }

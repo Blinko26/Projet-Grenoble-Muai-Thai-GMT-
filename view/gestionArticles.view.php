@@ -8,7 +8,7 @@
  <!--Menu de recherche des articles en fonction de differents criteres -->
  <?php if(!isset($_POST["consulterComs"]) && !isset($_POST["modifierArticle"]) && !isset($_POST["supprimerArticle"])){?>
  <form action="../controler/gestionArticles.ctrl.php" method ="post">
-   <?php if($role!='moderateur'){?>
+   <?php if($role!='moderateur'){?> <!-- Si l'utilisateur est le modérateur, alors il a la possibilité de supprimer ou modifier un commentaire s'il le souhaite-->
      <input class="bouton" type="submit" name ="supprimerArticle" value="Supprimer un article">
      <input class="bouton" type="submit" name ="modifierArticle" value="Modifier un article">
    <?php } ?>
@@ -49,7 +49,7 @@
             </tr>
           <?php } ?>
     </table>
-    <?php if(isset($_POST['consulterComs'])){?>
+    <?php if(isset($_POST['consulterComs'])){?> <!--Demande à valider quel commentaire l'utilisateur veut consulter -->
       <input class="bouton" type="submit" name="validerComsAConsulter" value="Valider"/>
     <?php }else if(isset($_POST['supprimerArticle'])){?>
       <input class="bouton" type="submit" name="validerSupprimerArticle" value="Valider"/>

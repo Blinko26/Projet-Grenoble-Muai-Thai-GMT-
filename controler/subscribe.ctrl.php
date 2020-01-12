@@ -14,11 +14,11 @@ if(isset($_POST['validerInscriptionMineur'])){ // Si l'utilisateur valide son in
   $DAO->inscrireResponsableLegal($DAO->getNumDernierAdherent(),$_POST['nomResp1'],$_POST['prenomResp1'],$_POST['telephoneResp1']);
   if($_POST['nomResp2']!='' && $_POST['prenomResp2']!=''){
     if(!isset($_POST['telephoneResp2'])){
-      $tel='A remplir';
+      $tel='A remplir'; // Par défaut, si l'utilisateur ne remplit pas la case telephoneResp2, elle sera définie comme "A remplir"
     }else{
       $tel=$_POST['telephoneResp2'];
     }
-    $DAO->inscrireResponsableLegal($DAO->getNumDernierAdherent(),$_POST['nomResp2'],$_POST['prenomResp2'],$_POST['telephoneResp2']);
+    $DAO->inscrireResponsableLegal($DAO->getNumDernierAdherent(),$_POST['nomResp2'],$_POST['prenomResp2'],$_POST['telephoneResp2']); // Le(s) nouveau(x) responsable(s) légal(aux) sera(ont) ajouté(s) à la base de données
   }
 }
 include "../view/subscribe.view.php";

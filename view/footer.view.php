@@ -31,7 +31,7 @@
     </ul>
   </div>
 
-  <div class="suivezNous"> <!-- On ajoute un lien vers la pages facebook de l'association -->
+  <div class="suivezNous"> <!-- On ajoute un lien vers la page facebook de l'association -->
     <h4>Suivez Nous !</h4>
     <a  href="https://www.facebook.com/groups/340653808697/"> <img class="logoFacebook" src="../view/Images/facebook-icone.png" alt="logoFacebook"height="50" width="50">
  </a>

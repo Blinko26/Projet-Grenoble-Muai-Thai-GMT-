@@ -68,7 +68,7 @@
                 <td> <?php if($value->getPaiement()=='true'){ echo 'effectué';}else{echo 'non effectué';}; echo '  '; ?></td>
                 <td> <?php if($value->getCertifMedical()=='true'){ echo 'donné';}else{echo 'non donné';}; ?></td>
                 <td> <?php echo $value->getTelephone(); echo ' ';?></td>
-                <?php if(isset($_POST['supprimerAdherent'])){
+                <?php if(isset($_POST['supprimerAdherent'])){ // Si le bouton supprimerAdherent est choisi, alors cela affiche un checkbox qui retourne le numéro d'adhérent de l'adhérent sélectionné
                         if($value->getNumAdherent()==1){?>
 
                           <td><input type="checkbox" id=<?php echo $value->getNumAdherent()?> name =<?php echo $value->getNumAdherent()?> disabled></td>
@@ -76,23 +76,23 @@
                           <td><input type="checkbox" id=<?php echo $value->getNumAdherent()?> name =<?php echo $value->getNumAdherent()?>></td>
                   <?php }
                           }
-                       if(isset($_POST['modifierAdherent'])){?>
+                       if(isset($_POST['modifierAdherent'])){?> <!-- Si le bouton modifierAdherent est choisi, alors cela affiche des boutons radios qui retourne le numéro d'adhérent des adhérents sélectionnés -->
                 <td><input type="radio" id=<?php echo $value->getNumAdherent()?> name =adherentAModifier value=<?php echo $value->getNumAdherent()?> checked></td>
                 <?php } ?>
-                <?php if(isset($_POST['consulterAdherent'])){?>
+                <?php if(isset($_POST['consulterAdherent'])){?> <!-- Si le bouton consulterAdherent est choisi, alors cela affiche des boutons radios qui retourne le numéro d'adhérent des adhérents sélectionnés -->
                 <td><input type="radio" id=<?php echo $value->getNumAdherent()?> name =adherentAConsulter value=<?php echo $value->getNumAdherent()?> checked></td>
                 <?php } ?>
             </tr>
           <?php } ?>
     </table>
 
-          <?php if(isset($_POST['supprimerAdherent'])){?>
+          <?php if(isset($_POST['supprimerAdherent'])){?> <!-- Si le bouton supprimerAdherent est sélectionné, deux nouveaux boutons permettant de valider ou décocher la sélection seront créés -->
               <input class="bouton" type="submit" name ="validerSuppression" value="Valider">
               <br>
               <input class="bouton" type="reset" value="Décocher tout">
-          <?php }else if(isset($_POST['modifierAdherent'])){?>
+          <?php }else if(isset($_POST['modifierAdherent'])){?> <!-- Si le bouton modifierAdherent est sélectionné, un nouveau bouton permet de valider la sélection -->
               <input class="bouton" type="submit" name ="validerAdherentAModifier" value="Valider">
-          <?php } else if(isset($_POST['consulterAdherent'])){?>
+          <?php } else if(isset($_POST['consulterAdherent'])){?> <!-- Si le bouton consulterAdherent est sélectionné, un nouveau bouton permet de valider la sélection -->
               <input class="bouton" type="submit" name ="validerAdherentAConsulter" value="Valider">
           <?php }?>
           </div>
@@ -104,7 +104,7 @@
 
 
   <?php }
-} else if(isset($adherentAModifier)){?>
+} else if(isset($adherentAModifier)){?> <!-- Si un adherent a été sélectionné, alors une page permettant de modifier ce dernier s'ouvre -->
   <script>
   function confirmer(){
     return confirm("Êtes-vous sur de vos modifications sur cet adhérent ?");
@@ -186,7 +186,7 @@
     <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
     <input type="submit" value="Annuler" />
     </form>
-<?php } else if(isset($adherentAConsulter)){?>
+<?php } else if(isset($adherentAConsulter)){?> <!-- Si un adherent a été sélectionné, une page s'ouvre avec toutes les informations le concernant sous forme de liste -->
   <section class="adherent">
         <h2>Informations de l'adhérent :</h2>
         <p>
@@ -231,7 +231,7 @@
       </p>
 </section>
 <section class="adherent">
-  <h2>Information sur le compte utilisateur de l'adhérent :</h2>
+  <h2>Information sur le compte utilisateur de l'adhérent :</h2> <!-- Ses informations d'utilisateur sont également affichées -->
   <p>
   Login :
   <?php echo $utilisateurAConsulter->getLogin() ?>
@@ -244,7 +244,7 @@
   <br>
   </p>
 </section>
-<?php  if($age<18){?>
+<?php  if($age<18){?> <!-- Enfin, si l'adhérent est mineur, les informations sur les responsables légaux sont aussi affichées -->
   <h2>Informations sur les responsables légaux de l'adherent :</h2>
   <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
     <?php foreach ($responsablesLegauxAConsulter as $value) {?>
@@ -265,7 +265,7 @@
   <form action="../controler/gestionAdherents.ctrl.php#Adherents" method="post">
   <input class="bouton" type="submit" value="Retour" />
   </form>
-<?php } else {?>
+<?php } else {?> <!-- Sinon, demande une confirmation puis affiche les informations sur les responsables légaux -->
   <script>
   function confirmer(){
     return confirm("Êtes-vous sur de vos modifications ?");

@@ -5,8 +5,8 @@
   if (isset($_GET['id']) AND !empty($_GET['id'])) {
     $get_id = htmlspecialchars($_GET['id']); //securiser les variables avec htmlspecialchars
 
-    $article = $bdd->prepare('SELECT * FROM articles WHERE id = ?');
-    $article->execute(array($get_id));
+    $article = $bdd->prepare('SELECT * FROM articles WHERE id = ?'); // Préparation de la requête afin que celle-ci soit exécutée plusieurs fois avec différents id.
+    $article->execute(array($get_id)); // La requête est effectuée pour chaque id dans l'array list
 
     if ($article->rowCount()==1) { // Vérifie que l'article courant existe.
       $article = $article->fetch(); // Cherche l'article courant dans la base de données.
