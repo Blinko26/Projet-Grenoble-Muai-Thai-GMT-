@@ -8,12 +8,8 @@
  <!--Menu de recherche des articles en fonction de differents criteres -->
  <?php if(!isset($_POST["consulterComs"]) && !isset($_POST["modifierArticle"]) && !isset($_POST["supprimerArticle"]) && !isset($_POST["validerModifierArticle"])&& !isset($_POST["creerArticle"])){?>
  <form action="../controler/gestionArticles.ctrl.php" method ="post">
-<<<<<<< HEAD
    <?php if($role!='moderateur'){?>
      <input class="bouton" type="submit" name ="creerArticle" value="Créer un article">
-=======
-   <?php if($role!='moderateur'){?> <!-- Si l'utilisateur est le modérateur, alors il a la possibilité de supprimer ou modifier un commentaire s'il le souhaite-->
->>>>>>> 3a73eb4b1e5ced8ee0bcca38a84025065de7e596
      <input class="bouton" type="submit" name ="supprimerArticle" value="Supprimer un article">
      <input class="bouton" type="submit" name ="modifierArticle" value="Modifier un article">
    <?php } ?>

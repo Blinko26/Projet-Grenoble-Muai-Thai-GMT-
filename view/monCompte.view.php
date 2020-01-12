@@ -6,6 +6,7 @@
 
 
   </header>
+  <?php if(!isset($_POST["fusionner"])){?>
     <?php if($mdp!=1){ ?> <!-- Si l'utilisateur n'est pas connecté, deux champs de texte lui permettront de se connecter -->
     <div class="connexion">
         <h2>Connexion :</h2>
@@ -85,16 +86,57 @@
             <p>Téléphone de votre responsable legal <?php echo $nbRespLeg?> : <?php echo $value->getTelephone()?></p>
       <?php $nbRespLeg++;} ?>
     <?php } ?>
+
     <?php } ?>
 </div>
 
 
-
     <form class="formDeco" action="../controler/monCompte.ctrl.php" method="post">
+      <input class="bouton" type="submit" name="fusionner" value="Fusionner avec un autre compte" />
+    </form>
+    <script>
+    function confirmer(){
+      return confirm("Êtes-vous sur de vouloir vous déconnecter ?");
+    }
+    </script>
+    <form class="formDeco" action="../controler/monCompte.ctrl.php" method="post" onsubmit="return confirmer()">
       <input class="bouton" type="submit" name="deconnect"value="Déconnexion"/>
     </form>
 
     <?php }
+  } else if(isset($_POST["fusionner"])){?>
+
+    <script>
+    function confirmer(){
+      return confirm("Êtes-vous sur de vouloir fusionner ces deux comptes ?");
+    }
+    </script>
+
+    <form class="formDeco" action="../controler/monCompte.ctrl.php" method="post" onsubmit="return confirmer()">
+      <p>Attention, vous ne pouvez fusionner un compte avec un autre compte que si vous avez un role d'inscrit sur cet autre compte.
+      </p>
+      <br>
+      <br>
+      <br>
+      Identifiant du premier compte (conservé):
+      <br>
+      <input type="string" name="identifiant1" required/>
+      <br>
+      Mot de passe du premier compte (conservé):
+      <br>
+      <input type="password" name="mot_de_passe1" required/>
+      <br>
+      Identifiant du second compte :
+      <br>
+      <input type="string" name="identifiant1" required/>
+      <br>
+      Mot de passe du second compte:
+      <br>
+      <input type="password" name="mot_de_passe1" required/>
+      <br>
+      <input class="bouton" type="submit" name="validerFusion"value="Fusionner"/>
+    </form>
+  <?php }
     include '../view/footer.view.php' ?>
   </body>
 </html>

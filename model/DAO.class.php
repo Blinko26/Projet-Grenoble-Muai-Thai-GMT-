@@ -394,5 +394,24 @@ function creerArticle(string $titre, string $contenu, string $media): void { // 
   ]);
 }
 
+function fusionnerComptes(int $num1, int $num2,string $login, string $password, string $mail, string $role): void { // Fonction qui permet de modifier les informations d'un adhérent.
+  $numCompte1=$this->getUtilisateurById($num1)->getNumAdherent();
+  $numCompte2=$this->getUtilisateurById($num2)->getNumAdherent();
+  if($numCompte1==0){
+    $numAdherent=$numCompte2;
+  }else{
+    $numAdherent=$numCompte1;
+  }
+  $requete = "DELETE FROM Utilisateur where numUtilisateur = '$num1' OR numUtilisateur = '$num2';"; // On supprime l'adhérent ayant pour nuéro le numéro entr& en paramètre.
+  $sth= $this->db->prepare($requete);
+  $sth->execute();
+  inscrireUtilisateur($login,$password,$mail,$numAdherent,$role);
+
+  $numNewUser=$this->getUtilisateurByLogin($login)->getNumUtilisateur();
+  $m="UPDATE Commentaires SET numUtilisateur='$numNewUser' WHERE numUtilisateur=$num1 OR numUtilisateur=$num2;";
+  $sth=$this->db->prepare($m);
+  $sth->execute();
+}
+
 }
 ?>

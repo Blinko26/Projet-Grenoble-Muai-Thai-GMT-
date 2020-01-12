@@ -35,6 +35,26 @@ if(!isset($_POST['identifiant'])){ // Si l'utilisateur n'a pas entré d'identifi
   }
 }
 
+if(isset($_Post["validerFusion"])){
+  foreach ($logins as $value) { // On parcourt la liste de tous les adhérents.
+    if($value->getLogin()==$_POST['identifiant1']){ // Si le login d'un utilisateur enregistré dans la BDD correspond à ce qui a été entré, alors on récupère les informations de cet utilisateur.
+      $utilisateur1=$DAO->getUtilisateurByLogin($_POST['identifiant1']);
+    }
+    if($value->getLogin()==$_POST['identifiant2']){ // Si le login d'un utilisateur enregistré dans la BDD correspond à ce qui a été entré, alors on récupère les informations de cet utilisateur.
+      $utilisateur2=$DAO->getUtilisateurByLogin($_POST['identifiant2']);
+    }
+  }
+  $role1=$utilisateur1->getRole();
+  $role2=$utilisateur2->getRole();
+  if(($role1="adherent" || $role1="moderateur" || $role1="admin")&& $role2="inscrit"){
+  $role=$role1;
+}else if(($role2="adherent" || $role2="moderateur" || $role2="admin")&& $role1="inscrit"){
+  $role=$role2;
+}
+$DAO->fusionnerComptes($utilisateur1->getNumUtilisateur(),$utilisateur2->getNumUtilisateur(),$utilisateur1->getLogin(),$utilisateur1->getPassword(),$utilisateur1->getMail(),$role)
+$_SESSION["identifiant"]=$utilisateur1->getLogin();
+$_SESSION["mot_de_passe"]=$utilisateur1->getPassword();
+}
 
 if(isset($_SESSION["identifiant"])){
   $mdp=1;
@@ -50,7 +70,7 @@ if(isset($_SESSION["identifiant"])){
         $nbRespLeg=1;
         $responsablesLegaux=$DAO->getResponsablesLegauxByEnfant($adherent->getNumAdherent());
       }
-      
+
     }
   }
 }
