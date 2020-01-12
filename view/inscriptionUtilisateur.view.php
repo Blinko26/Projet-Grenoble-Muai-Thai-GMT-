@@ -11,7 +11,7 @@
     }
     </script>
     <?php if(!isset($inscription_confirme)){?>
-  <form action="../controler/inscriptionUtilisateur.ctrl.php" method="post" onsubmit="return confirmer()">
+  <form class="inscription" action="../controler/inscriptionUtilisateur.ctrl.php" method="post" onsubmit="return confirmer()">
       <p>
       Login :
       <br>
@@ -29,8 +29,8 @@
       <br>
       <input type="password" name="confirmerMot_de_passe" required maxlength="50"/>
       <br>
-      <input type="submit" name="validerInscriptionUtilisateur" value="Valider" />
-      <input type="reset" value="Réinitialiser le formulaire" />
+      <input class="bouton" type="submit" name="validerInscriptionUtilisateur" value="Valider" />
+      <input class="bouton" type="reset" value="Réinitialiser le formulaire" />
       </p>
   </form>
 <?php }else if($inscription_confirme==0){?>
@@ -66,8 +66,8 @@
       <br>
       <input type="text" name="identifiant" required maxlength="25"/>
       <br>
-      <input type="submit" name="validerInscriptionUtilisateur" value="Valider" />
-      <input type="reset" value="Réinitialiser le formulaire" />
+      <input class="bouton" type="submit" name="validerInscriptionUtilisateur" value="Valider" />
+      <input class="bouton" type="reset" value="Réinitialiser le formulaire" />
       </p>
   </form>
 <?php } else {?>

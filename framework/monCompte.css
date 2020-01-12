@@ -4,6 +4,10 @@ body {
     background: rgba(167,26,26,.1);
 }
 
+h2{
+  margin : 30px;
+}
+
 .imgBackground{
   width: 100%;
 }
@@ -31,6 +35,11 @@ form {
 
 form input {
   margin: 5px;
+}
+
+.inscription {
+  margin : 15px;
+  border : 2px solid #a71a1a;
 }
 
 .bouton {

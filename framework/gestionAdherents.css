@@ -23,7 +23,7 @@ width: 100%;
 table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%%;
   margin-bottom: 50px;
 }
 
@@ -51,7 +51,7 @@ td {
   background-color: #a71a1a;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding : 8px;
   margin: 10px;
   text-align: center;
   text-decoration: none;
@@ -62,4 +62,18 @@ td {
 
 .bouton:hover {
   background-color: black;
+}
+
+.adherent {
+  margin: 30px;
+}
+
+.adherent p{
+  margin: 30px;
+}
+
+
+
+.info{
+  margin : 15px;
 }
