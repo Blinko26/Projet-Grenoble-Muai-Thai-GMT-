@@ -24,6 +24,18 @@ if($role=="admin" && isset($_POST["validerSupprimerArticle"])){
   }
 }
 
+if($role=="admin" && isset($_POST["validerModifierArticle"])){
+  $articleAModifier=$DAO->getArticleById($_POST["articleAModifier"]);
+}
+
+if(isset($_POST["validerModification"])){
+  $DAO->modifierArticle($_POST["numAct"],$_POST["titre"],$_POST["contenu"],$_POST["media"]);
+}
+
+if(isset($_POST["creationArticle"])){
+  $DAO->creerArticle($_POST["titre"],$_POST["contenu"],$_POST["media"]);
+}
+
 $articles=$DAO->getAllArticles(); // On récupère tous les articles dans la base de données.
 
 if($role=="admin" && isset($_POST["validerModifierArticle"])){

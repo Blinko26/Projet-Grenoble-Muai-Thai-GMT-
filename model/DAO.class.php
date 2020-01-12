@@ -183,8 +183,8 @@ class DAO {
       ':certifMedical' => $certificatMedical,
       ':telephone' => $telephone,
     ]);
-    $login=$nom.$prenom;
-    $password=$nom.$prenom[0];
+    $login=$nom.$prenom[0];
+    $password=$nom.$prenom;
     $this->inscrireUtilisateur($login,$mail,$password,$maxAdh->getNumAdherent()+1,'adherent');
   }
 
@@ -345,11 +345,11 @@ function supprimerArticle(int $numAct) : void { // Fonction qui permet de suppri
     $comASuppr=$this->getAllComsByArticle($numAct);
     foreach ($comASuppr as $value) {
       $numCom=$value->getNumCom();
-      $requete = "DELETE FROM Commentaire where numCom = '$numCom';"; // On supprime l'adhérent ayant pour nuéro le numéro entr& en paramètre.
+      $requete = "DELETE FROM Commentaire where numArticle = '$numAct';"; // On supprime l'adhérent ayant pour nuéro le numéro entr& en paramètre.
       $sth= $this->db->prepare($requete);
       $sth->execute();
 
-      $m = "UPDATE Commentaire SET numCom = numCom-1, numArticle=numArticle-1 WHERE numCom>$numCom;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
+      $m = "UPDATE Commentaire SET numCom = numCom-1 WHERE numCom>$numCom;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
       $sth=$this->db->prepare($m);
       $sth->execute();
     }
@@ -361,6 +361,37 @@ function supprimerArticle(int $numAct) : void { // Fonction qui permet de suppri
     $m = "UPDATE Article SET id = id-1 WHERE id>$numAct;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
     $sth=$this->db->prepare($m);
     $sth->execute();
+
+    $m = "UPDATE Commentaire SET numArticle = numArticle-1 WHERE numArticle>$numAct;"; // Pour chaque responsable légal ayant un numéro supérieur à celui du responsable légal supprimé, on diminue le numéro.
+    $sth=$this->db->prepare($m);
+    $sth->execute();
+}
+
+function modifierArticle(int $numAct,string $titre,string $contenu, string $media): void { // Fonction qui permet de modifier les informations d'un adhérent.
+  $date=date("Y-m-d");
+  $m="UPDATE Article SET titre='$titre', contenu='$contenu', date_time_edition='$date', mediaArticle='$media' WHERE id=$numAct;";
+  $sth=$this->db->prepare($m);
+  $sth->execute();
+}
+
+function creerArticle(string $titre, string $contenu, string $media): void { // Fonction qui permet d'enregistrer un nouvel article dans la base de données.
+  $requete = "SELECT * FROM Article WHERE id IN (SELECT MAX(id) FROM Article)"; // On récupère les informations du dernier utilisateur enregistré dans la base.
+  $rep = $this->db->query($requete);
+  $resultat = $rep->fetchAll(PDO::FETCH_CLASS,"Actualite");
+  if(isset($resultat[0])){
+    $maxActu=$resultat[0]->getId(); // S'il existe au moins un utilisateur dans la base de données, on prend le numéro d'utilisateur du dernier.
+  }else{
+    $maxActu=0; // Sinon, on initialise maxUser à 0.
+  }
+  $m="INSERT INTO Article VALUES(:id,:titre,:date_e,:contenu,:media);"; // On insère le nouvel utilisateur avec les valeurs suivantes.
+  $sth=$this->db->prepare($m);
+  $sth->execute([
+    ':id' => $maxActu+1, // Le nouvel utilisateur a pour numéro le numéro du dernier utilisateur+1.
+    ':titre' => $titre, // On entre comme valeur dans la base de données la valeur donnée en paramètre.
+    ':date_e' => date("Y-m-d"),
+    ':contenu' => $contenu,
+    ':media' => $media,
+  ]);
 }
 
 }

@@ -6,9 +6,10 @@
  <br>
     <h1>Gestion des articles</h1>
  <!--Menu de recherche des articles en fonction de differents criteres -->
- <?php if(!isset($_POST["consulterComs"]) && !isset($_POST["modifierArticle"]) && !isset($_POST["supprimerArticle"])){?>
+ <?php if(!isset($_POST["consulterComs"]) && !isset($_POST["modifierArticle"]) && !isset($_POST["supprimerArticle"]) && !isset($_POST["validerModifierArticle"])&& !isset($_POST["creerArticle"])){?>
  <form action="../controler/gestionArticles.ctrl.php" method ="post">
    <?php if($role!='moderateur'){?>
+     <input class="bouton" type="submit" name ="creerArticle" value="Créer un article">
      <input class="bouton" type="submit" name ="supprimerArticle" value="Supprimer un article">
      <input class="bouton" type="submit" name ="modifierArticle" value="Modifier un article">
    <?php } ?>
@@ -16,10 +17,18 @@
 </form>
 <?php } ?>
 <br>
+<?php if(!isset($_POST["validerModifierArticle"]) && !isset($_POST["creerArticle"])){ ?>
 <?php if(isset($_POST["consulterComs"])){ ?>
  <form action="../controler/gestionComs.ctrl.php" method ="post">
-<?php } else{ ?>
-  <form action="../controler/gestionArticles.ctrl.php" method ="post">
+<?php } else { ?>
+  <?php if(isset($_POST['supprimerArticle'])){?> <!-- Si l'utilisateur décide de supprimer un adhérent, il recevra une demande de confirmation -->
+  <script>
+  function confirmer(){
+    return confirm("Êtes-vous sur de vouloir supprimer ces articles ?");
+  }
+  </script>
+<?php } ?>
+  <form action="../controler/gestionArticles.ctrl.php" method ="post" onsubmit="return confirmer()">
 <?php } ?>
  <div class = "criteres">
         <table> <!--Table regroupant tous les attributs pour lesquels il est possible de trier -->
@@ -27,7 +36,7 @@
               <th> Numéro d'article </td>
               <th> Titre </td>
               <th> Date de dernière édition </td>
-              <th> Nombre de commmentaires </td>
+              <th> Nombre de commentaires </td>
           </tr>
     <?php
     //Affichage des articles en fonctions des criteres de selections demandes
@@ -43,8 +52,10 @@
                 <?php } else { ?> <!--Sinon, donne la possibilité de consulter les commentaires pour chaque article -->
                     <td> <input type="radio" id=<?php echo $value->getId()?> name="comsAConsulter" value="<?php echo $value->getId()?>"/></td>
                   <?php } ?>
-                <?php } if(isset($_POST['supprimerArticle'])){?> <!--Si l'utilisateur décide de consulter les coms -->
+                <?php } else if(isset($_POST['supprimerArticle'])){?> <!--Si l'utilisateur décide de consulter les coms -->
                   <td> <input type="checkbox" id=<?php echo $value->getId()?> name="<?php echo $value->getId()?>" value="on"/></td>
+                <?php }  else if(isset($_POST['modifierArticle'])){?> <!--Si l'utilisateur décide de consulter les coms -->
+                  <td> <input type="radio" id=<?php echo $value->getId()?> name="articleAModifier" value="<?php echo $value->getId()?>"/></td>
                 <?php } ?>
             </tr>
           <?php } ?>
@@ -54,12 +65,55 @@
     <?php }else if(isset($_POST['supprimerArticle'])){?>
       <input class="bouton" type="submit" name="validerSupprimerArticle" value="Valider"/>
       <input class="bouton" type="reset" value="Décocher tout"/>
+    <?php }else if(isset($_POST['modifierArticle'])){?>
+      <input class="bouton" type="submit" name="validerModifierArticle" value="Valider"/>
     <?php } ?>
   </div>
 
   </form>
+<?php } else  if(isset($_POST['validerModifierArticle'])){?> <!-- Si l'utilisateur décide de supprimer un adhérent, il recevra une demande de confirmation -->
+  <script>
+  function confirmer(){
+    return confirm("Êtes-vous sur de vouloir modifier cet article ?");
+  }
+  </script>
+  <form action="../controler/gestionArticles.ctrl.php" method ="post" onsubmit="return confirmer()">
+    <input type="hidden" name="numAct" value=<?php echo $articleAModifier->getId() ?> required maxlength="50"/>
+    <p>
+    Titre :
+    <br>
+    <input type="text" name="titre" value=<?php echo $articleAModifier->getTitre() ?> required maxlength="50"/>
+    <br>
+    Contenu :
+    <br>
+    <input type="text" name="contenu" value=<?php echo $articleAModifier->getContenu() ?> required/>
+    <br>
+    Média :
+    <br>
+    <input type="text" name="media" value=<?php echo $articleAModifier->getMedia() ?> required />
+    <br>
+<input class="bouton" type="submit" name="validerModification" value="Valider"/>
+</form>
+<?php } else{ ?>
   <form action="../controler/gestionArticles.ctrl.php" method ="post">
-  <?php if(isset($_POST['supprimerArticle'])){?>
+    <p>
+    Titre :
+    <br>
+    <input type="text" name="titre" required maxlength="50"/>
+    <br>
+    Contenu :
+    <br>
+    <input type="text" name="contenu" required/>
+    <br>
+    Média :
+    <br>
+    <input type="text" name="media" required />
+    <br>
+  <input class="bouton" type="submit" name="creationArticle" value="Valider"/>
+  </form>
+<?php } ?>
+  <form action="../controler/gestionArticles.ctrl.php" method ="post">
+  <?php if(isset($_POST['supprimerArticle']) || isset($_POST['consulterComs']) || isset($_POST["modifierArticle"]) || isset($_POST["validerModifierArticle"])|| isset($_POST["creerArticle"])){?>
     <input class="bouton" type="submit" name="annuler" value="Annuler"/>
   <?php }?>
 </form>
